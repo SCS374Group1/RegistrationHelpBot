@@ -7,18 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		27189347299D6B3B00FC3FAA /* RegistraionHelpBotApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27189346299D6B3B00FC3FAA /* RegistraionHelpBotApp.swift */; };
-		27189349299D6B3B00FC3FAA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27189348299D6B3B00FC3FAA /* ContentView.swift */; };
 		2718934B299D6B3E00FC3FAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2718934A299D6B3E00FC3FAA /* Assets.xcassets */; };
 		2718934E299D6B3E00FC3FAA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2718934D299D6B3E00FC3FAA /* Preview Assets.xcassets */; };
+		813F01CB299D753A0022C4CF /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813F01C7299D753A0022C4CF /* MainMenuView.swift */; };
+		813F01CC299D753A0022C4CF /* BotResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813F01C8299D753A0022C4CF /* BotResponse.swift */; };
+		813F01CD299D753A0022C4CF /* ChatbotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813F01C9299D753A0022C4CF /* ChatbotView.swift */; };
+		813F01CE299D753A0022C4CF /* RegistrationHelpBotApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813F01CA299D753A0022C4CF /* RegistrationHelpBotApp.swift */; };
+		813F01D3299D75520022C4CF /* BotResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813F01D1299D75520022C4CF /* BotResponse.swift */; };
+		813F01D4299D75520022C4CF /* RegistrationHelpBotApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813F01CF299D75520022C4CF /* RegistrationHelpBotApp.swift */; };
+		813F01D5299D75520022C4CF /* ChatbotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813F01D0299D75520022C4CF /* ChatbotView.swift */; };
+		813F01D6299D75520022C4CF /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813F01D2299D75520022C4CF /* MainMenuView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		27189343299D6B3B00FC3FAA /* RegistraionHelpBot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RegistraionHelpBot.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		27189346299D6B3B00FC3FAA /* RegistraionHelpBotApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistraionHelpBotApp.swift; sourceTree = "<group>"; };
-		27189348299D6B3B00FC3FAA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2718934A299D6B3E00FC3FAA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2718934D299D6B3E00FC3FAA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		813F01C7299D753A0022C4CF /* MainMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainMenuView.swift; path = "../Y3S2/Software Engineering/FINAL PROJECT/RegistrationHelpBot/RegistrationHelpBot/MainMenuView.swift"; sourceTree = "<group>"; };
+		813F01C8299D753A0022C4CF /* BotResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BotResponse.swift; path = "../Y3S2/Software Engineering/FINAL PROJECT/RegistrationHelpBot/RegistrationHelpBot/BotResponse.swift"; sourceTree = "<group>"; };
+		813F01C9299D753A0022C4CF /* ChatbotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChatbotView.swift; path = "../Y3S2/Software Engineering/FINAL PROJECT/RegistrationHelpBot/RegistrationHelpBot/ChatbotView.swift"; sourceTree = "<group>"; };
+		813F01CA299D753A0022C4CF /* RegistrationHelpBotApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RegistrationHelpBotApp.swift; path = "../Y3S2/Software Engineering/FINAL PROJECT/RegistrationHelpBot/RegistrationHelpBot/RegistrationHelpBotApp.swift"; sourceTree = "<group>"; };
+		813F01CF299D75520022C4CF /* RegistrationHelpBotApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationHelpBotApp.swift; sourceTree = "<group>"; };
+		813F01D0299D75520022C4CF /* ChatbotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatbotView.swift; sourceTree = "<group>"; };
+		813F01D1299D75520022C4CF /* BotResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BotResponse.swift; sourceTree = "<group>"; };
+		813F01D2299D75520022C4CF /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +47,10 @@
 		2718933A299D6B3B00FC3FAA = {
 			isa = PBXGroup;
 			children = (
+				813F01C8299D753A0022C4CF /* BotResponse.swift */,
+				813F01C9299D753A0022C4CF /* ChatbotView.swift */,
+				813F01C7299D753A0022C4CF /* MainMenuView.swift */,
+				813F01CA299D753A0022C4CF /* RegistrationHelpBotApp.swift */,
 				27189345299D6B3B00FC3FAA /* RegistraionHelpBot */,
 				27189344299D6B3B00FC3FAA /* Products */,
 			);
@@ -51,8 +67,10 @@
 		27189345299D6B3B00FC3FAA /* RegistraionHelpBot */ = {
 			isa = PBXGroup;
 			children = (
-				27189346299D6B3B00FC3FAA /* RegistraionHelpBotApp.swift */,
-				27189348299D6B3B00FC3FAA /* ContentView.swift */,
+				813F01D1299D75520022C4CF /* BotResponse.swift */,
+				813F01D0299D75520022C4CF /* ChatbotView.swift */,
+				813F01D2299D75520022C4CF /* MainMenuView.swift */,
+				813F01CF299D75520022C4CF /* RegistrationHelpBotApp.swift */,
 				2718934A299D6B3E00FC3FAA /* Assets.xcassets */,
 				2718934C299D6B3E00FC3FAA /* Preview Content */,
 			);
@@ -137,8 +155,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27189349299D6B3B00FC3FAA /* ContentView.swift in Sources */,
-				27189347299D6B3B00FC3FAA /* RegistraionHelpBotApp.swift in Sources */,
+				813F01D3299D75520022C4CF /* BotResponse.swift in Sources */,
+				813F01CD299D753A0022C4CF /* ChatbotView.swift in Sources */,
+				813F01D6299D75520022C4CF /* MainMenuView.swift in Sources */,
+				813F01CC299D753A0022C4CF /* BotResponse.swift in Sources */,
+				813F01CB299D753A0022C4CF /* MainMenuView.swift in Sources */,
+				813F01CE299D753A0022C4CF /* RegistrationHelpBotApp.swift in Sources */,
+				813F01D5299D75520022C4CF /* ChatbotView.swift in Sources */,
+				813F01D4299D75520022C4CF /* RegistrationHelpBotApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
