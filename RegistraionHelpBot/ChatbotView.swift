@@ -15,6 +15,11 @@ struct ChatbotView: View {
     @State private var messageText = ""
     @State var messages: [String] = ["Welcome to the Registration HelpBot. Can I help you?"]
     
+    @State var category = 1
+    @State var questions = 1
+    
+    
+    
     var body: some View {
         VStack {
     //top header with name and image
@@ -64,6 +69,44 @@ struct ChatbotView: View {
                 }.rotationEffect(.degrees(180))
             }.rotationEffect(.degrees(180))
                 .background(Color.gray.opacity(0.10))
+            
+            Picker("Question Category Picker", selection: $category) {
+                        Text("Please Select a Category").tag(1)
+                        Picker("Registration Info", selection: $questions) {
+                            Button("Lorem ipsum"){
+                                sendMessage(message:"Lorem Ipsum")
+                            }
+                        }.pickerStyle(MenuPickerStyle())
+                Picker("Registration Day", selection: $questions) {
+                    Button("Lorem ipsum"){
+                        sendMessage(message:"Lorem Ipsum")
+                    }
+                }.pickerStyle(MenuPickerStyle())
+                Picker("Add/Drop Courses", selection: $questions) {
+                    Button("Lorem ipsum"){
+                        sendMessage(message:"Lorem Ipsum")
+                    }
+                }.pickerStyle(MenuPickerStyle())
+                Picker("Credits", selection: $questions) {
+                    Button("Lorem ipsum"){
+                        sendMessage(message:"Lorem Ipsum")
+                    }
+                }.pickerStyle(MenuPickerStyle())
+                Picker("GPA", selection: $questions) {
+                    Button("Lorem ipsum"){
+                        sendMessage(message:"Lorem Ipsum")
+                    }
+                }.pickerStyle(MenuPickerStyle())
+                Picker("Contact Info", selection: $questions) {
+                    Button("Lorem ipsum"){
+                        sendMessage(message:"Lorem Ipsum")
+                    }
+                }.pickerStyle(MenuPickerStyle())
+                
+                    }.pickerStyle(MenuPickerStyle())
+            
+            
+            
  //text field for the user to type their message in to; allows uers to send the message by hitting enter or clicking the send icon
             HStack {
                 TextField("Type something", text: $messageText)
