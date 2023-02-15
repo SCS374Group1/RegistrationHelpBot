@@ -69,19 +69,57 @@ struct ChatbotView: View {
                 }.rotationEffect(.degrees(180))
             }.rotationEffect(.degrees(180))
                 .background(Color.gray.opacity(0.10))
-            
+//menu selection for preset prompts
             Picker("Question Category Picker", selection: $category) {
                         Text("Please Select a Category").tag(1)
+                //registration info prompts
                         Picker("Registration Info", selection: $questions) {
-                            Button("Lorem ipsum"){
-                                sendMessage(message:"Lorem Ipsum")
+                            Button("How do I register?"){
+                                sendMessage(message:"How do I register?")
                             }
+                            Button("Where do I go to register?"){
+                                sendMessage(message:"Where do I go to register?")
+                            }
+                            Button("When do I register?"){
+                                sendMessage(message:"When do I register?")
+                            }
+                            Button("Do I have any holds on my account?"){
+                                sendMessage(message:"Do I have any holds on my account?")
+                            }
+                            Button("When is my registration advising meeting?"){
+                                sendMessage(message:"When is my registration advising meeting?")
+                            }
+                            Button("How do I cross-register?"){
+                                sendMessage(message:"How do I cross-register?")
+                            }
+                            Button("Where are the cross-registration forms?"){
+                                sendMessage(message:"Where are the cross-registration forms?")
+                            }
+                            Button("How do I substitute a course?"){
+                                sendMessage(message:"How do I substitute a course?")
+                            }
+                            Button("Where are the course substitution forms?"){
+                                sendMessage(message:"Where are the course substitution forms?")
+                            }
+
                         }.pickerStyle(MenuPickerStyle())
+                
+               //registration day prompts
                 Picker("Registration Day", selection: $questions) {
-                    Button("Lorem ipsum"){
-                        sendMessage(message:"Lorem Ipsum")
+                    Button("What time does registration open?"){
+                        sendMessage(message:"What time does registration open?")
+                    }
+                    Button("What courses are available?"){
+                        sendMessage(message:"What courses are available?")
+                    }
+                    Button("What course should i take?"){
+                        sendMessage(message:"What courses are available?")
+                    }
+                    Button("How many seats are left?"){
+                        sendMessage(message:"How many seats are left?")
                     }
                 }.pickerStyle(MenuPickerStyle())
+                
                 Picker("Add/Drop Courses", selection: $questions) {
                     Button("Lorem ipsum"){
                         sendMessage(message:"Lorem Ipsum")

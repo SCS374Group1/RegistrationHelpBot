@@ -42,16 +42,10 @@ func getBotResponse(message: String) -> String {
     }else if tempMessage.contains("where are the cross-registration forms"){
         /*-----STUB-----*/
         return "Lorem Ipsum Dolor Sit Amet " + tempMessage
-    }else if tempMessage.contains("what are the steps for cross-registering"){
-        /*-----STUB-----*/
-        return "Lorem Ipsum Dolor Sit Amet " + tempMessage
     }else if tempMessage.contains("how do i substitute a course"){
         /*-----STUB-----*/
         return "Lorem Ipsum Dolor Sit Amet " + tempMessage
     }else if tempMessage.contains("where are the course substitution forms"){
-        /*-----STUB-----*/
-        return "Lorem Ipsum Dolor Sit Amet " + tempMessage
-    }else if tempMessage.contains("what are the steps to substitute a course"){
         /*-----STUB-----*/
         return "Lorem Ipsum Dolor Sit Amet " + tempMessage
     }
@@ -85,7 +79,7 @@ if tempMessage.contains("what time does registration open") {
     } else if tempMessage.contains("what courses are available") {
         /*-----STUB-----*/
         return "ans"
-    } else if tempMessage.contains("what course should I take") {
+    } else if tempMessage.contains("what course should i take") {
         /*-----STUB-----*/
         return "ans"
     } else if tempMessage.contains("how many seats are left") {
