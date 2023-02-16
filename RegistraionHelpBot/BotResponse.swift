@@ -89,10 +89,10 @@ if tempMessage.contains("what time does registration open") {
 
 
 //questions regarding GPA
-    if tempMessage.contains("what gpa do I need to maintain my status as an honors student") {
+    if tempMessage.contains("what gpa do i need to maintain my status as an honors student") {
         /*-----STUB-----*/
         return "ans"
-    } else if tempMessage.contains("what gpa do I need to maintain my status as an athlete") {
+    } else if tempMessage.contains("what gpa do i need to maintain my status as an athlete") {
         /*-----STUB-----*/
         return "ans"
     } else if tempMessage.contains("what is my gpa") {
@@ -105,24 +105,24 @@ if tempMessage.contains("what time does registration open") {
 
 
 //questions regarding credits
-    if tempMessage.contains("how many credits do I need for each grade level") {
+    if tempMessage.contains("how many credits do i need for each grade level") {
         /*-----STUB-----*/
-    return "ans"
-    } else if tempMessage.contains("how many credits can I take per semester") {
+        return "ans"
+    } else if tempMessage.contains("how many credits can i take per semester") {
         /*-----STUB-----*/
-    return "ans"
+        return "ans"
     } else if tempMessage.contains("how much do extra credits cost") {
         /*-----STUB-----*/
         return "ans"
-    }else if tempMessage.contains("how many credits do I currently have") {
+    }else if tempMessage.contains("how many credits do i currently have") {
         /*-----STUB-----*/
         return "ans"
-    }else if tempMessage.contains("how many credits do I need to maintain my athlete status") {
+    }else if tempMessage.contains("how many credits do i need to maintain my athlete status") {
         /*-----STUB-----*/
         return "ans"
     } else if tempMessage.contains("how many credits to be a full time / part time student") {
         /*-----STUB-----*/
-    return "ans"
+        return "ans"
     }else {
         return "That's cool."
     }

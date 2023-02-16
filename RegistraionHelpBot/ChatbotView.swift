@@ -120,14 +120,38 @@ struct ChatbotView: View {
                     }
                 }.pickerStyle(MenuPickerStyle())
                 
+                //add/drop classes prompts
                 Picker("Add/Drop Courses", selection: $questions) {
-                    Button("Lorem ipsum"){
-                        sendMessage(message:"Lorem Ipsum")
+                    Button("How do I drop a class?"){
+                        sendMessage(message:"How do I drop a class?")
+                    }
+                    Button("How do I add a class?"){
+                        sendMessage(message:"How do I add a class?")
+                    }
+                    Button("When does the add/drop period close?"){
+                        sendMessage(message:"When does the add/drop period close?")
                     }
                 }.pickerStyle(MenuPickerStyle())
+                
+                //credits
                 Picker("Credits", selection: $questions) {
-                    Button("Lorem ipsum"){
-                        sendMessage(message:"Lorem Ipsum")
+                    Button("How many credits do I need for each grade level?") {
+                        sendMessage(message:"How many credits do I need for each grade level?")
+                    }
+                    Button("How many credits can I take per semester?") {
+                        sendMessage(message:"How many credits can I take per semester?")
+                    }
+                    Button("How much do extra credits cost?") {
+                        sendMessage(message:"How much do extra credits cost?")
+                    }
+                    Button("How many credits do I currently have?") {
+                        sendMessage(message:"How many credits do I currently have?")
+                    }
+                    Button("How many credits do I need to maintain my athlete status?") {
+                        sendMessage(message:"How many credits do I need to maintain my athlete status?")
+                    }
+                    Button("How many credits to be a full time / part time student?") {
+                        sendMessage(message:"How many credits to be a full time / part time student?")
                     }
                 }.pickerStyle(MenuPickerStyle())
                 Picker("GPA", selection: $questions) {
