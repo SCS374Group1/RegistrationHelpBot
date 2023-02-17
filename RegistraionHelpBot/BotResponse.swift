@@ -98,7 +98,7 @@ if tempMessage.contains("what time does registration open") {
     if tempMessage.contains("what gpa do i need as an honors student") {
         /*-----STUB-----*/
         return "ans"
-    } else if tempMessage.contains("what GPA do i need as an athlete") {
+    } else if tempMessage.contains("what gpa do i need as an athlete") {
         /*-----STUB-----*/
         return "ans"
     } else if tempMessage.contains("what is my gpa") {
