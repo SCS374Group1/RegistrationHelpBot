@@ -64,11 +64,17 @@ if tempMessage.contains("how do i add a class"){
     }
 
 
-    //displays registrar's contact info
- if tempMessage.contains("what is the contact info for the registrar"){
+    //displays registrar's or advisor's contact info
+ if tempMessage.contains("registrar email"){
         /*-----STUB-----*/
         return "Lorem Ipsum Dolor Sit Amet " + tempMessage
-    }else if tempMessage.contains("what is the contact info for my advisor"){
+    }else if tempMessage.contains("registrar phone"){
+        /*-----STUB-----*/
+        return "Lorem Ipsum Dolor Sit Amet " + tempMessage
+    }else if tempMessage.contains("advisor phone"){
+        /*-----STUB-----*/
+        return "Lorem Ipsum Dolor Sit Amet " + tempMessage
+    }else if tempMessage.contains("advisor email"){
         /*-----STUB-----*/
         return "Lorem Ipsum Dolor Sit Amet " + tempMessage
     }
