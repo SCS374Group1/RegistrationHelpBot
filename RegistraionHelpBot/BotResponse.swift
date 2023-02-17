@@ -95,16 +95,16 @@ if tempMessage.contains("what time does registration open") {
 
 
 //questions regarding GPA
-    if tempMessage.contains("what gpa do i need to maintain my status as an honors student") {
+    if tempMessage.contains("what gpa do i need as an honors student") {
         /*-----STUB-----*/
         return "ans"
-    } else if tempMessage.contains("what gpa do i need to maintain my status as an athlete") {
+    } else if tempMessage.contains("what GPA do i need as an athlete") {
         /*-----STUB-----*/
         return "ans"
     } else if tempMessage.contains("what is my gpa") {
         /*-----STUB-----*/
         return "ans"
-    }else if tempMessage.contains("what is the minimum gpa to not be put on academic probation") {
+    }else if tempMessage.contains("at what gpa are you on academic probation") {
         /*-----STUB-----*/
         return "ans"
     }
