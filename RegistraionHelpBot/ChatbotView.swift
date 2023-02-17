@@ -155,13 +155,31 @@ struct ChatbotView: View {
                     }
                 }.pickerStyle(MenuPickerStyle())
                 Picker("GPA", selection: $questions) {
-                    Button("Lorem ipsum"){
-                        sendMessage(message:"Lorem Ipsum")
+                    Button("What gpa do I need to maintain my status as an honors student?"){
+                        sendMessage(message:"What gpa do I need to maintain my status as an honors student?")
+                    }
+                    Button("What gpa do I need to maintain my status as an athlete?") {
+                        sendMessage(message:"What gpa do I need to maintain my status as an athlete?")
+                    }
+                    Button("What is my gpa?") {
+                        sendMessage(message:"What is my gpa?")
+                    }
+                    Button("What is the minimum gpa to not be put on academic probation?") {
+                        sendMessage(message:"What is the minimum gpa to not be put on academic probation?")
                     }
                 }.pickerStyle(MenuPickerStyle())
                 Picker("Contact Info", selection: $questions) {
-                    Button("Lorem ipsum"){
-                        sendMessage(message:"Lorem Ipsum")
+                    Button("Registrar Email"){
+                        sendMessage(message:"Registrar Email")
+                    }
+                    Button("Registrar Phone") {
+                        sendMessage(message:"Registrar Phone")
+                    }
+                    Button("Advisor Phone") {
+                        sendMessage(message:"Advisor Phone")
+                    }
+                    Button("Advisor Email") {
+                        sendMessage(message:"Advisor Email")
                     }
                 }.pickerStyle(MenuPickerStyle())
                 
