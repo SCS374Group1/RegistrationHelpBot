@@ -22,32 +22,53 @@ func getBotResponse(message: String) -> String {
 //default prompt detection and subsequent responses
     //questions regarding the registration process
     if tempMessage.contains("how do i register"){
-        /*-----STUB-----*/
-        return "Lorem Ipsum Dolor Sit Amet " + tempMessage
+        return "First, you must meet with your advisor(s) and seek approval of your schedule before you can register. Then, on the day of registration, navigate to GriffinGate. Click \"Student\" and then \"Course Registration and Advising\". There will be an \"Add/Drop\" menu on the right side of the screen. Select the \"Add/Drop Courses\" option; make sure you also have the correct term selected. Search for the course you wish to register for. Select the checkbox next to the course and click the \"Add Course\" button. Repeat this process for each of your desired courses."
     }else if tempMessage.contains("where do i go to register"){
-        /*-----STUB-----*/
-        return "Lorem Ipsum Dolor Sit Amet " + tempMessage
+        return "On the day of registration, navigate to GriffinGate, which can be found here: https://griffingate.setonhill.edu/ics. Click \"Student\" and then \"Course Registration and Advising\". There will be an \"Add/Drop\" menu on the right side of the screen. Select the \"Add/Drop Courses\" option. Finally, make sure you also have the correct term selected. This is where you select the courses you wish to register for."
     }else if tempMessage.contains("when do i register"){
-        /*-----STUB-----*/
-        return "Lorem Ipsum Dolor Sit Amet " + tempMessage
+        //detects which year classification a student falls under and outputs answer based on this value
+        var studentYearClassification = String()
+        studentYearClassification = "Senior"
+        switch studentYearClassification {
+            case "Freshman":
+                return "As a Freshman, your schedule date for Spring 2023 is Friday, 11/4/2022 at 6:00 AM."
+            case "Sophomore":
+                return "As a Sophomore, your schedule date for Spring 2023 is Thursday, 11/3/2022 at 6:00 AM."
+            case "Junior":
+                return "As a Junior, your schedule date for Spring 2023 is Wednesday, 11/2/2022 at 6:00 AM."
+            case "Senior":
+                return "As a Senior, your schedule date for Spring 2023 is Tuesday, 11/1/2022 at 6:00 AM."
+            case "Graduate":
+                return "As a Graduate, your schedule date for Spring 2023 is Monday, 10/31/2022 at 6:00 AM."
+            default:
+                return "Sorry, I'm having an issue retrieving your status. Please try again later or open a support ticket."
+        }
     }else if tempMessage.contains("do i have any holds on my account"){
-        /*-----STUB-----*/
-        return "Lorem Ipsum Dolor Sit Amet " + tempMessage
+        var hasHolds = Bool();
+        //*****RANDOM VAR CREATED TO AVOID WARNING OF IF_ELSE NEVER EXECUTING HALF OF THE STATEMENT THAT OCCURS WHEN HASHOLD IS HARDCODED INTO THE PROGRAM*****//
+        let randomVal = arc4random_uniform(3)
+        if(randomVal == 0){
+            hasHolds = true
+        }else{
+            hasHolds = false
+        }
+        if(hasHolds){
+            return "Yes, you do have a hold on your account. Please contact the registrar for more info."
+        }else{
+            return "No, you do not have any holds on your account."
+        }
     }else if tempMessage.contains("when is my registration advising meeting"){
-        /*-----STUB-----*/
-        return "Lorem Ipsum Dolor Sit Amet " + tempMessage
+        return "Your registration advising meeting is set for MONTH,DAY,YEAR, at HOURS:MINUTES(AM/PM)."
     }else if tempMessage.contains("how do i cross-register"){
-        /*-----STUB-----*/
-        return "Lorem Ipsum Dolor Sit Amet " + tempMessage
+        return "To Cross-register, you must obtain all necessary signatures on the Cross-Registration Form and email this form to helpfinreg@setonhill.edu. Note: It is your responsibility to be aware of the academic calendar for the other institutions.  Dates may not correspond with Seton Hill’s calendar for drop/add, breaks, exams, etc. Cross-registration is not allowed for the summer term or the semester in which you graduate, and some courses will not be approved for cross-registration."
     }else if tempMessage.contains("where are the cross-registration forms"){
-        /*-----STUB-----*/
-        return "Lorem Ipsum Dolor Sit Amet " + tempMessage
+        return "The cross-registration forms can be found by going to my.setonhill.edu, logging in, navigating to Documents & Forms, and clicking the link to acces the documents and forms website."
     }else if tempMessage.contains("how do i substitute a course"){
-        /*-----STUB-----*/
-        return "Lorem Ipsum Dolor Sit Amet " + tempMessage
+        //***COULD NOT FIND DATA***//
+       return "Please contact the registrar for information on how courses are substituted."
     }else if tempMessage.contains("where are the course substitution forms"){
-        /*-----STUB-----*/
-        return "Lorem Ipsum Dolor Sit Amet " + tempMessage
+        //***COULD NOT FIND DATA***//
+       return "Please contact the registrar for course substitution forms."
     }
 
 
