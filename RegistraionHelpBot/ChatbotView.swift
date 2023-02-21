@@ -15,11 +15,6 @@ struct ChatbotView: View {
     @State private var messageText = ""
     @State var messages: [String] = ["Welcome to the Registration HelpBot. Can I help you?"]
     
-    @State var category = 1
-    @State var questions = 1
-    
-    
-    
     var body: some View {
         VStack {
     //top header with name and image
@@ -70,10 +65,9 @@ struct ChatbotView: View {
             }.rotationEffect(.degrees(180))
                 .background(Color.gray.opacity(0.10))
 //menu selection for preset prompts
-            Picker("Question Category Picker", selection: $category) {
-                        Text("Please Select a Category").tag(1)
+            Menu("Please Selcet a Category") {
                 //registration info prompts
-                        Picker("Registration Info", selection: $questions) {
+                        Menu("Registration Info") {
                             Button("How do I register?"){
                                 sendMessage(message:"How do I register?")
                             }
@@ -102,10 +96,10 @@ struct ChatbotView: View {
                                 sendMessage(message:"Where are the course substitution forms?")
                             }
 
-                        }.pickerStyle(MenuPickerStyle())
+                        }
                 
                //registration day prompts
-                Picker("Registration Day", selection: $questions) {
+                Menu("Registration Day") {
                     Button("What time does registration open?"){
                         sendMessage(message:"What time does registration open?")
                     }
@@ -118,10 +112,10 @@ struct ChatbotView: View {
                     Button("How many seats are left?"){
                         sendMessage(message:"How many seats are left?")
                     }
-                }.pickerStyle(MenuPickerStyle())
+                }
                 
                 //add/drop classes prompts
-                Picker("Add/Drop Courses", selection: $questions) {
+                Menu("Add/Drop Courses") {
                     Button("How do I drop a class?"){
                         sendMessage(message:"How do I drop a class?")
                     }
@@ -131,10 +125,10 @@ struct ChatbotView: View {
                     Button("When does the add/drop period close?"){
                         sendMessage(message:"When does the add/drop period close?")
                     }
-                }.pickerStyle(MenuPickerStyle())
+                }
                 
                 //credits
-                Picker("Credits", selection: $questions) {
+                Menu("Credits") {
                     Button("How many credits do I need for each grade level?") {
                         sendMessage(message:"How many credits do I need for each grade level?")
                     }
@@ -153,8 +147,9 @@ struct ChatbotView: View {
                     Button("How many credits to be a full time / part time student?") {
                         sendMessage(message:"How many credits to be a full time / part time student?")
                     }
-                }.pickerStyle(MenuPickerStyle())
-                Picker("GPA", selection: $questions) {
+                }
+                
+                Menu("GPA") {
                     Button("What GPA do I need as an honors student?"){
                         sendMessage(message:"What GPA do I need as an honors student?")
                     }
@@ -167,8 +162,9 @@ struct ChatbotView: View {
                     Button("At what GPA are you on academic probation?") {
                         sendMessage(message:"At what GPA are you on academic probation?")
                     }
-                }.pickerStyle(MenuPickerStyle())
-                Picker("Contact Info", selection: $questions) {
+                }
+                
+                Menu("Contact Info") {
                     Button("Registrar Email"){
                         sendMessage(message:"Registrar Email")
                     }
@@ -181,9 +177,8 @@ struct ChatbotView: View {
                     Button("Advisor Email") {
                         sendMessage(message:"Advisor Email")
                     }
-                }.pickerStyle(MenuPickerStyle())
-                
-                    }.pickerStyle(MenuPickerStyle())
+                }
+            }
             
             
             
