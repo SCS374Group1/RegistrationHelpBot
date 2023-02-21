@@ -65,7 +65,7 @@ struct ChatbotView: View {
             }.rotationEffect(.degrees(180))
                 .background(Color.gray.opacity(0.10))
 //menu selection for preset prompts
-            Menu("Please Selcet a Category") {
+            Menu("Please Select a Category") {
                 //registration info prompts
                         Menu("Registration Info") {
                             Button("How do I register?"){
@@ -116,18 +116,18 @@ struct ChatbotView: View {
                 
                 //add/drop classes prompts
                 Menu("Add/Drop Courses") {
+                    Button("When does the add/drop period close?"){
+                        sendMessage(message:"When does the add/drop period close?")
+                    }
                     Button("How do I drop a class?"){
                         sendMessage(message:"How do I drop a class?")
                     }
                     Button("How do I add a class?"){
                         sendMessage(message:"How do I add a class?")
                     }
-                    Button("When does the add/drop period close?"){
-                        sendMessage(message:"When does the add/drop period close?")
-                    }
                 }
                 
-                //credits
+                //credits prompts
                 Menu("Credits") {
                     Button("How many credits do I need for each grade level?") {
                         sendMessage(message:"How many credits do I need for each grade level?")
@@ -141,14 +141,15 @@ struct ChatbotView: View {
                     Button("How many credits do I currently have?") {
                         sendMessage(message:"How many credits do I currently have?")
                     }
-                    Button("How many credits do I need to maintain my athlete status?") {
-                        sendMessage(message:"How many credits do I need to maintain my athlete status?")
+                    Button("How many credits do I need as an athlete?") {
+                        sendMessage(message:"How many credits do I need as an athlete?")
                     }
-                    Button("How many credits to be a full time / part time student?") {
-                        sendMessage(message:"How many credits to be a full time / part time student?")
+                    Button("How many credits to be a full/part time student?") {
+                        sendMessage(message:"How many credits to be a full/part time student?")
                     }
                 }
                 
+                //gpa prompts
                 Menu("GPA") {
                     Button("What GPA do I need as an honors student?"){
                         sendMessage(message:"What GPA do I need as an honors student?")
@@ -164,6 +165,7 @@ struct ChatbotView: View {
                     }
                 }
                 
+                //contact info prompts
                 Menu("Contact Info") {
                     Button("Registrar Email"){
                         sendMessage(message:"Registrar Email")

@@ -53,14 +53,12 @@ func getBotResponse(message: String) -> String {
 
  //questions pertaining to adding or dropping courses
 if tempMessage.contains("how do i add a class"){
-        /*-----STUB-----*/
-        return "Lorem Ipsum Dolor Sit Amet " + tempMessage
+        //returns instructions to add a course as per Seton Hill University
+        return "Adding a class before the add/drop period closes is easy!\nLog into MySHU and go to GriffinGate. Click \"Student\" and then \"Course Registration and Advising\". There will be an \"Add/Drop\" menu on the right side of the screen. Select the \"Add/Drop Courses\" option; make sure you also have the correct term selected. Search for the course(s) you wish to add. Finally, select the checkbox next to the course and click the \"Add Course\" button!"
     }else if tempMessage.contains("how do i drop a class"){
-        /*-----STUB-----*/
-        return "Lorem Ipsum Dolor Sit Amet " + tempMessage
+        return "Dropping a class before the add/drop period closes is easy!\nLog into MySHU and go to GriffinGate. Click \"Student\" and then \"Course Registration and Advising\". There will be an \"Add/Drop\" menu on the right side of the screen. Select the \"Add/Drop Courses\" option; make sure you also have the correct term selected. Select the checkbox next to the course(s) and then click the \"Drop Course\" button!"
     }else if tempMessage.contains("when does the add/drop period close"){
-        /*-----STUB-----*/
-        return "Lorem Ipsum Dolor Sit Amet " + tempMessage
+        return "The Add/Drop period for the Spring 2023 semester closed on January 23rd, 2023."
     }
 
 
@@ -123,10 +121,10 @@ if tempMessage.contains("what time does registration open") {
     }else if tempMessage.contains("how many credits do i currently have") {
         /*-----STUB-----*/
         return "ans"
-    }else if tempMessage.contains("how many credits do i need to maintain my athlete status") {
+    }else if tempMessage.contains("how many credits do i need as an athlete") {
         /*-----STUB-----*/
         return "ans"
-    } else if tempMessage.contains("how many credits to be a full time / part time student") {
+    } else if tempMessage.contains("how many credits to be a full/part time student") {
         /*-----STUB-----*/
         return "ans"
     }else {
