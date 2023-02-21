@@ -58,7 +58,21 @@ if tempMessage.contains("how do i add a class"){
     }else if tempMessage.contains("how do i drop a class"){
         return "Dropping a class before the add/drop period closes is easy!\nLog into MySHU and go to GriffinGate. Click \"Student\" and then \"Course Registration and Advising\". There will be an \"Add/Drop\" menu on the right side of the screen. Select the \"Add/Drop Courses\" option; make sure you also have the correct term selected. Select the checkbox next to the course(s) and then click the \"Drop Course\" button!"
     }else if tempMessage.contains("when does the add/drop period close"){
-        return "The Add/Drop period for the Spring 2023 semester closed on January 23rd, 2023."
+        //establishes variable to hold add/drop period closing date
+        let closingDate = Date(timeIntervalSinceReferenceDate: 696124800)
+        //converts closing date to string to output with return statement
+        let closingDateString = closingDate.formatted(.dateTime.day().month().year())
+        //establishes variable to hold current date
+        let todayDate = Date.now;
+        //evaluates whether the add/drop period closing date has passed or is in the future and responds accordingly
+        if(closingDate < todayDate){
+            return "The Add/Drop period for the Spring 2023 semester closed on " + closingDateString + "."
+
+        }else if (closingDate > todayDate){
+            return "The Add/Drop period for the Spring 2023 semester closes on " + closingDateString + "."
+        }else {
+            return "The Add/Drop period for the Spring 2023 semester closes today, " + closingDateString + "."
+        }
     }
 
 
