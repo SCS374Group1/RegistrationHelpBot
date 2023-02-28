@@ -8,9 +8,21 @@
 import SwiftUI
 //The main menu view of the Chatbot
 struct MainMenuView: View {
+    //variable to hold botIcon Image
+    let botIcon = Image("RegistrationHelpbot Icon")
     var body: some View {
         NavigationView {
             VStack {
+                //title text
+                Text("Registration Helpbot")
+                    .font(.largeTitle)
+                    .monospaced()
+                    .multilineTextAlignment(.center)
+                //app logo
+                botIcon
+                    .resizable()
+                    .frame(width: 300, height: 300)
+                    .padding([.bottom],100)
     //Login button
                 NavigationLink(destination: ChatbotView()){
                     Text("Login")

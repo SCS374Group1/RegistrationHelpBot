@@ -10,6 +10,9 @@ import SwiftUI
 
 //the Chatbot view of the Chatbot
 struct ChatbotView: View {
+    //variable to hold botIcon Image
+    let botIcon = Image("RegistrationHelpbot Icon")
+    
 //variables to hold messages to be sent back and forth
     @State private var showDetails = false
     @State private var messageText = ""
@@ -17,16 +20,11 @@ struct ChatbotView: View {
     
     var body: some View {
         VStack {
-    //top header with name and image
+    //top header with botIcon image
             HStack {
-                Text("Registration HelpBot")
-                    .font(.largeTitle)
-                    .foregroundColor(.red)
-                    .bold()
-                
-                Image(systemName: "bubble.left.fill")
-                    .font(.system(size: 26))
-                    .foregroundColor(Color.yellow)
+                botIcon
+                    .resizable()
+                    .frame(width: 48.0, height: 48.0)
             }
             //scrollable message view that simulates text messages between the user and the bot
             ScrollView {
