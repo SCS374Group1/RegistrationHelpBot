@@ -100,16 +100,16 @@ if tempMessage.contains("how do i add a class"){
     //displays registrar's or advisor's contact info
  if tempMessage.contains("registrar email"){
         /*-----STUB-----*/
-        return "Lorem Ipsum Dolor Sit Amet " + tempMessage
+        return "HelpFinReg@setonhill.edu"
     }else if tempMessage.contains("registrar phone"){
         /*-----STUB-----*/
-        return "Lorem Ipsum Dolor Sit Amet " + tempMessage
+        return "(724) 830-1010"
     }else if tempMessage.contains("advisor phone"){
         /*-----STUB-----*/
-        return "Lorem Ipsum Dolor Sit Amet " + tempMessage
+        return "Please contact registrar to find out the advisor's phone number if it is unknown to you."
     }else if tempMessage.contains("advisor email"){
         /*-----STUB-----*/
-        return "Lorem Ipsum Dolor Sit Amet " + tempMessage
+        return "Please contact registrar to find out the advisor's email if it is unknown to you."
     }
 //questions regarding registration day
 if tempMessage.contains("what time does registration open") {
@@ -146,22 +146,22 @@ if tempMessage.contains("what time does registration open") {
 //questions regarding credits
     if tempMessage.contains("how many credits do i need for each grade level") {
         /*-----STUB-----*/
-        return "ans"
+        return "A minimum of 120 credits are needed to graduate at Seton Hill, meaning that per each grade level, approximately 30 credits are needed. This comes out to about 15 credits a semester."
     } else if tempMessage.contains("how many credits can i take per semester") {
         /*-----STUB-----*/
-        return "ans"
+        return "Students may take up to 17 credits per semester without extra charge, however, if they would like to, the student is able to overload up to 21 credits per semester. This requires registrar permission to do so."
     } else if tempMessage.contains("how much do extra credits cost") {
         /*-----STUB-----*/
-        return "ans"
+        return "As of August of 2022, extra credits come at a cost of $798 per extra credit up to 21 credits per semester. This cost includes any credits after 17."
     }else if tempMessage.contains("how many credits do i currently have") {
         /*-----STUB-----*/
-        return "ans"
+        return "You can check how many credits you are registered for by going to GriffinGate and navigating to Student > Course Registration and Advising > Course Schedules > Add/Drop > Add/Drop Courses. The page will have your number of credits in bold characters."
     }else if tempMessage.contains("how many credits do i need as an athlete") {
         /*-----STUB-----*/
-        return "ans"
+        return "As per the NCAA Athletic Scholarship Satisfactory Academic Progress Policy. Any student who receives an athletic scholarship while attending Seton Hill University is bound by the NCAA Division II academic progress regulations. This policy states that a full-time student must earn a minimum of 24 credits in each academic year, which equates to 12 credits a semester. This is on par with the full-time student requirements for Seton Hill."
     } else if tempMessage.contains("how many credits to be a full/part time student") {
         /*-----STUB-----*/
-        return "ans"
+        return "Registration for a minimum of 12 credits in a semester is required for full-time status at the undergraduate level, any number of credits below 12 is considered a part-time status."
     }else {
         return "That's cool."
     }
