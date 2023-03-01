@@ -13,6 +13,7 @@
 		813F01D4299D75520022C4CF /* RegistrationHelpBotApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813F01CF299D75520022C4CF /* RegistrationHelpBotApp.swift */; };
 		813F01D5299D75520022C4CF /* ChatbotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813F01D0299D75520022C4CF /* ChatbotView.swift */; };
 		813F01D6299D75520022C4CF /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813F01D2299D75520022C4CF /* MainMenuView.swift */; };
+		D9C1192A29AFE3EA004C3762 /* Consonants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C1192929AFE3EA004C3762 /* Consonants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		813F01D0299D75520022C4CF /* ChatbotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatbotView.swift; sourceTree = "<group>"; };
 		813F01D1299D75520022C4CF /* BotResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BotResponse.swift; sourceTree = "<group>"; };
 		813F01D2299D75520022C4CF /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
+		D9C1192929AFE3EA004C3762 /* Consonants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consonants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 			children = (
 				813F01D1299D75520022C4CF /* BotResponse.swift */,
 				813F01D0299D75520022C4CF /* ChatbotView.swift */,
+				D9C1192929AFE3EA004C3762 /* Consonants.swift */,
 				813F01D2299D75520022C4CF /* MainMenuView.swift */,
 				813F01CF299D75520022C4CF /* RegistrationHelpBotApp.swift */,
 				2718934A299D6B3E00FC3FAA /* Assets.xcassets */,
@@ -143,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9C1192A29AFE3EA004C3762 /* Consonants.swift in Sources */,
 				813F01D3299D75520022C4CF /* BotResponse.swift in Sources */,
 				813F01D6299D75520022C4CF /* MainMenuView.swift in Sources */,
 				813F01D5299D75520022C4CF /* ChatbotView.swift in Sources */,
