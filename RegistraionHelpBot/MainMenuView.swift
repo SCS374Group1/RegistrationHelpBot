@@ -9,7 +9,7 @@ import SwiftUI
 //The main menu view of the Chatbot
 struct MainMenuView: View {
     //variable to hold botIcon Image
-    let botIcon = Image("RegistrationHelpbot Icon")
+    let botIcon = Image("Outlined RegistrationHelpbot Icon")
     var body: some View {
         NavigationView {
             VStack {
