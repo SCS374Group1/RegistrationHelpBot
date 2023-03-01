@@ -23,18 +23,26 @@ struct MainMenuView: View {
                     .resizable()
                     .frame(width: 300, height: 300)
                     .padding([.bottom],100)
-    //Login button
-                NavigationLink(destination: ChatbotView()){
-                    Text("Login")
-                }.frame(width: 100, height: 100)
-                    .font(.body)
-                    .foregroundColor(Color.white)
-                    .background(Color.gray)
-                    .cornerRadius(10)
+                //Login button
+                            NavigationLink(destination: ChatbotView()){
+                                Text("Login Student View")
+                            }.frame(width: 100, height: 100)
+                                .font(.body)
+                                .foregroundColor(Color.white)
+                                .background(Color.gray)
+                                .cornerRadius(10)
+                            
+                            NavigationLink(destination: AdvisorStudentListView()){
+                                Text("Login Advisor View")
+                            }.frame(width: 100, height: 100)
+                                .font(.body)
+                                .foregroundColor(Color.white)
+                                .background(Color.gray)
+                                .cornerRadius(10)
+               }
             }
         }
     }
-}
 
 
 struct MainMenuView_Previews: PreviewProvider {

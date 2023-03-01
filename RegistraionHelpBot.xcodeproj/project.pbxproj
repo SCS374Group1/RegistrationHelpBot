@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2718934B299D6B3E00FC3FAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2718934A299D6B3E00FC3FAA /* Assets.xcassets */; };
 		2718934E299D6B3E00FC3FAA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2718934D299D6B3E00FC3FAA /* Preview Assets.xcassets */; };
+		27AD191429AFEB5C00EBDCB9 /* AdvisorStudentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AD191329AFEB5C00EBDCB9 /* AdvisorStudentListView.swift */; };
+		27AD191629AFEB7300EBDCB9 /* AdvisorChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AD191529AFEB7300EBDCB9 /* AdvisorChatView.swift */; };
 		813F01D3299D75520022C4CF /* BotResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813F01D1299D75520022C4CF /* BotResponse.swift */; };
 		813F01D4299D75520022C4CF /* RegistrationHelpBotApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813F01CF299D75520022C4CF /* RegistrationHelpBotApp.swift */; };
 		813F01D5299D75520022C4CF /* ChatbotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813F01D0299D75520022C4CF /* ChatbotView.swift */; };
@@ -20,6 +22,8 @@
 		27189343299D6B3B00FC3FAA /* RegistraionHelpBot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RegistraionHelpBot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2718934A299D6B3E00FC3FAA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2718934D299D6B3E00FC3FAA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		27AD191329AFEB5C00EBDCB9 /* AdvisorStudentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvisorStudentListView.swift; sourceTree = "<group>"; };
+		27AD191529AFEB7300EBDCB9 /* AdvisorChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvisorChatView.swift; sourceTree = "<group>"; };
 		813F01CF299D75520022C4CF /* RegistrationHelpBotApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationHelpBotApp.swift; sourceTree = "<group>"; };
 		813F01D0299D75520022C4CF /* ChatbotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatbotView.swift; sourceTree = "<group>"; };
 		813F01D1299D75520022C4CF /* BotResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BotResponse.swift; sourceTree = "<group>"; };
@@ -64,6 +68,8 @@
 				813F01CF299D75520022C4CF /* RegistrationHelpBotApp.swift */,
 				2718934A299D6B3E00FC3FAA /* Assets.xcassets */,
 				2718934C299D6B3E00FC3FAA /* Preview Content */,
+				27AD191329AFEB5C00EBDCB9 /* AdvisorStudentListView.swift */,
+				27AD191529AFEB7300EBDCB9 /* AdvisorChatView.swift */,
 			);
 			path = RegistraionHelpBot;
 			sourceTree = "<group>";
@@ -149,7 +155,9 @@
 				D9C1192A29AFE3EA004C3762 /* Consonants.swift in Sources */,
 				813F01D3299D75520022C4CF /* BotResponse.swift in Sources */,
 				813F01D6299D75520022C4CF /* MainMenuView.swift in Sources */,
+				27AD191429AFEB5C00EBDCB9 /* AdvisorStudentListView.swift in Sources */,
 				813F01D5299D75520022C4CF /* ChatbotView.swift in Sources */,
+				27AD191629AFEB7300EBDCB9 /* AdvisorChatView.swift in Sources */,
 				813F01D4299D75520022C4CF /* RegistrationHelpBotApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
