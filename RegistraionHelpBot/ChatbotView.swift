@@ -25,6 +25,10 @@ struct ChatbotView: View {
                 botIcon
                     .resizable()
                     .frame(width: 48.0, height: 48.0)
+                    //updates student mailbox every time the chatbot view is loaded
+                    .onAppear(){
+                        messages.append(getMessages())
+                    }
             }
             //scrollable message view that simulates text messages between the user and the bot
             ScrollView {

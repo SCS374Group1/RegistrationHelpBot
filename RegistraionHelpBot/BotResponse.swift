@@ -7,6 +7,32 @@
 
 import Foundation
 
+//function to check mailbox file and notify users if any messages have been posted
+func getMessages() -> String{
+    //attempts to create and read from the file
+    do {
+        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+
+            let fileURL = dir.appendingPathComponent("advisorMessages.txt")
+
+            //reads file; if it is blank, send a specific message; otherwise, send message indicating that their is mail for the user
+            do {
+                let inputText = try String(contentsOf: fileURL, encoding: .utf8)
+                if(inputText==""){
+                    return "You have no new messages."
+                }else{
+                    return "You have a new message from ADVISORNAME. Type \"Mailbox\" to view."
+                    
+                }
+            }
+            catch {print("ERROR RETRIEVING MAILBOX DATA")}
+
+        }
+        return "No messages found."
+    }
+}
+
+
 //checks to see whether the bot is able to respond to a given user input
 func getBotResponse(message: String) -> String {
     //converts user message to lowercase values for easier comparison
@@ -19,6 +45,32 @@ func getBotResponse(message: String) -> String {
     } else if tempMessage.contains("how are you") {
         return "I'm fine, how about you?"
     }
+    
+    //checks to see if user wishes to access their mailbox
+    if tempMessage.contains("mailbox"){
+        //declares filepath to check for mailbox
+        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+            let fileURL = dir.appendingPathComponent("advisorMessages.txt")
+
+            //reads from the mailbox and clears it after reading
+            do {
+                let inputText = try String(contentsOf: fileURL, encoding: .utf8)
+                let cleanupText = ""
+                try cleanupText.write(to: fileURL, atomically: false, encoding: .utf8)
+                if(inputText==""){
+                    return "No new messages."
+                }else{
+                    return "Most recent message from ADVISORNAME: \"" + inputText + "\""
+                    
+                }
+            }
+            catch {print("ERROR RETRIEVING MESSAGE")}
+
+        }
+        return "No messages found."
+    }
+    
+    
 //default prompt detection and subsequent responses
     //questions regarding the registration process
     if tempMessage.contains("how do i register"){

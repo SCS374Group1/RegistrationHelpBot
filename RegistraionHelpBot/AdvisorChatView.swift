@@ -16,7 +16,7 @@ struct AdvisorChatView: View {
 //variables to hold messages to be sent back and forth
     @State private var showDetails = false
     @State private var messageText = ""
-    @State var messages: [String] = ["Welcome to the Registration HelpBot. Can I help you?"]
+    @State var messages: [String] = ["Welcome to the Registration HelpBot. Please type your message below that you wish to send."]
     
     var body: some View {
         VStack {
@@ -30,14 +30,14 @@ struct AdvisorChatView: View {
             ScrollView {
     //checks messages to see if they came from the user or the bot; if from the user, format on the right side with appropriate colors, if from the bot, format on the left side with appropriate colors
                 ForEach(messages, id: \.self) { message in
-                    if message.contains("[USER]") {
-//replaces [USER] tag with blank space
-                        let newMessage = message.replacingOccurrences(of:
-                            "[USER]", with: "")
+                    if message.contains("[ADV]") {
+//replaces [ADV] tag with blank space
+                        let newAdMessage = message.replacingOccurrences(of:
+                            "[ADV]", with: "")
                         
                         HStack {
                             Spacer()
-                            Text(newMessage)
+                            Text(newAdMessage)
                                 .padding()
                                 .foregroundColor(.white)
                                 .background(.blue.opacity(0.8))
@@ -85,22 +85,22 @@ struct AdvisorChatView: View {
             .padding()
         }
     }
+
 //function to send messages to the bot from the user
     func sendMessage(message: String) {
         withAnimation {
-            messages.append("[USER]" + message)
+            messages.append("[ADV]" + message)
             self.messageText = ""
         }
-//creates a delay between bot and user messages to simulate a real-world conversation
+        
+//sends message to bot and to desired student
         DispatchQueue.main.asyncAfter(deadline: .now() + 1){
             withAnimation {
-                messages.append(getBotResponse(message: message))
+                messages.append(sendAdvMessage(message: message, student: 1))
             }
         }
     }
 }
-
-
 
 
 struct AdvisorChatView_Previews: PreviewProvider {

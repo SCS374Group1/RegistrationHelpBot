@@ -15,6 +15,7 @@
 		813F01D4299D75520022C4CF /* RegistrationHelpBotApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813F01CF299D75520022C4CF /* RegistrationHelpBotApp.swift */; };
 		813F01D5299D75520022C4CF /* ChatbotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813F01D0299D75520022C4CF /* ChatbotView.swift */; };
 		813F01D6299D75520022C4CF /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813F01D2299D75520022C4CF /* MainMenuView.swift */; };
+		81739FCB29AFEDD80062CA8B /* AdvisorMessagingFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81739FCA29AFEDD80062CA8B /* AdvisorMessagingFunc.swift */; };
 		D9C1192A29AFE3EA004C3762 /* Consonants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C1192929AFE3EA004C3762 /* Consonants.swift */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 		813F01D0299D75520022C4CF /* ChatbotView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatbotView.swift; sourceTree = "<group>"; };
 		813F01D1299D75520022C4CF /* BotResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BotResponse.swift; sourceTree = "<group>"; };
 		813F01D2299D75520022C4CF /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
+		81739FCA29AFEDD80062CA8B /* AdvisorMessagingFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvisorMessagingFunc.swift; sourceTree = "<group>"; };
 		D9C1192929AFE3EA004C3762 /* Consonants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consonants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,6 +72,7 @@
 				2718934C299D6B3E00FC3FAA /* Preview Content */,
 				27AD191329AFEB5C00EBDCB9 /* AdvisorStudentListView.swift */,
 				27AD191529AFEB7300EBDCB9 /* AdvisorChatView.swift */,
+				81739FCA29AFEDD80062CA8B /* AdvisorMessagingFunc.swift */,
 			);
 			path = RegistraionHelpBot;
 			sourceTree = "<group>";
@@ -159,6 +162,7 @@
 				813F01D5299D75520022C4CF /* ChatbotView.swift in Sources */,
 				27AD191629AFEB7300EBDCB9 /* AdvisorChatView.swift in Sources */,
 				813F01D4299D75520022C4CF /* RegistrationHelpBotApp.swift in Sources */,
+				81739FCB29AFEDD80062CA8B /* AdvisorMessagingFunc.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
