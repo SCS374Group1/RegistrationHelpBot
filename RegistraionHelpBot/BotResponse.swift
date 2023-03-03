@@ -166,32 +166,32 @@ if tempMessage.contains("how do i add a class"){
 //questions regarding registration day
 if tempMessage.contains("what time does registration open") {
         /*-----STUB-----*/
-        return "ans"
+        return "Registration opens at 6am on your given registration day."
     } else if tempMessage.contains("what courses are available") {
         /*-----STUB-----*/
-        return "ans"
+        return "Please refer to the course catalog under the registration tab on MySHU."
     } else if tempMessage.contains("what course should i take") {
         /*-----STUB-----*/
-        return "ans"
+        return "Schedule a meeting with your advisor to discusse what courses are best for you to take at this time."
     } else if tempMessage.contains("how many seats are left") {
         /*-----STUB-----*/
-            return "Input course code"
+            return "To find this go to MySHU, then GriffenGate. Click on the Student tab and locate Course Registration and Advising. Next locate Add/Drop Courses and click then and then enter the course code for the course you wish to know about."
         }
 
 
 //questions regarding GPA
     if tempMessage.contains("what gpa do i need as an honors student") {
         /*-----STUB-----*/
-        return "ans"
+        return "Please refer to the registar."
     } else if tempMessage.contains("what gpa do i need as an athlete") {
         /*-----STUB-----*/
-        return "ans"
+        return "Please refer to the registar."
     } else if tempMessage.contains("what is my gpa") {
         /*-----STUB-----*/
-        return "ans"
+        return "Please refer to your homepage on MySHU or go to your transcripts on GriffenGate. MySHU->GriffenGate->Student->Unoffical Grade Reports and Transcripts"
     }else if tempMessage.contains("at what gpa are you on academic probation") {
         /*-----STUB-----*/
-        return "ans"
+        return "Please refer to the registar."
     }
 
 
