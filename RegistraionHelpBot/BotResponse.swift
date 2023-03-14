@@ -46,6 +46,11 @@ func getBotResponse(message: String) -> String {
         return "I'm fine, how about you?"
     }
     
+    //detects whether the user enters a message that indicates they need counseling services or other support services
+    if (tempMessage.contains("want to die") || tempMessage.contains("kill myself") || tempMessage.contains("hurt myself") || tempMessage.contains("harm myself") || tempMessage.contains("commit self-harm") || tempMessage.contains("suicide")){
+        return "Hey. While I may just be a robot, I care about your mental health and wellbeing. Mental health is a serious topic. If you are experiencing harmful thoughts, please contact counseling services by emailing counselingcenter@setonhill.edu or by calling Campus Police to get a counseling appointment scheduled."
+    }
+    
     //checks to see if user wishes to access their mailbox
     if tempMessage.contains("mailbox"){
         //declares filepath to check for mailbox
