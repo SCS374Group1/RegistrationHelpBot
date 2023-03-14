@@ -11,7 +11,7 @@ import SwiftUI
 //the Chatbot view of the Chatbot
 struct AdvisorChatView: View {
     //variable to hold botIcon Image
-    let botIcon = Image("RegistrationHelpbot Icon")
+    let botIcon = Image("Outlined RegistrationHelpbot Icon")
     
 //variables to hold messages to be sent back and forth
     @State private var showDetails = false

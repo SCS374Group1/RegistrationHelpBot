@@ -108,7 +108,7 @@ struct ChatbotView: View {
                     Button("What courses are available?"){
                         sendMessage(message:"What courses are available?")
                     }
-                    Button("What course should i take?"){
+                    Button("What course should I take?"){
                         sendMessage(message:"What courses are available?")
                     }
                     Button("How many seats are left?"){
