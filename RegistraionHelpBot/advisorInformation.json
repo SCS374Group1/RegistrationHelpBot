@@ -1,0 +1,17 @@
+[
+    {
+	"name": "Advisor One",
+	"username": "advisor.one",
+	"password": "password11"
+    },
+    {
+	"name": "Advisor Two",
+	"username": "advisor.two",
+	"password": "password22"
+    },
+    {
+	"name": "Advisor Three",
+	"username": "advisor.three",
+	"password": "password33"
+    }
+]

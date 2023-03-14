@@ -1,0 +1,66 @@
+[
+    {
+        "gpa": 3.0,
+        "credits": 30,
+        "name": "Student One",
+        "grade": "Freshman",
+        "username": "student.one",
+        "password": "password1"
+    },
+    {
+        "gpa": 3.6,
+        "credits": 30,
+        "name": "Student Two",
+        "grade": "Freshman",
+        "username": "student.two",
+        "password": "password2"
+    },
+    {
+        "gpa": 3.4,
+        "credits": 60,
+        "name": "Student Three",
+        "grade": "Sophomore",
+        "username": "student.three",
+        "password": "password3"
+    },
+    {
+        "gpa": 3.8,
+        "credits": 60,
+        "name": "Student Four",
+        "grade": "Sophomore",
+        "username": "student.four",
+        "password": "password4"
+    },
+    {
+        "gpa": 4.0,
+        "credits": 90,
+        "name": "Student Five",
+        "grade": "Junior",
+        "username": "student.five",
+        "password": "password5"
+    },
+    {
+        "gpa": 3.9,
+        "credits": 90,
+        "name": "Student Six",
+        "grade": "Junior",
+        "username": "student.six",
+        "password": "password6"
+    },
+    {
+        "gpa": 3.6,
+        "credits": 120,
+        "name": "Student Seven",
+        "grade": "Senior",
+        "username": "student.seven",
+        "password": "password7"
+    },
+    {
+        "gpa": 3.5,
+        "credits": 120,
+        "name": "Student Eight",
+        "grade": "Senior",
+        "username": "student.eight",
+        "password": "password8"
+    }
+]
