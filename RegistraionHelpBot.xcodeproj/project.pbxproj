@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		2703243629C039EA00529CA1 /* studentInformation.json in Resources */ = {isa = PBXBuildFile; fileRef = 2703243529C039EA00529CA1 /* studentInformation.json */; };
 		2703243829C039F700529CA1 /* advisorInformation.json in Resources */ = {isa = PBXBuildFile; fileRef = 2703243729C039F700529CA1 /* advisorInformation.json */; };
-		2703243A29C03A1A00529CA1 /* Studnets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2703243929C03A1A00529CA1 /* Studnets.swift */; };
+		2703243A29C03A1A00529CA1 /* Students.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2703243929C03A1A00529CA1 /* Students.swift */; };
 		2703243C29C03A2B00529CA1 /* Advisors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2703243B29C03A2B00529CA1 /* Advisors.swift */; };
 		2703243E29C03A3E00529CA1 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2703243D29C03A3E00529CA1 /* ModelData.swift */; };
 		2718934B299D6B3E00FC3FAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2718934A299D6B3E00FC3FAA /* Assets.xcassets */; };
@@ -28,7 +28,7 @@
 /* Begin PBXFileReference section */
 		2703243529C039EA00529CA1 /* studentInformation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = studentInformation.json; sourceTree = "<group>"; };
 		2703243729C039F700529CA1 /* advisorInformation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = advisorInformation.json; sourceTree = "<group>"; };
-		2703243929C03A1A00529CA1 /* Studnets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Studnets.swift; sourceTree = "<group>"; };
+		2703243929C03A1A00529CA1 /* Students.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Students.swift; sourceTree = "<group>"; };
 		2703243B29C03A2B00529CA1 /* Advisors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Advisors.swift; sourceTree = "<group>"; };
 		2703243D29C03A3E00529CA1 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
 		27189343299D6B3B00FC3FAA /* RegistraionHelpBot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RegistraionHelpBot.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,7 +87,7 @@
 				27AD191329AFEB5C00EBDCB9 /* AdvisorStudentListView.swift */,
 				27AD191529AFEB7300EBDCB9 /* AdvisorChatView.swift */,
 				81739FCA29AFEDD80062CA8B /* AdvisorMessagingFunc.swift */,
-				2703243929C03A1A00529CA1 /* Studnets.swift */,
+				2703243929C03A1A00529CA1 /* Students.swift */,
 				2703243B29C03A2B00529CA1 /* Advisors.swift */,
 				2703243D29C03A3E00529CA1 /* ModelData.swift */,
 				2770926D29C249600026788F /* SettingsMenuView.swift */,
@@ -186,7 +186,7 @@
 				2703243E29C03A3E00529CA1 /* ModelData.swift in Sources */,
 				81739FCB29AFEDD80062CA8B /* AdvisorMessagingFunc.swift in Sources */,
 				2703243C29C03A2B00529CA1 /* Advisors.swift in Sources */,
-				2703243A29C03A1A00529CA1 /* Studnets.swift in Sources */,
+				2703243A29C03A1A00529CA1 /* Students.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

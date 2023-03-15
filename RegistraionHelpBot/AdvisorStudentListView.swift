@@ -19,6 +19,12 @@ struct AdvisorStudentListView: View {
                         HStack{
                             Text(student.grade)
                         }
+                        HStack{
+                            Text(String(student.gpa) + " GPA")
+                        }
+                        HStack{
+                            Text(String(student.credits) + " credits")
+                        }
                     }
                 }
             }
