@@ -14,6 +14,7 @@
 		2703243E29C03A3E00529CA1 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2703243D29C03A3E00529CA1 /* ModelData.swift */; };
 		2718934B299D6B3E00FC3FAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2718934A299D6B3E00FC3FAA /* Assets.xcassets */; };
 		2718934E299D6B3E00FC3FAA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2718934D299D6B3E00FC3FAA /* Preview Assets.xcassets */; };
+		2770926E29C249600026788F /* SettingsMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2770926D29C249600026788F /* SettingsMenuView.swift */; };
 		27AD191429AFEB5C00EBDCB9 /* AdvisorStudentListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AD191329AFEB5C00EBDCB9 /* AdvisorStudentListView.swift */; };
 		27AD191629AFEB7300EBDCB9 /* AdvisorChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AD191529AFEB7300EBDCB9 /* AdvisorChatView.swift */; };
 		813F01D3299D75520022C4CF /* BotResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813F01D1299D75520022C4CF /* BotResponse.swift */; };
@@ -33,6 +34,7 @@
 		27189343299D6B3B00FC3FAA /* RegistraionHelpBot.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RegistraionHelpBot.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2718934A299D6B3E00FC3FAA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2718934D299D6B3E00FC3FAA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2770926D29C249600026788F /* SettingsMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsMenuView.swift; sourceTree = "<group>"; };
 		27AD191329AFEB5C00EBDCB9 /* AdvisorStudentListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvisorStudentListView.swift; sourceTree = "<group>"; };
 		27AD191529AFEB7300EBDCB9 /* AdvisorChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvisorChatView.swift; sourceTree = "<group>"; };
 		813F01CF299D75520022C4CF /* RegistrationHelpBotApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationHelpBotApp.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				2703243929C03A1A00529CA1 /* Studnets.swift */,
 				2703243B29C03A2B00529CA1 /* Advisors.swift */,
 				2703243D29C03A3E00529CA1 /* ModelData.swift */,
+				2770926D29C249600026788F /* SettingsMenuView.swift */,
 			);
 			path = RegistraionHelpBot;
 			sourceTree = "<group>";
@@ -178,6 +181,7 @@
 				27AD191429AFEB5C00EBDCB9 /* AdvisorStudentListView.swift in Sources */,
 				813F01D5299D75520022C4CF /* ChatbotView.swift in Sources */,
 				27AD191629AFEB7300EBDCB9 /* AdvisorChatView.swift in Sources */,
+				2770926E29C249600026788F /* SettingsMenuView.swift in Sources */,
 				813F01D4299D75520022C4CF /* RegistrationHelpBotApp.swift in Sources */,
 				2703243E29C03A3E00529CA1 /* ModelData.swift in Sources */,
 				81739FCB29AFEDD80062CA8B /* AdvisorMessagingFunc.swift in Sources */,

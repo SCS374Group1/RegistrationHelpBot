@@ -17,72 +17,92 @@ struct AdvisorChatView: View {
     @State private var showDetails = false
     @State private var messageText = ""
     @State var messages: [String] = ["Welcome to the Registration HelpBot. Please type your message below that you wish to send."]
+    @State private var presentAlert = false
     
     var body: some View {
-        VStack {
-    //top header with botIcon image
-            HStack {
-                botIcon
-                    .resizable()
-                    .frame(width: 48.0, height: 48.0)
-            }
-            //scrollable message view that simulates text messages between the user and the bot
-            ScrollView {
-    //checks messages to see if they came from the user or the bot; if from the user, format on the right side with appropriate colors, if from the bot, format on the left side with appropriate colors
-                ForEach(messages, id: \.self) { message in
-                    if message.contains("[ADV]") {
-//replaces [ADV] tag with blank space
-                        let newAdMessage = message.replacingOccurrences(of:
-                            "[ADV]", with: "")
-                        
-                        HStack {
-                            Spacer()
-                            Text(newAdMessage)
-                                .padding()
-                                .foregroundColor(.white)
-                                .background(.blue.opacity(0.8))
-                                .cornerRadius(10)
-                                .padding(.horizontal, 16)
-                                .padding(.bottom, 10)
-                            
-                        }
-//messages from bot
-                    } else {
-                        HStack {
-                            Text(message)
-                                .padding()
-                                .background(.gray.opacity(0.15))
-                                .cornerRadius(10)
-                                .padding(.horizontal, 16)
-                                .padding(.bottom, 10)
-                            Spacer()
-                        }
+        NavigationView {
+            VStack {
+                //top header with botIcon image
+                HStack {
+                    NavigationLink(destination: SettingsMenuView()) {
+                        Image(systemName: "gear")
                     }
- //Rotation effect to give the illusion of the messages coming up from the bottom
-                }.rotationEffect(.degrees(180))
-            }.rotationEffect(.degrees(180))
-                .background(Color.gray.opacity(0.10))
-
- //text field for the user to type their message in to; allows uers to send the message by hitting enter or clicking the send icon
-            HStack {
-                TextField("Type something", text: $messageText)
-                    .padding()
-                    .background(Color.gray.opacity(0.1))
-                    .cornerRadius(10)
-                    .onSubmit {
-                        sendMessage(message: messageText)
+                    .buttonStyle(BlueButton())
+                    Spacer()
+                        .frame(minWidth: 120, maxWidth: 120)
+                    botIcon
+                        .resizable()
+                        .frame(width: 48.0, height: 48.0)
+                    Spacer()
+                        .frame(minWidth: 120, maxWidth: 120)
+                    Button {
+                        presentAlert = true
+                    } label: {
+                        Image(systemName: "square.and.arrow.up.trianglebadge.exclamationmark")
                     }
-//send icon to send messages
-                Button {
-                    sendMessage(message: messageText)
-                } label: {
-                    Image(systemName: "paperplane.fill")
+                    .alert("Feed Back", isPresented: $presentAlert, actions: {
+                        TextField("TextField", text: $messageText)
+                        Button("Send", action: {sendMessage(message: messageText)})
+                    })
                 }
-                .font(.system(size: 26))
-                .foregroundColor(.red)
-                .padding(.horizontal, 10)
+                //scrollable message view that simulates text messages between the user and the bot
+                ScrollView {
+                    //checks messages to see if they came from the user or the bot; if from the user, format on the right side with appropriate colors, if from the bot, format on the left side with appropriate colors
+                    ForEach(messages, id: \.self) { message in
+                        if message.contains("[ADV]") {
+                            //replaces [ADV] tag with blank space
+                            let newAdMessage = message.replacingOccurrences(of:
+                                                                                "[ADV]", with: "")
+                            
+                            HStack {
+                                Spacer()
+                                Text(newAdMessage)
+                                    .padding()
+                                    .foregroundColor(.white)
+                                    .background(.blue.opacity(0.8))
+                                    .cornerRadius(10)
+                                    .padding(.horizontal, 16)
+                                    .padding(.bottom, 10)
+                                
+                            }
+                            //messages from bot
+                        } else {
+                            HStack {
+                                Text(message)
+                                    .padding()
+                                    .background(.gray.opacity(0.15))
+                                    .cornerRadius(10)
+                                    .padding(.horizontal, 16)
+                                    .padding(.bottom, 10)
+                                Spacer()
+                            }
+                        }
+                        //Rotation effect to give the illusion of the messages coming up from the bottom
+                    }.rotationEffect(.degrees(180))
+                }.rotationEffect(.degrees(180))
+                    .background(Color.gray.opacity(0.10))
+                
+                //text field for the user to type their message in to; allows uers to send the message by hitting enter or clicking the send icon
+                HStack {
+                    TextField("Type something", text: $messageText)
+                        .padding()
+                        .background(Color.gray.opacity(0.1))
+                        .cornerRadius(10)
+                        .onSubmit {
+                            sendMessage(message: messageText)
+                        }
+                    //send icon to send messages
+                    Button {
+                        sendMessage(message: messageText)
+                    } label: {
+                        Image(systemName: "paperplane.fill")
+                    }
+                    .font(.system(size: 26))
+                    .foregroundColor(.red)
+                    .padding(.horizontal, 10)
+                }
+                .padding()
             }
-            .padding()
         }
     }
 
