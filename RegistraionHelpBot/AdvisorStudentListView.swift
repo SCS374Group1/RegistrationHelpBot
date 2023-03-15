@@ -22,8 +22,9 @@ struct AdvisorStudentListView: View {
                     }
                 }
             }
-        }
-    }}
+        }.navigationBarBackButtonHidden(true)
+    }
+}
 
 struct AdvisorStudentListView_Previews: PreviewProvider {
     static var previews: some View {

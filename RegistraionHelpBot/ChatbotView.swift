@@ -206,7 +206,7 @@ struct ChatbotView: View {
                 .padding(.horizontal, 10)
             }
             .padding()
-        }
+        }.navigationBarBackButtonHidden(true)
     }
 //function to send messages to the bot from the user
     func sendMessage(message: String) {
