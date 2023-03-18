@@ -48,6 +48,7 @@ struct MainMenuView: View {
                     .monospaced()
                 //textfield to obtain user's username; becomes red when invalid information is entered
                 TextField("Username", text: $username)
+                    .autocapitalization(.none)
                     .padding()
                     .frame(width:300, height:50)
                     .background(Color.white.opacity(0.05))
@@ -86,28 +87,30 @@ struct MainMenuView: View {
                     .navigationBarHidden(true)
         }
     }
-        func authenticateUser(username: String, password: String){
-            if (username == "Student2023"){
-                if(password == "studentpassword"){
+    func authenticateUser(username: String, password: String){
+        var authSuccessCheck = false
+        while(!authSuccessCheck){
+            for i in 0...(loadedStudentData.count-1){
+                if ((username == loadedStudentData[i].username) && (password == loadedStudentData[i].password)){
                     wrongCredentials = 0
+                    authSuccessCheck = true
                     showingStudentLoginScreen = true
-                }else{
-                    defaultInputBorders = 0
-                    wrongCredentials = 2
                 }
-            }else if (username == "Advisor2023"){
-                if(password == "advisorpassword"){
+            }
+            for i in 0...(loadedAdvisorData.count-1){
+                if ((username == loadedAdvisorData[i].username) && (password == loadedAdvisorData[i].password)){
                     wrongCredentials = 0
+                    authSuccessCheck = true
                     showingAdvisorLoginScreen = true
-                }else{
-                    defaultInputBorders = 0
-                    wrongCredentials = 2
                 }
-            }else {
-                defaultInputBorders = 0
+            }
+            if(!authSuccessCheck){
                 wrongCredentials = 2
+                authSuccessCheck = true
             }
         }
+    }
+            
     }
 
 
