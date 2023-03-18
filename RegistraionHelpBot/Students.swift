@@ -7,8 +7,9 @@
 
 import Foundation
 
-struct Students: Codable, Identifiable {
+struct Student: Codable, Identifiable {
     enum CodingKeys: CodingKey {
+        case studentID
         case gpa
         case credits
         case name
@@ -16,12 +17,12 @@ struct Students: Codable, Identifiable {
         case username
         case password
     }
-
     var id = UUID()
-    var gpa: Float
-    var credits: Int
-    var name: String
-    var grade: String
-    var username: String
-    var password: String
+    var studentID : Int
+    var gpa : Float
+    var credits : Int
+    var name : String
+    var grade : String
+    var username : String
+     var password : String
 }

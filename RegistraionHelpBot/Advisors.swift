@@ -7,14 +7,8 @@
 
 import Foundation
 
-struct Advisors: Codable, Identifiable {
-    enum CodingKeys: CodingKey {
-        case name
-        case username
-        case password
-    }
-
-    var id = UUID()
+struct Advisor: Codable {
+    var advisorID : Int
     var name: String
     var username: String
     var password: String

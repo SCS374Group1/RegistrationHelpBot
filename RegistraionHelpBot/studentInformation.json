@@ -1,13 +1,15 @@
 [
     {
+        "studentID":101,
         "gpa": 3.0,
         "credits": 30,
-        "name": "Student One",
+        "name": "Student One, Yee Haw",
         "grade": "Freshman",
         "username": "student.one",
         "password": "password1"
     },
     {
+        "studentID":102,
         "gpa": 3.6,
         "credits": 30,
         "name": "Student Two",
@@ -16,6 +18,7 @@
         "password": "password2"
     },
     {
+        "studentID":103,
         "gpa": 3.4,
         "credits": 60,
         "name": "Student Three",
@@ -24,6 +27,7 @@
         "password": "password3"
     },
     {
+        "studentID":104,
         "gpa": 3.8,
         "credits": 60,
         "name": "Student Four",
@@ -32,6 +36,7 @@
         "password": "password4"
     },
     {
+        "studentID":105,
         "gpa": 4.0,
         "credits": 90,
         "name": "Student Five",
@@ -40,6 +45,7 @@
         "password": "password5"
     },
     {
+        "studentID":106,
         "gpa": 3.9,
         "credits": 90,
         "name": "Student Six",
@@ -48,6 +54,7 @@
         "password": "password6"
     },
     {
+        "studentID":107,
         "gpa": 3.6,
         "credits": 120,
         "name": "Student Seven",
@@ -56,6 +63,7 @@
         "password": "password7"
     },
     {
+        "studentID":108,
         "gpa": 3.5,
         "credits": 120,
         "name": "Student Eight",

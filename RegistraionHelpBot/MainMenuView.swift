@@ -11,6 +11,10 @@ struct MainMenuView: View {
     //variables to hold username and password for comparison
     @State private var username = ""
     @State private var password = ""
+    //variables to hold student and advisor data
+    let loadedAdvisorData = ModelData().advisorData
+    let loadedStudentData = ModelData().studentData
+    
     //variables to hold info about dynamic borders
     @State private var defaultInputBorders = 2
     @State private var wrongCredentials = 0

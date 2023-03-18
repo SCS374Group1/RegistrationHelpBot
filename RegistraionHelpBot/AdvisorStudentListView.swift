@@ -6,24 +6,27 @@
 //
 
 import SwiftUI
+//creates array of loaded student data
+let loadedStudentData = ModelData().studentData
+
 //The main menu view of the Chatbot
 struct AdvisorStudentListView: View {
     var body: some View {
         NavigationView {
             NavigationLink(destination: AdvisorChatView()){
-                List(students) { student in
+                List(loadedStudentData) { Student in
                     VStack(alignment: .leading) {
                         HStack {
-                            Text(student.name)
+                            Text(Student.name)
                         }
                         HStack{
-                            Text(student.grade)
+                            Text(Student.grade)
                         }
                         HStack{
-                            Text(String(student.gpa) + " GPA")
+                            Text(String(Student.gpa) + " GPA")
                         }
                         HStack{
-                            Text(String(student.credits) + " credits")
+                            Text(String(Student.credits) + " credits")
                         }
                     }
                 }
