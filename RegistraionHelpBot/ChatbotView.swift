@@ -26,6 +26,15 @@ struct ChatbotView: View {
     @State private var messageText = ""
     @State var messages: [String] = ["Welcome to the Registration HelpBot. Can I help you?"]
     @State private var presentAlert = false
+    @AppStorage ("toggleBubbleColor1") var toggleBubbleColor1 = false
+    @AppStorage ("toggleBubbleColor2") var toggleBubbleColor2 = false
+    @AppStorage ("toggleBubbleColor3") var toggleBubbleColor3 = false
+    @AppStorage ("toggleBubbleColor4") var toggleBubbleColor4 = false
+    @AppStorage ("toggleBubbleColor5") var toggleBubbleColor5 = false
+    @AppStorage ("toggleBubbleColor6") var toggleBubbleColor6 = false
+    @AppStorage ("toggleBubbleColor7") var toggleBubbleColor7 = false
+    @AppStorage ("toggleBubbleColor8") var toggleBubbleColor8 = false
+    let backgroundColor = Image("blue")
     
     var body: some View {
         NavigationView {
@@ -68,15 +77,88 @@ struct ChatbotView: View {
                                                                             "[USER]", with: "")
                             
                             HStack {
-                                Spacer()
-                                Text(newMessage)
-                                    .padding()
-                                    .foregroundColor(.white)
-                                    .background(.blue.opacity(0.8))
-                                    .cornerRadius(10)
-                                    .padding(.horizontal, 16)
-                                    .padding(.bottom, 10)
-                                
+                                if toggleBubbleColor1 {
+                                    Spacer()
+                                    Text(newMessage)
+                                        .padding()
+                                        .foregroundColor(.black)
+                                        .background(Image("camo").resizable())
+                                        .cornerRadius(10)
+                                        .padding(.horizontal, 16)
+                                        .padding(.bottom, 10)
+                                } else if toggleBubbleColor2 {
+                                    Spacer()
+                                    Text(newMessage)
+                                        .padding()
+                                        .foregroundColor(.black)
+                                        .background(Image("tree").resizable())
+                                        .cornerRadius(10)
+                                        .padding(.horizontal, 16)
+                                        .padding(.bottom, 10)
+                                } else if toggleBubbleColor3 {
+                                    Spacer()
+                                    Text(newMessage)
+                                        .padding()
+                                        .foregroundColor(.black)
+                                        .background(Image("naruto").resizable())
+                                        .cornerRadius(10)
+                                        .padding(.horizontal, 16)
+                                        .padding(.bottom, 10)
+                                }else if toggleBubbleColor4 {
+                                    Spacer()
+                                    Text(newMessage)
+                                        .padding()
+                                        .foregroundColor(.black)
+                                        .background(Image("cyber").resizable())
+                                        .cornerRadius(10)
+                                        .padding(.horizontal, 16)
+                                        .padding(.bottom, 10)
+                                } else if toggleBubbleColor5 {
+                                    Spacer()
+                                    Text(newMessage)
+                                        .padding()
+                                        .foregroundColor(.black)
+                                        .background(Image("yellow").resizable())
+                                        .cornerRadius(10)
+                                        .padding(.horizontal, 16)
+                                        .padding(.bottom, 10)
+                                } else if toggleBubbleColor6 {
+                                    Spacer()
+                                    Text(newMessage)
+                                        .padding()
+                                        .foregroundColor(.black)
+                                        .background(Image("red").resizable())
+                                        .cornerRadius(10)
+                                        .padding(.horizontal, 16)
+                                        .padding(.bottom, 10)
+                                } else if toggleBubbleColor7 {
+                                    Spacer()
+                                    Text(newMessage)
+                                        .padding()
+                                        .foregroundColor(.black)
+                                        .background(Image("green").resizable())
+                                        .cornerRadius(10)
+                                        .padding(.horizontal, 16)
+                                        .padding(.bottom, 10)
+                                } else if toggleBubbleColor8 {
+                                    Spacer()
+                                    Text(newMessage)
+                                        .padding()
+                                        .foregroundColor(.black)
+                                        .background(Image("cyan").resizable())
+                                        .cornerRadius(10)
+                                        .padding(.horizontal, 16)
+                                        .padding(.bottom, 10)
+                                } else {
+                                    Spacer()
+                                    Text(newMessage)
+                                        .padding()
+                                        .foregroundColor(.black)
+                                        .background(backgroundColor)
+                                        .cornerRadius(10)
+                                        .padding(.horizontal, 16)
+                                        .padding(.bottom, 10)
+                                }
                             }
                             //messages from bot
                         } else {
