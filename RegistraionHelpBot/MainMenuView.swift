@@ -93,9 +93,12 @@ struct MainMenuView: View {
                     .navigationBarHidden(true)
         }
     }
+    //function to authenticate user based on username/password pairs obtained from JSON files
     func authenticateUser(username: String, password: String){
+        //boolean to check for whether a successful authentication occurred or if all username/password have been searcher
         var authSuccessCheck = false
         while(!authSuccessCheck){
+            //checks all student username/password pairs and compares them to user input; if a match is found, logs user in
             for i in 0...(loadedStudentData.count-1){
                 if ((username == loadedStudentData[i].username) && (password == loadedStudentData[i].password)){
                     wrongCredentials = 0
@@ -103,6 +106,7 @@ struct MainMenuView: View {
                     showingStudentLoginScreen = true
                 }
             }
+            //checks all advisor username/password pairs and compares them to user input; if a match is found, logs user in
             for i in 0...(loadedAdvisorData.count-1){
                 if ((username == loadedAdvisorData[i].username) && (password == loadedAdvisorData[i].password)){
                     wrongCredentials = 0
@@ -110,6 +114,7 @@ struct MainMenuView: View {
                     showingAdvisorLoginScreen = true
                 }
             }
+            //checks all admin username/password pairs and compares them to user input; if a match is found, logs user in
             for i in 0...(loadedAdminData.count-1){
                 if ((username == loadedAdminData[i].username) && (password == loadedAdminData[i].password)){
                     wrongCredentials = 0
@@ -117,6 +122,7 @@ struct MainMenuView: View {
                     showingAdminLoginScreen = true
                 }
             }
+            //highlights username and password boxes in red if login was unsuccessful or username/password pairs were mismatched or not found
             if(!authSuccessCheck){
                 wrongCredentials = 2
                 authSuccessCheck = true
