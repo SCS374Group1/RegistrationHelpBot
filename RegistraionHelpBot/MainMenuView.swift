@@ -11,9 +11,10 @@ struct MainMenuView: View {
     //variables to hold username and password for comparison
     @State private var username = ""
     @State private var password = ""
-    //variables to hold student and advisor data
+    //variables to hold student, advisor, and admin
     let loadedAdvisorData = ModelData().advisorData
     let loadedStudentData = ModelData().studentData
+    let loadedAdminData = ModelData().adminData
     
     //variables to hold info about dynamic borders
     @State private var defaultInputBorders = 2
@@ -21,6 +22,7 @@ struct MainMenuView: View {
     //variables to determine which screen should be displayed following a successful login
     @State private var showingStudentLoginScreen = false
     @State private var showingAdvisorLoginScreen = false
+    @State private var showingAdminLoginScreen = false
     //variable to hold botIcon Image
     let botIcon = Image("Outlined RegistrationHelpbot Icon")
     var body: some View {
@@ -80,6 +82,10 @@ struct MainMenuView: View {
                 NavigationLink(destination: AdvisorStudentListView(), isActive: $showingAdvisorLoginScreen){
                     //hides back arrow so that users do not simply go back to the main screen, but have to log out first
                 }.navigationBarBackButtonHidden(true)
+                //NavigationLink to go to Admin view if the login was an admin login
+                NavigationLink(destination: AdministrationManagementView(), isActive: $showingAdminLoginScreen){
+                    //hides back arrow so that users do not simply go back to the main screen, but have to log out first
+                }.navigationBarBackButtonHidden(true)
 
             }
             .padding([.bottom],160)
@@ -102,6 +108,13 @@ struct MainMenuView: View {
                     wrongCredentials = 0
                     authSuccessCheck = true
                     showingAdvisorLoginScreen = true
+                }
+            }
+            for i in 0...(loadedAdminData.count-1){
+                if ((username == loadedAdminData[i].username) && (password == loadedAdminData[i].password)){
+                    wrongCredentials = 0
+                    authSuccessCheck = true
+                    showingAdminLoginScreen = true
                 }
             }
             if(!authSuccessCheck){
@@ -130,3 +143,4 @@ class ViewController: UIViewController {
         view.backgroundColor = CustomColor.customBackgroundColor
     }
 }
+

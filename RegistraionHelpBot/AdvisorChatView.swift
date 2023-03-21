@@ -129,6 +129,3 @@ struct AdvisorChatView_Previews: PreviewProvider {
         
     }
 }
-
-
-

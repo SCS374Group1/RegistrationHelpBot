@@ -7,10 +7,12 @@
 
 import SwiftUI
 
-struct SettingsMenuView: View {
-    @State private var toggleDarkMode = true
-    @State private var toggleNotifications = true
+var isSwitchOn: Bool = true
 
+struct SettingsMenuView: View {
+   // @State private var toggleDarkMode = true
+    @AppStorage ("toggleNotifications") private var toggleNotifications = false
+    @AppStorage ("toggleDarkMode") var toggleDarkMode = false
     var body: some View {
         NavigationView {
             Form {

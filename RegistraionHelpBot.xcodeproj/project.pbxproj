@@ -23,6 +23,9 @@
 		813F01D6299D75520022C4CF /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813F01D2299D75520022C4CF /* MainMenuView.swift */; };
 		81739FCB29AFEDD80062CA8B /* AdvisorMessagingFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81739FCA29AFEDD80062CA8B /* AdvisorMessagingFunc.swift */; };
 		D9C1192A29AFE3EA004C3762 /* Consonants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9C1192929AFE3EA004C3762 /* Consonants.swift */; };
+		D9D3B95729C8FBB8000CA931 /* AdministrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D3B95629C8FBB8000CA931 /* AdministrationView.swift */; };
+		D9D3B95929C8FEBD000CA931 /* Admin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D3B95829C8FEBD000CA931 /* Admin.swift */; };
+		D9D3B95B29C8FF89000CA931 /* adminInformation.json in Resources */ = {isa = PBXBuildFile; fileRef = D9D3B95A29C8FF89000CA931 /* adminInformation.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +46,9 @@
 		813F01D2299D75520022C4CF /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
 		81739FCA29AFEDD80062CA8B /* AdvisorMessagingFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvisorMessagingFunc.swift; sourceTree = "<group>"; };
 		D9C1192929AFE3EA004C3762 /* Consonants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Consonants.swift; sourceTree = "<group>"; };
+		D9D3B95629C8FBB8000CA931 /* AdministrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdministrationView.swift; sourceTree = "<group>"; };
+		D9D3B95829C8FEBD000CA931 /* Admin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Admin.swift; sourceTree = "<group>"; };
+		D9D3B95A29C8FF89000CA931 /* adminInformation.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = adminInformation.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,8 +65,8 @@
 		2718933A299D6B3B00FC3FAA = {
 			isa = PBXGroup;
 			children = (
-				27189345299D6B3B00FC3FAA /* RegistraionHelpBot */,
 				27189344299D6B3B00FC3FAA /* Products */,
+				27189345299D6B3B00FC3FAA /* RegistraionHelpBot */,
 			);
 			sourceTree = "<group>";
 		};
@@ -82,13 +88,16 @@
 				813F01CF299D75520022C4CF /* RegistrationHelpBotApp.swift */,
 				2703243729C039F700529CA1 /* advisorInformation.json */,
 				2703243529C039EA00529CA1 /* studentInformation.json */,
+				D9D3B95A29C8FF89000CA931 /* adminInformation.json */,
 				2718934A299D6B3E00FC3FAA /* Assets.xcassets */,
 				2718934C299D6B3E00FC3FAA /* Preview Content */,
 				27AD191329AFEB5C00EBDCB9 /* AdvisorStudentListView.swift */,
 				27AD191529AFEB7300EBDCB9 /* AdvisorChatView.swift */,
 				81739FCA29AFEDD80062CA8B /* AdvisorMessagingFunc.swift */,
+				D9D3B95629C8FBB8000CA931 /* AdministrationView.swift */,
 				2703243929C03A1A00529CA1 /* Students.swift */,
 				2703243B29C03A2B00529CA1 /* Advisors.swift */,
+				D9D3B95829C8FEBD000CA931 /* Admin.swift */,
 				2703243D29C03A3E00529CA1 /* ModelData.swift */,
 				2770926D29C249600026788F /* SettingsMenuView.swift */,
 			);
@@ -162,6 +171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2718934E299D6B3E00FC3FAA /* Preview Assets.xcassets in Resources */,
+				D9D3B95B29C8FF89000CA931 /* adminInformation.json in Resources */,
 				2703243829C039F700529CA1 /* advisorInformation.json in Resources */,
 				2703243629C039EA00529CA1 /* studentInformation.json in Resources */,
 				2718934B299D6B3E00FC3FAA /* Assets.xcassets in Resources */,
@@ -178,10 +188,12 @@
 				D9C1192A29AFE3EA004C3762 /* Consonants.swift in Sources */,
 				813F01D3299D75520022C4CF /* BotResponse.swift in Sources */,
 				813F01D6299D75520022C4CF /* MainMenuView.swift in Sources */,
+				D9D3B95929C8FEBD000CA931 /* Admin.swift in Sources */,
 				27AD191429AFEB5C00EBDCB9 /* AdvisorStudentListView.swift in Sources */,
 				813F01D5299D75520022C4CF /* ChatbotView.swift in Sources */,
 				27AD191629AFEB7300EBDCB9 /* AdvisorChatView.swift in Sources */,
 				2770926E29C249600026788F /* SettingsMenuView.swift in Sources */,
+				D9D3B95729C8FBB8000CA931 /* AdministrationView.swift in Sources */,
 				813F01D4299D75520022C4CF /* RegistrationHelpBotApp.swift in Sources */,
 				2703243E29C03A3E00529CA1 /* ModelData.swift in Sources */,
 				81739FCB29AFEDD80062CA8B /* AdvisorMessagingFunc.swift in Sources */,
