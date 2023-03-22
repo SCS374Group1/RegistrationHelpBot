@@ -7,6 +7,9 @@
 
 import Foundation
 
+//variable that holds the studentArrayID Number; defaults to 100 as this is out of bounds of the array (to enforce good security practices)
+public var studentArrayIDNumber = 100
+
 //function to check mailbox file and notify users if any messages have been posted
 func getMessages() -> String{
     //attempts to create and read from the file
@@ -84,32 +87,26 @@ func getBotResponse(message: String) -> String {
         return "On the day of registration, navigate to GriffinGate, which can be found here: https://griffingate.setonhill.edu/ics. Click \"Student\" and then \"Course Registration and Advising\". There will be an \"Add/Drop\" menu on the right side of the screen. Select the \"Add/Drop Courses\" option. Finally, make sure you also have the correct term selected. This is where you select the courses you wish to register for."
     }else if tempMessage.contains("when do i register"){
         //detects which year classification a student falls under and outputs answer based on this value
-        var studentYearClassification = String()
-        studentYearClassification = "Senior"
+        //checks student object array for value based on the student who is logged in
+        let studentYearClassification = loadedStudentData[studentArrayIDNumber].grade.lowercased()
         switch studentYearClassification {
-            case "Freshman":
+            case "freshman":
                 return "As a Freshman, your schedule date for Spring 2023 is Friday, 11/4/2022 at 6:00 AM."
-            case "Sophomore":
+            case "sophomore":
                 return "As a Sophomore, your schedule date for Spring 2023 is Thursday, 11/3/2022 at 6:00 AM."
-            case "Junior":
+            case "junior":
                 return "As a Junior, your schedule date for Spring 2023 is Wednesday, 11/2/2022 at 6:00 AM."
-            case "Senior":
+            case "senior":
                 return "As a Senior, your schedule date for Spring 2023 is Tuesday, 11/1/2022 at 6:00 AM."
-            case "Graduate":
+            case "graduate":
                 return "As a Graduate, your schedule date for Spring 2023 is Monday, 10/31/2022 at 6:00 AM."
             default:
                 return "Sorry, I'm having an issue retrieving your status. Please try again later or open a support ticket."
+            
         }
     }else if tempMessage.contains("do i have any holds on my account"){
-        var hasHolds = Bool();
-        //*****RANDOM VAR CREATED TO AVOID WARNING OF IF_ELSE NEVER EXECUTING HALF OF THE STATEMENT THAT OCCURS WHEN HASHOLD IS HARDCODED INTO THE PROGRAM*****//
-        let randomVal = arc4random_uniform(3)
-        if(randomVal == 0){
-            hasHolds = true
-        }else{
-            hasHolds = false
-        }
-        if(hasHolds){
+        //checks if student who is logged in has holds on their account
+        if(loadedStudentData[studentArrayIDNumber].hasAccountHolds){
             return "Yes, you do have a hold on your account. Please contact the registrar for more info."
         }else{
             return "No, you do not have any holds on your account."
@@ -180,23 +177,22 @@ if tempMessage.contains("what time does registration open") {
         return "Schedule a meeting with your advisor to discusse what courses are best for you to take at this time."
     } else if tempMessage.contains("how many seats are left") {
         /*-----STUB-----*/
-            return "To find this go to MySHU, then GriffenGate. Click on the Student tab and locate Course Registration and Advising. Next locate Add/Drop Courses and click then and then enter the course code for the course you wish to know about."
+            return "To find this go to MySHU, then GriffinGate. Click on the Student tab and locate Course Registration and Advising. Next locate Add/Drop Courses and click then and then enter the course code for the course you wish to know about."
         }
 
 
 //questions regarding GPA
+    //response for GPA as an honors student based on SHU guidelines
     if tempMessage.contains("what gpa do i need as an honors student") {
-        /*-----STUB-----*/
-        return "Please refer to the registar."
+        return "You need to maintain a GPA of 3.5 or higher to be in the Seton Hill Honors Program."
     } else if tempMessage.contains("what gpa do i need as an athlete") {
-        /*-----STUB-----*/
-        return "Please refer to the registar."
+        return "Please refer to the registrar."
     } else if tempMessage.contains("what is my gpa") {
-        /*-----STUB-----*/
-        return "Please refer to your homepage on MySHU or go to your transcripts on GriffenGate. MySHU->GriffenGate->Student->Unoffical Grade Reports and Transcripts"
+        //checks current student GPA based on the student who is logged in
+        return "Your GPA is " + String(loadedStudentData[studentArrayIDNumber].gpa)  + "."
     }else if tempMessage.contains("at what gpa are you on academic probation") {
         /*-----STUB-----*/
-        return "Please refer to the registar."
+        return "Please refer to the registrar."
     }
 
 
@@ -211,8 +207,8 @@ if tempMessage.contains("what time does registration open") {
         /*-----STUB-----*/
         return "As of August of 2022, extra credits come at a cost of $798 per extra credit up to 21 credits per semester. This cost includes any credits after 17."
     }else if tempMessage.contains("how many credits do i currently have") {
-        /*-----STUB-----*/
-        return "You can check how many credits you are registered for by going to GriffinGate and navigating to Student > Course Registration and Advising > Course Schedules > Add/Drop > Add/Drop Courses. The page will have your number of credits in bold characters."
+        //checks how many credits the student currently logged in has
+        return "Currently, you have " + String(loadedStudentData[studentArrayIDNumber].credits) + " credits."
     }else if tempMessage.contains("how many credits do i need as an athlete") {
         /*-----STUB-----*/
         return "As per the NCAA Athletic Scholarship Satisfactory Academic Progress Policy. Any student who receives an athletic scholarship while attending Seton Hill University is bound by the NCAA Division II academic progress regulations. This policy states that a full-time student must earn a minimum of 24 credits in each academic year, which equates to 12 credits a semester. This is on par with the full-time student requirements for Seton Hill."

@@ -108,6 +108,8 @@ struct MainMenuView: View {
                 if ((username == loadedStudentData[i].username) && (password == loadedStudentData[i].password)){
                     wrongCredentials = 0
                     authSuccessCheck = true
+                    //sets the index number of the student object for reference in future queries
+                    studentArrayIDNumber = i
                     showingStudentLoginScreen = true
                 }
             }

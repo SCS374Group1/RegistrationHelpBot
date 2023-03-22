@@ -16,6 +16,7 @@ struct Student: Codable, Identifiable {
         case grade
         case username
         case password
+        case hasAccountHolds
     }
     var id = UUID()
     var studentID : Int
@@ -25,4 +26,6 @@ struct Student: Codable, Identifiable {
     var grade : String
     var username : String
      var password : String
+    var hasAccountHolds : Bool
+
 }
