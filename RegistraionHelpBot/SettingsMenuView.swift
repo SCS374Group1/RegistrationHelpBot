@@ -10,6 +10,10 @@ import SwiftUI
 var isSwitchOn: Bool = true
 
 struct SettingsMenuView: View {
+    
+//variable to enable dismiss action, used for custom back arrow
+    @Environment(\.dismiss) private var dismiss
+    
     @AppStorage ("toggleNotifications") private var toggleNotifications = false
     @AppStorage ("toggleDarkMode") var toggleDarkMode = false
     @AppStorage ("toggleBubbleColor1") var toggleBubbleColor1 = false
@@ -92,9 +96,28 @@ struct SettingsMenuView: View {
                         }
                     }
                 }
+                //logout section
+                Section(header: Text("Logout")) {
+                    //sends user back to main menu as a logout
+                    NavigationLink("Logout", destination: MainMenuView())
+                }
+            }
+            //implements custom back button that sends user back to the previous screen, either the student or advisor Chatbot view
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        dismiss()
+                    } label: {
+                        HStack {
+                            Image(systemName: "chevron.backward")
+                            Text("Chatbot")
+                        }
+                    }
+                }
             }
             .navigationTitle("Settings")
-        }
+            //hides default back button
+        }.navigationBarBackButtonHidden(true)
     }
 }
 

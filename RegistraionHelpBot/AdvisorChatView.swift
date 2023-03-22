@@ -10,6 +10,10 @@ import SwiftUI
 
 //the Chatbot view of the Chatbot
 struct AdvisorChatView: View {
+//variable to enable dismiss action, used for custom back arrow
+                @Environment(\.dismiss) private var dismiss
+
+    
     //variable to hold botIcon Image
     let botIcon = Image("Outlined RegistrationHelpbot Icon")
     
@@ -185,7 +189,22 @@ struct AdvisorChatView: View {
                 }
                 .padding()
             }
-        }
+            //adds customized back button to toolbar
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        //sends user back to screen they were previously on, in this case the Student List
+                        dismiss()
+                    } label: {
+                        HStack {
+                            Image(systemName: "chevron.backward")
+                            Text("Student List")
+                        }
+                    }
+                }
+            }
+            //hides default back button
+        }.navigationBarBackButtonHidden(true)
     }
 
 //function to send messages to the bot from the user

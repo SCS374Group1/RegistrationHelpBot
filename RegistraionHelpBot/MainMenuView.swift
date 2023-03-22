@@ -92,6 +92,8 @@ struct MainMenuView: View {
         }
                     .navigationBarHidden(true)
         }
+        //hides default back button
+        .navigationBarBackButtonHidden(true)
     }
     //function to authenticate user based on username/password pairs obtained from JSON files
     func authenticateUser(username: String, password: String){
