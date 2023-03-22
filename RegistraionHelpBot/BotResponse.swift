@@ -41,11 +41,11 @@ func getBotResponse(message: String) -> String {
     //converts user message to lowercase values for easier comparison
     let tempMessage = message.lowercased()
     //default checks for greetings and pleasantries
-    if tempMessage.contains("hello") {
+    if (tempMessage.contains("hello") || tempMessage.contains("hey") || tempMessage.contains("howdy")) {
         return "Hey there!"
-    } else if tempMessage.contains("goodbye") {
+    } else if (tempMessage.contains("goodbye") || tempMessage.contains("bye") || tempMessage.contains("cya")) {
         return "Talk to you later!"
-    } else if tempMessage.contains("how are you") {
+    } else if (tempMessage.contains("how are you")) {
         return "I'm fine, how about you?"
     }
     
@@ -216,7 +216,7 @@ if tempMessage.contains("what time does registration open") {
         /*-----STUB-----*/
         return "Registration for a minimum of 12 credits in a semester is required for full-time status at the undergraduate level, any number of credits below 12 is considered a part-time status."
     }else {
-        return "That's cool."
+        return "I'm sorry, I could not process your request. Please submit a help ticket using the icon at the top right of your screen. Thank you!"
     }
 }
 
