@@ -11,7 +11,7 @@ struct SettingsMenuView: View {
     
 //variable to enable dismiss action, used for custom back arrow
     @Environment(\.dismiss) private var dismiss
-    
+    @AppStorage("isDarkMode") var isDarkMode: Bool = false
     @AppStorage ("toggleNotifications") private var toggleNotifications = false
     @AppStorage ("toggleBubbleColor1") var toggleBubbleColor1 = false
     @AppStorage ("toggleBubbleColor2") var toggleBubbleColor2 = false
