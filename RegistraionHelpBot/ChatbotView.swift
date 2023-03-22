@@ -317,6 +317,8 @@ struct ChatbotView: View {
                 }
                 .padding()
             }
+            
+            //hides default back button
         }.navigationBarBackButtonHidden(true)
     }
 //function to send messages to the bot from the user
