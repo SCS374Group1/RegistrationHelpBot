@@ -7,11 +7,9 @@
 
 import SwiftUI
 
-var isSwitchOn: Bool = true
-
 struct SettingsMenuView: View {
+    @AppStorage("isDarkMode") var isDarkMode: Bool = false
     @AppStorage ("toggleNotifications") private var toggleNotifications = false
-    @AppStorage ("toggleDarkMode") var toggleDarkMode = false
     @AppStorage ("toggleBubbleColor1") var toggleBubbleColor1 = false
     @AppStorage ("toggleBubbleColor2") var toggleBubbleColor2 = false
     @AppStorage ("toggleBubbleColor3") var toggleBubbleColor3 = false
@@ -26,8 +24,7 @@ struct SettingsMenuView: View {
         NavigationView {
             Form {
                 Section(header: Text("Display")) {
-                    Toggle("Dark Mode", isOn: $toggleDarkMode)
-                    
+                    Toggle("Dark Mode", isOn: $isDarkMode)
                 }
                 Section(header: Text("Notifications")) {
                     Toggle("Notifications", isOn: $toggleNotifications)

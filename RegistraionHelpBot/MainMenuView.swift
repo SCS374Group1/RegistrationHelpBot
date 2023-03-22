@@ -8,6 +8,9 @@
 import SwiftUI
 //The main menu view of the Chatbot
 struct MainMenuView: View {
+    //variable to hold whether dark mode is on or off
+    @AppStorage("isDarkMode") var isDarkMode: Bool = false
+    
     //variables to hold username and password for comparison
     @State private var username = ""
     @State private var password = ""
@@ -145,8 +148,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //view.backgroundColor = .systemRed
+        //view.backgroundColor = .systemBlack
         view.backgroundColor = CustomColor.customBackgroundColor
     }
 }
-
