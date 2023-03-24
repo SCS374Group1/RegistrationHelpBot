@@ -14,21 +14,10 @@ let loadedAdminData = ModelData().adminData
 struct AdministrationManagementView: View {
     var body: some View {
         NavigationView {
-            NavigationLink(destination: AdvisorChatView()){
-                List(loadedAdminData) { Admin in
-                    VStack(alignment: .leading) {
-                        HStack {
-                            Text("Admin ID: " + Admin.id)
-                        }
-                        HStack{
-                            Text("Admin Name: " + Admin.name)
-                        }
-                        HStack{
-                            Text("This is for administration purposes only")
-                        }
-                        HStack{
-                            Text("Updated March, 2023")
-                        }
+            Form {
+                Section {
+                    NavigationLink(destination: RecentFeedback()) {
+                        Text("Recent Feedback")
                     }
                 }
             }

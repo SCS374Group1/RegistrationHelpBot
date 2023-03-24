@@ -24,6 +24,7 @@ struct ChatbotView: View {
 //variables to hold messages to be sent back and forth
     @State private var showDetails = false
     @State private var messageText = ""
+    @State private var feedbackMessage = ""
     @State var messages: [String] = ["Welcome to the Registration HelpBot. Can I help you?"]
     @State private var presentAlert = false
     @AppStorage ("toggleBubbleColor1") var toggleBubbleColor1 = false
@@ -58,8 +59,8 @@ struct ChatbotView: View {
                         Image(systemName: "square.and.arrow.up.trianglebadge.exclamationmark")
                     }
                     .alert("Feed Back", isPresented: $presentAlert, actions: {
-                        TextField("TextField", text: $messageText)
-                        Button("Send", action: {sendMessage(message: messageText)})
+                        TextField("TextField", text: $feedbackMessage)
+                        Button("Send", action: {sendFeedbackMessage(message: feedbackMessage)})
                     })
                     //updates student mailbox every time the chatbot view is loaded
                     .onAppear(){
@@ -331,6 +332,19 @@ struct ChatbotView: View {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1){
             withAnimation {
                 messages.append(getBotResponse(message: message))
+            }
+        }
+    }
+    
+    func sendFeedbackMessage(message: String) {
+        withAnimation {
+            messages.append("[USER]" + message)
+            self.feedbackMessage = ""
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+            withAnimation {
+                messages.append(sendFeedback(message: message, admin: 1))
             }
         }
     }

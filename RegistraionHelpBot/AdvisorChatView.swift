@@ -20,6 +20,7 @@ struct AdvisorChatView: View {
 //variables to hold messages to be sent back and forth
     @State private var showDetails = false
     @State private var messageText = ""
+    @State private var feedbackMessage = ""
     @State var messages: [String] = ["Welcome to the Registration HelpBot. Please type your message below that you wish to send."]
     @State private var presentAlert = false
     @AppStorage ("toggleBubbleColor1") var toggleBubbleColor1 = false
@@ -54,8 +55,8 @@ struct AdvisorChatView: View {
                         Image(systemName: "square.and.arrow.up.trianglebadge.exclamationmark")
                     }
                     .alert("Feed Back", isPresented: $presentAlert, actions: {
-                        TextField("TextField", text: $messageText)
-                        Button("Send", action: {sendMessage(message: messageText)})
+                        TextField("TextField", text: $feedbackMessage)
+                        Button("Send", action: {sendFeedbackMessage(message: feedbackMessage)})
                     })
                 }
                 //scrollable message view that simulates text messages between the user and the bot
@@ -218,6 +219,19 @@ struct AdvisorChatView: View {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1){
             withAnimation {
                 messages.append(sendAdvMessage(message: message, student: 1))
+            }
+        }
+    }
+    
+    func sendFeedbackMessage(message: String) {
+        withAnimation {
+            messages.append("[USER]" + message)
+            self.feedbackMessage = ""
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+            withAnimation {
+                messages.append(sendFeedback(message: message, admin: 1))
             }
         }
     }
