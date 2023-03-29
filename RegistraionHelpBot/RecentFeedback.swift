@@ -14,6 +14,14 @@ struct RecentFeedback: View {
 //variables to hold messages to be sent back and forth
     @State private var messageText = ""
     @State var messages: [String] = ["Welcome to the Registration HelpBot. Can I help you?"]
+    @AppStorage ("toggleBubbleColor1") var toggleBubbleColor1 = false
+    @AppStorage ("toggleBubbleColor2") var toggleBubbleColor2 = false
+    @AppStorage ("toggleBubbleColor3") var toggleBubbleColor3 = false
+    @AppStorage ("toggleBubbleColor4") var toggleBubbleColor4 = false
+    @AppStorage ("toggleBubbleColor5") var toggleBubbleColor5 = false
+    @AppStorage ("toggleBubbleColor6") var toggleBubbleColor6 = false
+    @AppStorage ("toggleBubbleColor7") var toggleBubbleColor7 = false
+    @AppStorage ("toggleBubbleColor8") var toggleBubbleColor8 = false
     let backgroundColor = Image("blue")
     
     var body: some View {
@@ -46,14 +54,88 @@ struct RecentFeedback: View {
                                                                             "[ADMIN]", with: "")
                             
                             HStack {
-                                Spacer()
-                                Text(newAdminMessage)
-                                    .padding()
-                                    .foregroundColor(.black)
-                                    .background(backgroundColor)
-                                    .cornerRadius(10)
-                                    .padding(.horizontal, 16)
-                                    .padding(.bottom, 10)
+                                if toggleBubbleColor1 {
+                                    Spacer()
+                                    Text(newAdminMessage)
+                                        .padding()
+                                        .foregroundColor(.black)
+                                        .background(Image("sea").resizable())
+                                        .cornerRadius(10)
+                                        .padding(.horizontal, 16)
+                                        .padding(.bottom, 10)
+                                } else if toggleBubbleColor2 {
+                                    Spacer()
+                                    Text(newAdminMessage)
+                                        .padding()
+                                        .foregroundColor(.white)
+                                        .background(Image("tree").resizable())
+                                        .cornerRadius(10)
+                                        .padding(.horizontal, 16)
+                                        .padding(.bottom, 10)
+                                } else if toggleBubbleColor3 {
+                                    Spacer()
+                                    Text(newAdminMessage)
+                                        .padding()
+                                        .foregroundColor(.black)
+                                        .background(Image("sand").resizable().opacity(0.8))
+                                        .cornerRadius(10)
+                                        .padding(.horizontal, 16)
+                                        .padding(.bottom, 10)
+                                }else if toggleBubbleColor4 {
+                                    Spacer()
+                                    Text(newAdminMessage)
+                                        .padding()
+                                        .foregroundColor(.white)
+                                        .background(Image("cyber").resizable())
+                                        .cornerRadius(10)
+                                        .padding(.horizontal, 16)
+                                        .padding(.bottom, 10)
+                                } else if toggleBubbleColor5 {
+                                    Spacer()
+                                    Text(newAdminMessage)
+                                        .padding()
+                                        .foregroundColor(.black)
+                                        .background(Image("yellow").resizable().opacity(0.8))
+                                        .cornerRadius(10)
+                                        .padding(.horizontal, 16)
+                                        .padding(.bottom, 10)
+                                } else if toggleBubbleColor6 {
+                                    Spacer()
+                                    Text(newAdminMessage)
+                                        .padding()
+                                        .foregroundColor(.white)
+                                        .background(Image("red").resizable().opacity(0.75))
+                                        .cornerRadius(10)
+                                        .padding(.horizontal, 16)
+                                        .padding(.bottom, 10)
+                                } else if toggleBubbleColor7 {
+                                    Spacer()
+                                    Text(newAdminMessage)
+                                        .padding()
+                                        .foregroundColor(.black)
+                                        .background(Image("green").resizable().opacity(0.8))
+                                        .cornerRadius(10)
+                                        .padding(.horizontal, 16)
+                                        .padding(.bottom, 10)
+                                } else if toggleBubbleColor8 {
+                                    Spacer()
+                                    Text(newAdminMessage)
+                                        .padding()
+                                        .foregroundColor(.black)
+                                        .background(Image("cyan").resizable().opacity(0.8))
+                                        .cornerRadius(10)
+                                        .padding(.horizontal, 16)
+                                        .padding(.bottom, 10)
+                                } else {
+                                    Spacer()
+                                    Text(newAdminMessage)
+                                        .padding()
+                                        .foregroundColor(.white)
+                                        .background(backgroundColor).opacity(0.8)
+                                        .cornerRadius(10)
+                                        .padding(.horizontal, 16)
+                                        .padding(.bottom, 10)
+                                }
                             }
                             //messages from bot
                         } else {

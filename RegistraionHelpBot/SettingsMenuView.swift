@@ -35,60 +35,36 @@ struct SettingsMenuView: View {
                 Section(header: Text("Text Bubble Background")) {
                     List {
                         VStack {
-                            Toggle("Camo", isOn: $toggleBubbleColor1)
-                                .background(Image("camo").resizable().frame(width: 60))
-                            if toggleBubbleColor1 {
-                                let backgroundColor = Image("camo")
-                            }
+                            Toggle("Cyan", isOn: $toggleBubbleColor8)
+                                .background(Image("cyan").resizable().frame(width: 60).opacity(0.8))
                         }
                         VStack {
-                            Toggle("Tree", isOn: $toggleBubbleColor2)
-                                .background(Image("tree").resizable().frame(width: 60))
-                            if toggleBubbleColor2 {
-                                let backgroundColor = Image("tree")
-                            }
+                            Toggle("Green", isOn: $toggleBubbleColor7)
+                                .background(Image("green").resizable().frame(width: 60).opacity(0.8))
                         }
                         VStack {
-                            Toggle("Naruto", isOn: $toggleBubbleColor3)
-                                .background(Image("naruto").resizable().frame(width: 60))
-                            if toggleBubbleColor3 {
-                                let backgroundColor = Image("naruto")
-                            }
-                        }
-                        VStack {
-                            Toggle("Cyber", isOn: $toggleBubbleColor4)
-                                .background(Image("cyber").resizable().frame(width: 60))
-                            if toggleBubbleColor4 {
-                                let backgroundColor = Image("cyber")
-                            }
+                            Toggle("Red", isOn: $toggleBubbleColor6)
+                                .background(Image("red").resizable().frame(width: 60).opacity(0.75))
                         }
                         VStack {
                             Toggle("Yellow", isOn: $toggleBubbleColor5)
                                 .background(Image("yellow").resizable().frame(width: 60))
-                            if toggleBubbleColor5 {
-                                let backgroundColor = Image("yellow")
-                            }
                         }
                         VStack {
-                            Toggle("Red", isOn: $toggleBubbleColor6)
-                                .background(Image("red").resizable().frame(width: 60))
-                            if toggleBubbleColor6 {
-                                let backgroundColor = Image("red")
-                            }
+                            Toggle("Cyber", isOn: $toggleBubbleColor4)
+                                .background(Image("cyber").resizable().frame(width: 60))
                         }
                         VStack {
-                            Toggle("Green", isOn: $toggleBubbleColor7)
-                                .background(Image("green").resizable().frame(width: 60))
-                            if toggleBubbleColor7 {
-                                let backgroundColor = Image("green")
-                            }
+                            Toggle("Desert", isOn: $toggleBubbleColor3)
+                                .background(Image("sand").resizable().frame(width: 60))
                         }
                         VStack {
-                            Toggle("Cyan", isOn: $toggleBubbleColor8)
-                                .background(Image("cyan").resizable().frame(width: 60))
-                            if toggleBubbleColor8 {
-                                let backgroundColor = Image("cyan")
-                            }
+                            Toggle("Forest", isOn: $toggleBubbleColor2)
+                                .background(Image("tree").resizable().frame(width: 60))
+                        }
+                        VStack {
+                            Toggle("Ocean", isOn: $toggleBubbleColor1)
+                                .background(Image("sea").resizable().frame(width: 60))
                         }
                     }
                 }

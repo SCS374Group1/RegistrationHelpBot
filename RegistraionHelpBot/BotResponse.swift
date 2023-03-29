@@ -197,30 +197,22 @@ if tempMessage.contains("how do i add a class"){
 
     //displays registrar's or advisor's contact info
  if tempMessage.contains("registrar email"){
-        /*-----STUB-----*/
         return "HelpFinReg@setonhill.edu"
     }else if tempMessage.contains("registrar phone"){
-        /*-----STUB-----*/
         return "(724) 830-1010"
     }else if tempMessage.contains("advisor phone"){
-        /*-----STUB-----*/
         return "Please contact registrar to find out the advisor's phone number if it is unknown to you."
     }else if tempMessage.contains("advisor email"){
-        /*-----STUB-----*/
         return "Please contact registrar to find out the advisor's email if it is unknown to you."
     }
 //questions regarding registration day
 if tempMessage.contains("what time does registration open") {
-        /*-----STUB-----*/
         return "Registration opens at 6am on your given registration day."
     } else if tempMessage.contains("what courses are available") {
-        /*-----STUB-----*/
         return "Please refer to the course catalog under the registration tab on MySHU."
     } else if tempMessage.contains("what course should i take") {
-        /*-----STUB-----*/
         return "Schedule a meeting with your advisor to discusse what courses are best for you to take at this time."
     } else if tempMessage.contains("how many seats are left") {
-        /*-----STUB-----*/
             return "To find this go to MySHU, then GriffinGate. Click on the Student tab and locate Course Registration and Advising. Next locate Add/Drop Courses and click then and then enter the course code for the course you wish to know about."
         }
 
@@ -235,29 +227,23 @@ if tempMessage.contains("what time does registration open") {
         //checks current student GPA based on the student who is logged in
         return "Your GPA is " + String(loadedStudentData[studentArrayIDNumber].gpa)  + "."
     }else if tempMessage.contains("at what gpa are you on academic probation") {
-        /*-----STUB-----*/
         return "Please refer to the registrar."
     }
 
 
 //questions regarding credits
     if tempMessage.contains("how many credits do i need for each grade level") {
-        /*-----STUB-----*/
         return "A minimum of 120 credits are needed to graduate at Seton Hill, meaning that per each grade level, approximately 30 credits are needed. This comes out to about 15 credits a semester."
     } else if tempMessage.contains("how many credits can i take per semester") {
-        /*-----STUB-----*/
         return "Students may take up to 17 credits per semester without extra charge, however, if they would like to, the student is able to overload up to 21 credits per semester. This requires registrar permission to do so."
     } else if tempMessage.contains("how much do extra credits cost") {
-        /*-----STUB-----*/
         return "As of August of 2022, extra credits come at a cost of $798 per extra credit up to 21 credits per semester. This cost includes any credits after 17."
     }else if tempMessage.contains("how many credits do i currently have") {
         //checks how many credits the student currently logged in has
         return "Currently, you have " + String(loadedStudentData[studentArrayIDNumber].credits) + " credits."
     }else if tempMessage.contains("how many credits do i need as an athlete") {
-        /*-----STUB-----*/
         return "As per the NCAA Athletic Scholarship Satisfactory Academic Progress Policy. Any student who receives an athletic scholarship while attending Seton Hill University is bound by the NCAA Division II academic progress regulations. This policy states that a full-time student must earn a minimum of 24 credits in each academic year, which equates to 12 credits a semester. This is on par with the full-time student requirements for Seton Hill."
     } else if tempMessage.contains("how many credits to be a full/part time student") {
-        /*-----STUB-----*/
         return "Registration for a minimum of 12 credits in a semester is required for full-time status at the undergraduate level, any number of credits below 12 is considered a part-time status."
     }else {
         return "I'm sorry, I could not process your request. Please submit a help ticket using the icon at the top right of your screen. Thank you!"
