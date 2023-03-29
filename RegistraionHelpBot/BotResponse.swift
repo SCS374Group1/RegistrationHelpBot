@@ -10,6 +10,10 @@ import Foundation
 //variable that holds the studentArrayID Number; defaults to 100 as this is out of bounds of the array (to enforce good security practices)
 public var studentArrayIDNumber = 100
 
+//message buffer variable created to hold a message in the event that a request cannot be processed to allow the user to specify whether they want their message sent to their advisor + the admin or not
+var messageBuffer = "null"
+let forwardingCode = Int.random(in: 1000..<10000)
+
 //function to check mailbox file and notify users if any messages have been posted
 func getMessages() -> String{
     //attempts to create and read from the file
@@ -34,6 +38,30 @@ func getMessages() -> String{
         return "No messages found."
     }
 }
+
+//function to check for messages forwarded to advisors from a student and prints the message to the advisor's chat view
+func getForwardMessages() -> String{
+    if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+        let fileURL = dir.appendingPathComponent("forwardMessage.txt")
+        
+        //reads from the forward mailbox and clears it after reading
+        do {
+            let inputText = try String(contentsOf: fileURL, encoding: .utf8)
+            let cleanupText = ""
+            try cleanupText.write(to: fileURL, atomically: false, encoding: .utf8)
+            if(inputText==""){
+                return "No new messages."
+            }else{
+                return "\"" + inputText + "\"" + " from Student 1."
+                
+            }
+        }
+        catch {print("ERROR RETRIEVING MESSAGE")}
+        
+    }
+    return "No messages found."
+}
+
 
 func getFeedbackMessages() -> String{
     //attempts to create and read from the file
@@ -245,8 +273,18 @@ if tempMessage.contains("what time does registration open") {
         return "As per the NCAA Athletic Scholarship Satisfactory Academic Progress Policy. Any student who receives an athletic scholarship while attending Seton Hill University is bound by the NCAA Division II academic progress regulations. This policy states that a full-time student must earn a minimum of 24 credits in each academic year, which equates to 12 credits a semester. This is on par with the full-time student requirements for Seton Hill."
     } else if tempMessage.contains("how many credits to be a full/part time student") {
         return "Registration for a minimum of 12 credits in a semester is required for full-time status at the undergraduate level, any number of credits below 12 is considered a part-time status."
-    }else {
-        return "I'm sorry, I could not process your request. Please submit a help ticket using the icon at the top right of your screen. Thank you!"
     }
+    
+    //handles messages that do not have a response
+    //first checks to see if the message contains the forwarding code, and if so, forwards the message
+    if tempMessage.contains("forward-" + String(forwardingCode)){
+        print(forwardToAdvisor(message: messageBuffer, advisor: 1))
+        return "Your message has been forwarded. Thank you!"
+    //otherwise, it stores the most recently sent message into the buffer and offers to forward this message to the advisor
+        //user must type in the forwarding code (with the randomly generated number) in order to forward the message to prevent spam
+    }else {
+        messageBuffer = message
+        return "I'm sorry, I could not process your request. If you would like this request to be forwarded to your advisor, please type \"Forward-" + String(forwardingCode) + "\"."
+}
 }
 

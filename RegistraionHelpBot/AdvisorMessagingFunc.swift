@@ -28,3 +28,26 @@ func sendAdvMessage(message: String , student: Int) -> String {
     //sends message back to advisor to confirm that message was sent
     return "Message \"" + message + "\" Sent to Student " + String(student)
 }
+
+//function to send messages from the student to the advisor
+func forwardToAdvisor(message: String , advisor: Int) -> String {
+    //defines mailbox text file
+    let file = "forwardMessage.txt"
+    //creates message to be saved
+    let newFWMessage = message.replacingOccurrences(of:"[USER]", with: "")
+    let FWText = newFWMessage
+    
+    //checks for mailbox file and writes to it if the file is found
+    if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+
+        let fileURL = dir.appendingPathComponent(file)
+
+        //attempts writing to file
+        do {
+            try FWText.write(to: fileURL, atomically: false, encoding: .utf8)
+        }
+        catch {print("ERROR TRYING TO WRITE TO MAILBOX FILE.")}
+    }
+    //sends message back to advisor to confirm that message was sent
+    return "Message \"" + message + "\" Sent to Advisor " + String(advisor)
+}

@@ -21,7 +21,7 @@ struct AdvisorChatView: View {
     @State private var showDetails = false
     @State private var messageText = ""
     @State private var feedbackMessage = ""
-    @State var messages: [String] = ["Welcome to the Registration HelpBot. Please type your message below that you wish to send."]
+    @State var messages: [String] = ["Welcome to the Registration HelpBot. Please type your message below that you wish to send.", getForwardMessages()]
     @State private var presentAlert = false
     @AppStorage ("toggleBubbleColor1") var toggleBubbleColor1 = false
     @AppStorage ("toggleBubbleColor2") var toggleBubbleColor2 = false
