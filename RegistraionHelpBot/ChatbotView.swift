@@ -317,6 +317,9 @@ struct ChatbotView: View {
                     .padding(.horizontal, 10)
                 }
                 .padding()
+                //locks screen into portrait mode
+            }.onAppear{
+                    UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
             }
             
             //hides default back button

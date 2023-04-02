@@ -90,6 +90,10 @@ struct SettingsMenuView: View {
             .navigationTitle("Settings")
             //hides default back button
         }.navigationBarBackButtonHidden(true)
+        //locks screen into portrait mode
+            .onAppear{
+                    UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
+            }
     }
 }
 

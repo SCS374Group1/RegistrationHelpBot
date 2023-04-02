@@ -94,7 +94,10 @@ struct MainMenuView: View {
             .padding([.bottom],160)
         }
                     .navigationBarHidden(true)
-        }
+            //locks screen in portrait orientation
+        }.onAppear{
+            UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
+    }
         //hides default back button
         .navigationBarBackButtonHidden(true)
     }

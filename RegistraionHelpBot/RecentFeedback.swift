@@ -178,6 +178,10 @@ struct RecentFeedback: View {
             
             //hides default back button
         }.navigationBarBackButtonHidden(true)
+        //locks screen into portrait orientation
+            .onAppear{
+                    UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
+            }
     }
 //function to send messages to the bot from the user
     func sendMessage(message: String) {
