@@ -34,47 +34,55 @@ struct SettingsMenuView: View {
                 }
                 Section(header: Text("Text Bubble Background")) {
                     List {
+                        //toggle button for cyan text bubble color
                         VStack {
                             Toggle("Cyan", isOn: $toggleBubbleColor8)
                                 .background(Image("cyan").resizable().frame(width: 60).opacity(0.8))
                         }
+                        //toggle button for green text bubble color
                         VStack {
                             Toggle("Green", isOn: $toggleBubbleColor7)
                                 .background(Image("green").resizable().frame(width: 60).opacity(0.8))
                         }
+                        //toggle button for red text bubble color
                         VStack {
                             Toggle("Red", isOn: $toggleBubbleColor6)
                                 .background(Image("red").resizable().frame(width: 60).opacity(0.75))
                         }
+                        //toggle button for yellow text bubble color
                         VStack {
                             Toggle("Yellow", isOn: $toggleBubbleColor5)
                                 .background(Image("yellow").resizable().frame(width: 60))
                         }
+                        //toggle button for cyber text bubble coloration
                         VStack {
                             Toggle("Cyber", isOn: $toggleBubbleColor4)
                                 .background(Image("cyber").resizable().frame(width: 60))
                         }
+                        //toggle button for desert text bubble coloration
                         VStack {
                             Toggle("Desert", isOn: $toggleBubbleColor3)
                                 .background(Image("sand").resizable().frame(width: 60))
                         }
+                        //toggle button for forest text bubble coloration
                         VStack {
                             Toggle("Forest", isOn: $toggleBubbleColor2)
                                 .background(Image("tree").resizable().frame(width: 60))
                         }
+                        //toggle button for ocean text bubble coloration
                         VStack {
                             Toggle("Ocean", isOn: $toggleBubbleColor1)
                                 .background(Image("sea").resizable().frame(width: 60))
                         }
                     }
                 }
-                //logout section
+                //logout section of settings menu
                 Section(header: Text("Logout")) {
-                    //sends user back to main menu as a logout
+                    //sends user back to MainMenuView as a logout function
                     NavigationLink("Logout", destination: MainMenuView())
                 }
             }
-            //implements custom back button that sends user back to the previous screen, either the student or advisor Chatbot view
+            //implements custom back button that sends user back to the previous screen, either ChatbotView for students, AdvisorChatView for Advisors, or RecentFeedback for Administrators
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
@@ -88,9 +96,9 @@ struct SettingsMenuView: View {
                 }
             }
             .navigationTitle("Settings")
-            //hides default back button
+            //hides default back button; removed for security purposes
         }.navigationBarBackButtonHidden(true)
-        //locks screen into portrait mode
+        //locks screen into portrait mode; for security purposes
             .onAppear{
                     UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
             }

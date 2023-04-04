@@ -14,6 +14,7 @@ struct RecentFeedback: View {
 //variables to hold messages to be sent back and forth
     @State private var messageText = ""
     @State var messages: [String] = ["Welcome to the Registration HelpBot. Can I help you?"]
+    //variables to manage togglebuttons on the SettingsMenuView, with each variable corresponding to a different toggle button
     @AppStorage ("toggleBubbleColor1") var toggleBubbleColor1 = false
     @AppStorage ("toggleBubbleColor2") var toggleBubbleColor2 = false
     @AppStorage ("toggleBubbleColor3") var toggleBubbleColor3 = false
@@ -22,6 +23,7 @@ struct RecentFeedback: View {
     @AppStorage ("toggleBubbleColor6") var toggleBubbleColor6 = false
     @AppStorage ("toggleBubbleColor7") var toggleBubbleColor7 = false
     @AppStorage ("toggleBubbleColor8") var toggleBubbleColor8 = false
+    //establishes default background color for the user message bubbles as blue
     let backgroundColor = Image("blue")
     
     var body: some View {
@@ -54,6 +56,7 @@ struct RecentFeedback: View {
                                                                             "[ADMIN]", with: "")
                             
                             HStack {
+                                //checks to see which toggle button(s) are toggled in the SettingsMenuView and sets the background color as appropriate
                                 if toggleBubbleColor1 {
                                     Spacer()
                                     Text(newAdminMessage)

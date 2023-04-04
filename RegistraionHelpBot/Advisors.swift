@@ -8,6 +8,7 @@
 import Foundation
 
 struct Advisor: Codable {
+    //id number for the advisors
     var advisorID : Int
     var name: String
     var username: String
