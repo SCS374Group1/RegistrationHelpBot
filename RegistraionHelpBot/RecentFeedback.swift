@@ -14,7 +14,7 @@ struct RecentFeedback: View {
 //variables to hold messages to be sent back and forth
     @State private var messageText = ""
     @State var messages: [String] = ["Welcome to the Registration HelpBot. Can I help you?"]
-    //variables to manage togglebuttons on the SettingsMenuView, with each variable corresponding to a different toggle button
+    //variables to manage togglebuttons on the SettingsMenuView, with each variable corresponding to a different toggle button; info pulled from SettingsMenuView
     @AppStorage ("toggleBubbleColor1") var toggleBubbleColor1 = false
     @AppStorage ("toggleBubbleColor2") var toggleBubbleColor2 = false
     @AppStorage ("toggleBubbleColor3") var toggleBubbleColor3 = false

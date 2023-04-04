@@ -31,8 +31,9 @@ struct AdvisorStudentListView: View {
                     }
                 }
             }
+            //removes default back button; for security purposes
         }.navigationBarBackButtonHidden(true)
-        //locks screen into portrait mode
+        //locks screen into portrait mode; for security purposes
             .onAppear{
                     UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
             }

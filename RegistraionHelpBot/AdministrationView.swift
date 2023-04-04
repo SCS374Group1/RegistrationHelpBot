@@ -22,7 +22,7 @@ struct AdministrationManagementView: View {
                 }
             }
         }.navigationBarBackButtonHidden(true)
-        //locks screen into portrait mode
+        //locks screen into portrait mode; done for security purposes
             .onAppear{
                     UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
             }
