@@ -7,11 +7,12 @@
 
 import Foundation
 
-//variable that holds the studentArrayID Number; defaults to 100 as this is out of bounds of the array (to enforce good security practices)
+//variable that holds the studentArrayID Number; defaults to 100 as this is out of bounds of the array (intentionally done to enforce good security practices)
 public var studentArrayIDNumber = 100
 
 //message buffer variable created to hold a message in the event that a request cannot be processed to allow the user to specify whether they want their message sent to their advisor + the admin or not
 var messageBuffer = "null"
+//establishes random forwarding code to be used in a given session
 let forwardingCode = Int.random(in: 1000..<10000)
 
 //function to check mailbox file and notify users if any messages have been posted
@@ -19,7 +20,7 @@ func getMessages() -> String{
     //attempts to create and read from the file
     do {
         if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-
+            //establishes file URL
             let fileURL = dir.appendingPathComponent("advisorMessages.txt")
 
             //reads file; if it is blank, send a specific message; otherwise, send message indicating that their is mail for the user
@@ -32,9 +33,11 @@ func getMessages() -> String{
                     
                 }
             }
+            //prints error message
             catch {print("ERROR RETRIEVING MAILBOX DATA")}
 
         }
+        //if no messages are found, responds as such
         return "No messages found."
     }
 }
@@ -42,13 +45,17 @@ func getMessages() -> String{
 //function to check for messages forwarded to advisors from a student and prints the message to the advisor's chat view
 func getForwardMessages() -> String{
     if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+        //establishes fileURL
         let fileURL = dir.appendingPathComponent("forwardMessage.txt")
         
         //reads from the forward mailbox and clears it after reading
         do {
+            //writes file to inputText
             let inputText = try String(contentsOf: fileURL, encoding: .utf8)
             let cleanupText = ""
+            //purges file contents
             try cleanupText.write(to: fileURL, atomically: false, encoding: .utf8)
+            //returns a response based on whether any input was received from the file
             if(inputText==""){
                 return "No new messages."
             }else{
@@ -56,9 +63,11 @@ func getForwardMessages() -> String{
                 
             }
         }
+        //error message
         catch {print("ERROR RETRIEVING MESSAGE")}
         
     }
+    //returns this if no messages are found
     return "No messages found."
 }
 
@@ -67,7 +76,7 @@ func getFeedbackMessages() -> String{
     //attempts to create and read from the file
     do {
         if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-
+            //establishes fileURL
             let fileURL = dir.appendingPathComponent("feedbackMessages.txt")
 
             //reads file; if it is blank, send a specific message; otherwise, send message indicating that their is mail for the user
@@ -76,10 +85,12 @@ func getFeedbackMessages() -> String{
                 if(inputText==""){
                     return "You have no new messages."
                 }else{
+                    //uses keyword prompt so user has to manually input their desire to read the message
                     return "You have a new message. Type \"Read\" to view."
                     
                 }
             }
+            //error message
             catch {print("ERROR RETRIEVING MAILBOX DATA")}
 
         }
@@ -105,7 +116,7 @@ func getBotResponse(message: String) -> String {
         return "Hey. While I may just be a robot, I care about your mental health and wellbeing. Mental health is a serious topic. If you are experiencing harmful thoughts, please contact counseling services by emailing counselingcenter@setonhill.edu or by calling Campus Police to get a counseling appointment scheduled."
     }
     
-    //checks to see if user wishes to access their mailbox
+    //checks to see if a student user wishes to access their mailbox
     if tempMessage.contains("mailbox"){
         //declares filepath to check for mailbox
         if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
@@ -159,7 +170,7 @@ func getBotResponse(message: String) -> String {
         return "On the day of registration, navigate to GriffinGate, which can be found here: https://griffingate.setonhill.edu/ics. Click \"Student\" and then \"Course Registration and Advising\". There will be an \"Add/Drop\" menu on the right side of the screen. Select the \"Add/Drop Courses\" option. Finally, make sure you also have the correct term selected. This is where you select the courses you wish to register for."
     }else if tempMessage.contains("when do i register"){
         //detects which year classification a student falls under and outputs answer based on this value
-        //checks student object array for value based on the student who is logged in
+        //checks array created from studentInformation objects with ModelData and Student object for value based on the student who is logged in
         let studentYearClassification = loadedStudentData[studentArrayIDNumber].grade.lowercased()
         switch studentYearClassification {
             case "freshman":
@@ -212,12 +223,14 @@ if tempMessage.contains("how do i add a class"){
         //establishes variable to hold current date
         let todayDate = Date.now;
         //evaluates whether the add/drop period closing date has passed or is in the future and responds accordingly
+            //date is in the past
         if(closingDate < todayDate){
             return "The Add/Drop period for the Spring 2023 semester closed on " + closingDateString + "."
-
+            //date is in the future
         }else if (closingDate > todayDate){
             return "The Add/Drop period for the Spring 2023 semester closes on " + closingDateString + "."
         }else {
+            //date is the current date
             return "The Add/Drop period for the Spring 2023 semester closes today, " + closingDateString + "."
         }
     }
@@ -276,13 +289,15 @@ if tempMessage.contains("what time does registration open") {
     }
     
     //handles messages that do not have a response
-    //first checks to see if the message contains the forwarding code, and if so, forwards the message
+        //first checks to see if the message contains the forwarding code, and if so, forwards the message
     if tempMessage.contains("forward-" + String(forwardingCode)){
+        //uses forwardToAdvisor function found in AdvisorMessagingFunc
         print(forwardToAdvisor(message: messageBuffer, advisor: 1))
         return "Your message has been forwarded. Thank you!"
     //otherwise, it stores the most recently sent message into the buffer and offers to forward this message to the advisor
-        //user must type in the forwarding code (with the randomly generated number) in order to forward the message to prevent spam
+        //user must type in the forwarding code (with the randomly generated forwarding number) in order to forward the message to prevent spam
     }else {
+        //message buffer to store the most recently sent message in the event that the student would like to forward it to their advisor
         messageBuffer = message
         return "I'm sorry, I could not process your request. If you would like this request to be forwarded to your advisor, please type \"Forward-" + String(forwardingCode) + "\"."
 }
