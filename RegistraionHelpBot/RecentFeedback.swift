@@ -179,13 +179,15 @@ struct RecentFeedback: View {
                 .padding()
             }
             
-            //hides default back button
+            //enables device to be rotated without allowing access to other screens by "locking" it into portrait mode
+        }.onAppear{
+            UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
+            //hides default back button; for security purposes
         }.navigationBarBackButtonHidden(true)
-        //locks screen into portrait orientation
-            .onAppear{
-                    UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
-            }
-    }
+            //modifies navigation view so that it does not allow the user to pop up another window with a separate screen on it
+            .navigationViewStyle(StackNavigationViewStyle())
+}
+    
 //function to send messages to the bot from the user
     func sendMessage(message: String) {
         withAnimation {

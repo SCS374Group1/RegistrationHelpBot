@@ -97,13 +97,14 @@ struct MainMenuView: View {
             .padding([.bottom],160)
         }
                     .navigationBarHidden(true)
-            //locks screen in portrait orientation; for security purposes
+            //enables device to be rotated without allowing access to other screens by "locking" it into portrait mode
         }.onAppear{
             UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
-    }
-        //hides default back button' for security purposes
-        .navigationBarBackButtonHidden(true)
-    }
+            //hides default back button; for security purposes
+        }.navigationBarBackButtonHidden(true)
+        //modifies navigation view so that it does not allow the user to pop up another window with a separate screen on it
+            .navigationViewStyle(StackNavigationViewStyle())
+        }
     //function to authenticate user based on username/password pairs obtained from JSON files
     func authenticateUser(username: String, password: String){
         //boolean to check for whether a successful authentication occurred or if all username/password have been searcher
