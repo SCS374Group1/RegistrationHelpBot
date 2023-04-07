@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+
 //The main menu view of the Chatbot
 struct MainMenuView: View {
     //variable to hold whether dark mode is on or off

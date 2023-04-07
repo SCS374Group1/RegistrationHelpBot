@@ -172,20 +172,20 @@ func getBotResponse(message: String) -> String {
         //detects which year classification a student falls under and outputs answer based on this value
         //checks array created from studentInformation objects with ModelData and Student object for value based on the student who is logged in
         let studentYearClassification = loadedStudentData[studentArrayIDNumber].grade.lowercased()
+        //NOTE: This information is up to date as of the Spring 2023 semester
         switch studentYearClassification {
             case "freshman":
-                return "As a Freshman, your schedule date for Spring 2023 is Friday, 11/4/2022 at 6:00 AM."
+                return "As a Freshman, your schedule date for Fall 2023 is Friday, 04/21/2023 at 6:00 AM."
             case "sophomore":
-                return "As a Sophomore, your schedule date for Spring 2023 is Thursday, 11/3/2022 at 6:00 AM."
+                return "As a Sophomore, your schedule date for Fall 2023 is Thursday, 04/20/2023 at 6:00 AM."
             case "junior":
-                return "As a Junior, your schedule date for Spring 2023 is Wednesday, 11/2/2022 at 6:00 AM."
+                return "As a Junior, your schedule date for Fall 2023 is Wednesday, 04/19/2023 at 6:00 AM."
             case "senior":
-                return "As a Senior, your schedule date for Spring 2023 is Tuesday, 11/1/2022 at 6:00 AM."
+                return "As a Senior, your schedule date for Fall 2023 is Tuesday, 04/18/2023 at 6:00 AM."
             case "graduate":
-                return "As a Graduate, your schedule date for Spring 2023 is Monday, 10/31/2022 at 6:00 AM."
+                return "As a Graduate, your schedule date for Fall 2023 is Monday, 04/17/2023 at 6:00 AM."
             default:
                 return "Sorry, I'm having an issue retrieving your status. Please try again later or open a support ticket."
-            
         }
     }else if tempMessage.contains("do i have any holds on my account"){
         //checks if student who is logged in has holds on their account
@@ -217,7 +217,7 @@ if tempMessage.contains("how do i add a class"){
         return "Dropping a class before the add/drop period closes is easy!\nLog into MySHU and go to GriffinGate. Click \"Student\" and then \"Course Registration and Advising\". There will be an \"Add/Drop\" menu on the right side of the screen. Select the \"Add/Drop Courses\" option; make sure you also have the correct term selected. Select the checkbox next to the course(s) and then click the \"Drop Course\" button!"
     }else if tempMessage.contains("when does the add/drop period close"){
         //establishes variable to hold add/drop period closing date
-        let closingDate = Date(timeIntervalSinceReferenceDate: 696124800)
+        let closingDate = Date(timeIntervalSinceReferenceDate: 714614400)
         //converts closing date to string to output with return statement
         let closingDateString = closingDate.formatted(.dateTime.day().month().year())
         //establishes variable to hold current date

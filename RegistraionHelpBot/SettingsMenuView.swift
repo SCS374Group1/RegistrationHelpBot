@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+//imports notification utilities
+import UserNotifications
 
 struct SettingsMenuView: View {
     
@@ -29,8 +31,38 @@ struct SettingsMenuView: View {
                 Section(header: Text("Display")) {
                     Toggle("Dark Mode", isOn: $isDarkMode)
                 }
+                //section for notifications
                 Section(header: Text("Notifications")) {
-                    Toggle("Notifications", isOn: $toggleNotifications)
+                    //toggle button that toggles whether to enable a notification
+                    Toggle("Set Notifications", isOn: $toggleNotifications)
+                    //if the menu is loaded and the toggle button is true, clears all notifications and creates a new notification (ensures that a notification is sent and prevents duplicates)
+                        .onAppear(){
+                            if(toggleNotifications){
+                                UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+                                createNotification()
+                            }
+                        }
+                    //when the toggle is changed, either set a notification or delete a notification (if one was already set)
+                        .onChange(of: toggleNotifications) { value in
+                            print(value)
+                            //if the toggle is on, request permission for the notification if it has not been granted already
+                            if(toggleNotifications){
+                                UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+                                    if success {
+                                        print("Permission to send notifications granted.")
+                                    } else if let error = error {
+                                        //prints error if permission request encounters an error
+                                        print(error.localizedDescription)
+                                    }
+                                }
+                                //creates the notification
+                                createNotification()
+                            }else {
+                                //removes notifications if the toggle is switched off
+                                UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
+                                print("Notifcations Removed.");
+                            }
+                        }
                 }
                 Section(header: Text("Text Bubble Background")) {
                     List {
@@ -110,4 +142,75 @@ struct SettingsMenuView_Previews: PreviewProvider {
     static var previews: some View{
         SettingsMenuView()
     }
+}
+
+//function to create a registration day notification
+func createNotification(){
+    //creates notification content
+    let content = UNMutableNotificationContent()
+    content.title = "Your Scheduling Day is Tomorrow!"
+    content.subtitle = "Your scheduling day is tomorrow at 6am. Make sure to get up early!"
+    content.sound = UNNotificationSound.default
+    
+    //creates date for notification based on user's grade status
+    var dateComponents = DateComponents()
+    dateComponents.calendar = Calendar.current
+    //freshman date
+    if(loadedStudentData[studentArrayIDNumber].grade == "Freshman"){
+        dateComponents.year = 2023
+        dateComponents.month = 4
+        dateComponents.day = 20
+        dateComponents.hour = 7
+        dateComponents.minute = 0
+    //sophomore date
+    }else if(loadedStudentData[studentArrayIDNumber].grade == "Sophomore"){
+        dateComponents.year = 2023
+        dateComponents.month = 4
+        dateComponents.day = 19
+        dateComponents.hour = 7
+        dateComponents.minute = 0
+    //junior date
+    }else if(loadedStudentData[studentArrayIDNumber].grade == "Junior"){
+        dateComponents.year = 2023
+        dateComponents.month = 4
+        dateComponents.day = 18
+        dateComponents.hour = 7
+        dateComponents.minute = 0
+    //senior date
+    }else if(loadedStudentData[studentArrayIDNumber].grade == "Senior"){
+        dateComponents.year = 2023
+        dateComponents.month = 4
+        dateComponents.day = 17
+        dateComponents.hour = 7
+        dateComponents.minute = 0
+    //graduate student date
+    }else if(loadedStudentData[studentArrayIDNumber].grade == "Graduate"){
+        dateComponents.year = 2023
+        dateComponents.month = 4
+        dateComponents.day = 16
+        dateComponents.hour = 7
+        dateComponents.minute = 0
+    //sends error report to admin if student's information cannot be found
+    }else{
+       var reportError = sendFeedback(message: "Student " + String(studentArrayIDNumber) + " attempted to create a notification, but their grade level could not be determined.", admin: 1)
+        print(reportError)
+    }
+    
+    //creates the trigger for the notification
+    let trigger = UNCalendarNotificationTrigger(
+             dateMatching: dateComponents, repeats: false)
+    
+    //creates the notification request to be passed to the system
+    let uuidString = UUID().uuidString
+    let request = UNNotificationRequest(identifier: uuidString,
+                content: content, trigger: trigger)
+
+    //schedules the notification request with the system
+    let notificationCenter = UNUserNotificationCenter.current()
+    notificationCenter.add(request) { (error) in
+       if error != nil {
+          print("ERROR CREATING NOTIFICATION")
+       }
+    }
+
 }
