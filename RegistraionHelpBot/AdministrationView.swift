@@ -20,6 +20,11 @@ struct AdministrationManagementView: View {
                         Text("Recent Feedback")
                     }
                 }
+                Section {
+                    NavigationLink(destination: NeedsAttention()) {
+                        Text("Needs Attention")
+                    }
+                }
             }
             //enables device to be rotated without allowing access to other screens by "locking" it into portrait mode
         }.onAppear{

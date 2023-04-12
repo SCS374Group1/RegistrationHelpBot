@@ -98,6 +98,21 @@ func getFeedbackMessages() -> String{
     }
 }
 
+func getRecentFeedback(inputText3: String) -> String {
+    do {
+        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+            let fileURL = dir.appendingPathComponent("needsAttention.txt")
+            do {
+                let inputText2 = try NSString(contentsOf: fileURL, encoding: String.Encoding.utf8.rawValue)
+                var inputText3 = inputText2 as String
+                return inputText3
+            }
+            catch{print("ERROR RETRIVING FEEDBACK DATA")}
+        }
+    }
+    return inputText3
+}
+
 //checks to see whether the bot is able to respond to a given user input
 func getBotResponse(message: String) -> String {
     //converts user message to lowercase values for easier comparison
@@ -148,12 +163,10 @@ func getBotResponse(message: String) -> String {
             //reads from the mailbox and clears it after reading
             do {
                 let inputText = try String(contentsOf: fileURL, encoding: .utf8)
-                let cleanupText = ""
-                try cleanupText.write(to: fileURL, atomically: false, encoding: .utf8)
                 if(inputText==""){
                     return "No new messages."
                 }else{
-                    return "Most recent message is: \"" + inputText + "\""
+                    return "Most recent message is: \"" + inputText + "\"Please type \"Save\" to send messages to the Needs Attention file"
                     
                 }
             }
@@ -161,6 +174,32 @@ func getBotResponse(message: String) -> String {
 
         }
         return "No messages found."
+    }
+    
+    if tempMessage.contains("save") {
+        var inputText2 = ""
+        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+            let fileURL = dir.appendingPathComponent("feedbackMessages.txt")
+            do {
+                let inputText = try String(contentsOf: fileURL, encoding: .utf8)
+                inputText2 = inputText
+                let cleanupText = ""
+                try cleanupText.write(to: fileURL, atomically: false, encoding: .utf8)
+            }
+            catch{print("ERROR RETRIVING MESSAGE")}
+        }
+        let file = "needsAttention.txt"
+        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+            let fileURL = dir.appendingPathComponent(file)
+            do {
+                let fileHandle = try FileHandle(forUpdating: fileURL)
+                fileHandle.seekToEndOfFile()
+                fileHandle.write(inputText2.data(using: .utf8)!)
+                fileHandle.closeFile()
+            }
+            catch{print("ERROR")}
+        }
+        return inputText2
     }
 //default prompt detection and subsequent responses
     //questions regarding the registration process
