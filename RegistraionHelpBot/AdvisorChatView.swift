@@ -17,12 +17,15 @@ struct AdvisorChatView: View {
     //variable to hold botIcon Image
     let botIcon = Image("Outlined RegistrationHelpbot Icon")
     
-//variables to hold messages to be sent back and forth
+
     @State private var showDetails = false
+    //variables to hold messages to be sent back and forth
     @State private var messageText = ""
     @State private var feedbackMessage = ""
+    //calls getForwardedMessages function from the BotResponse file
     @State var messages: [String] = ["Welcome to the Registration HelpBot. Please type your message below that you wish to send.", getForwardMessages()]
     @State private var presentAlert = false
+    //variables to hold the state of the toggle buttons for the message bubble colors; info pulled from SettingsMenuView
     @AppStorage ("toggleBubbleColor1") var toggleBubbleColor1 = false
     @AppStorage ("toggleBubbleColor2") var toggleBubbleColor2 = false
     @AppStorage ("toggleBubbleColor3") var toggleBubbleColor3 = false
@@ -31,6 +34,7 @@ struct AdvisorChatView: View {
     @AppStorage ("toggleBubbleColor6") var toggleBubbleColor6 = false
     @AppStorage ("toggleBubbleColor7") var toggleBubbleColor7 = false
     @AppStorage ("toggleBubbleColor8") var toggleBubbleColor8 = false
+    //default background color for user text bubbles
     let backgroundColor = Image("blue")
 
     var body: some View {
@@ -54,7 +58,7 @@ struct AdvisorChatView: View {
                     } label: {
                         Image(systemName: "square.and.arrow.up.trianglebadge.exclamationmark")
                     }
-                    .alert("Feed Back", isPresented: $presentAlert, actions: {
+                    .alert("Feedback", isPresented: $presentAlert, actions: {
                         TextField("TextField", text: $feedbackMessage)
                         Button("Send", action: {sendFeedbackMessage(message: feedbackMessage)})
                     })
@@ -67,8 +71,8 @@ struct AdvisorChatView: View {
                             //replaces [ADV] tag with blank space
                             let newAdMessage = message.replacingOccurrences(of:
                                                                                 "[ADV]", with: "")
-                            
                             HStack {
+                                //checks to see which toggles are enabled for text bubble background color functionality
                                     if toggleBubbleColor1 {
                                         Spacer()
                                         Text(newAdMessage)
@@ -176,10 +180,12 @@ struct AdvisorChatView: View {
                         .background(Color.gray.opacity(0.1))
                         .cornerRadius(10)
                         .onSubmit {
+                            //sendMessage function from this file used
                             sendMessage(message: messageText)
                         }
                     //send icon to send messages
                     Button {
+                        //sendMessage function from this file used
                         sendMessage(message: messageText)
                     } label: {
                         Image(systemName: "paperplane.fill")
@@ -194,7 +200,7 @@ struct AdvisorChatView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
-                        //sends user back to screen they were previously on, in this case the Student List
+                        //sends user back to screen they were previously on, in this case the AdvisorStudentListView
                         dismiss()
                     } label: {
                         HStack {
@@ -204,12 +210,13 @@ struct AdvisorChatView: View {
                     }
                 }
             }
-            //hides default back button
+            //enables device to be rotated without allowing access to other screens by "locking" it into portrait mode
+        }.onAppear{
+            UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
+            //hides default back button; for security purposes
         }.navigationBarBackButtonHidden(true)
-        //locks screen into portrait orientation
-            .onAppear{
-                    UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
-            }
+        //modifies navigation view so that it does not allow the user to pop up another window with a separate screen on it
+            .navigationViewStyle(StackNavigationViewStyle())
     }
 
 //function to send messages to the bot from the user
@@ -219,14 +226,14 @@ struct AdvisorChatView: View {
             self.messageText = ""
         }
         
-//sends message to bot and to desired student
+//sends message to bot and to desired student using sendAdvMessage function from AdvisorMessagingFucntion
         DispatchQueue.main.asyncAfter(deadline: .now() + 1){
             withAnimation {
                 messages.append(sendAdvMessage(message: message, student: 1))
             }
         }
     }
-    
+//sends the feedback message
     func sendFeedbackMessage(message: String) {
         withAnimation {
             messages.append("[USER]" + message)

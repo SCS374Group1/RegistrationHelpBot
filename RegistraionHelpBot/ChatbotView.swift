@@ -25,8 +25,10 @@ struct ChatbotView: View {
     @State private var showDetails = false
     @State private var messageText = ""
     @State private var feedbackMessage = ""
+    //array which holds the message log
     @State var messages: [String] = ["Welcome to the Registration HelpBot. Can I help you?"]
     @State private var presentAlert = false
+    //variables to handle the toggling of the chat bubble color, data obtained thru SettingsMenuView
     @AppStorage ("toggleBubbleColor1") var toggleBubbleColor1 = false
     @AppStorage ("toggleBubbleColor2") var toggleBubbleColor2 = false
     @AppStorage ("toggleBubbleColor3") var toggleBubbleColor3 = false
@@ -35,6 +37,7 @@ struct ChatbotView: View {
     @AppStorage ("toggleBubbleColor6") var toggleBubbleColor6 = false
     @AppStorage ("toggleBubbleColor7") var toggleBubbleColor7 = false
     @AppStorage ("toggleBubbleColor8") var toggleBubbleColor8 = false
+    //default text bubble background color
     let backgroundColor = Image("blue")
     
     var body: some View {
@@ -48,6 +51,7 @@ struct ChatbotView: View {
                     .buttonStyle(BlueButton())
                     Spacer()
                         .frame(minWidth: 120, maxWidth: 120)
+                    //logo
                     botIcon
                         .resizable()
                         .frame(width: 48.0, height: 48.0)
@@ -58,11 +62,11 @@ struct ChatbotView: View {
                     } label: {
                         Image(systemName: "square.and.arrow.up.trianglebadge.exclamationmark")
                     }
-                    .alert("Feed Back", isPresented: $presentAlert, actions: {
+                    .alert("Feedback", isPresented: $presentAlert, actions: {
                         TextField("TextField", text: $feedbackMessage)
                         Button("Send", action: {sendFeedbackMessage(message: feedbackMessage)})
                     })
-                    //updates student mailbox every time the chatbot view is loaded
+                    //updates student mailbox every time the chatbot view is loaded; getMessages function is found in BotResponse file
                     .onAppear(){
                         messages.append(getMessages())
                     }
@@ -78,6 +82,7 @@ struct ChatbotView: View {
                                                                             "[USER]", with: "")
                             
                             HStack {
+                                //toggles user text bubble color based on which toggles are enabled in SettingsMenuView
                                     if toggleBubbleColor1 {
                                         Spacer()
                                         Text(newMessage)
@@ -155,7 +160,7 @@ struct ChatbotView: View {
                                         Text(newMessage)
                                             .padding()
                                             .foregroundColor(.white)
-                                            .background(backgroundColor).opacity(0.8)
+                                            .background(backgroundColor.resizable()).opacity(0.8)
                                             .cornerRadius(10)
                                             .padding(.horizontal, 16)
                                             .padding(.bottom, 10)
@@ -301,8 +306,6 @@ struct ChatbotView: View {
                     }
                 }
                 
-                
-                
                 //text field for the user to type their message in to; allows uers to send the message by hitting enter or clicking the send icon
                 HStack {
                     TextField("Type something", text: $messageText)
@@ -310,10 +313,12 @@ struct ChatbotView: View {
                         .background(Color.gray.opacity(0.1))
                         .cornerRadius(10)
                         .onSubmit {
+                            //sendMessage function in this file
                             sendMessage(message: messageText)
                         }
                     //send icon to send messages
                     Button {
+                        //sendMessage function in this file
                         sendMessage(message: messageText)
                     } label: {
                         Image(systemName: "paperplane.fill")
@@ -323,14 +328,17 @@ struct ChatbotView: View {
                     .padding(.horizontal, 10)
                 }
                 .padding()
-                //locks screen into portrait mode
-            }.onAppear{
-                    UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
             }
-            
-            //hides default back button
+            //enables device to be rotated without allowing access to other screens by "locking" it into portrait mode
+        }.onAppear{
+            UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
+            //hides default back button; for security purposes
         }.navigationBarBackButtonHidden(true)
-    }
+        //modifies navigation view so that it does not allow the user to pop up another window with a separate screen on it
+
+            .navigationViewStyle(StackNavigationViewStyle())
+        }
+    
 //function to send messages to the bot from the user
     func sendMessage(message: String) {
         withAnimation {
@@ -340,6 +348,7 @@ struct ChatbotView: View {
 //creates a delay between bot and user messages to simulate a real-world conversation
         DispatchQueue.main.asyncAfter(deadline: .now() + 1){
             withAnimation {
+                //gets bot response using getBotResponse function in BotResponse file
                 messages.append(getBotResponse(message: message))
             }
         }

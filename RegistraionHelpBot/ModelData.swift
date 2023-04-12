@@ -10,13 +10,14 @@
 import Foundation
 public class ModelData{
     
-    //creates array to hold Advisor objects
+    //creates array to hold Advisor objects created from advisorInformation.json file
     @Published var advisorData = [Advisor]()
-    //creates array to hold Student objects
+    //creates array to hold Student objects created from studentInformation.json file
     @Published var studentData = [Student]()
     //creates array to hold Admin objects
     @Published var adminData = [Admin]()
     
+    //initializer that loads the data from the json files (advisorInformation, studentInformation, and adminInformation) and sorts each object by their ID number
     init(){
         load()
         sort()
@@ -24,7 +25,7 @@ public class ModelData{
     //loads data from JSON into objects
     func load(){
         //LOADING FOR ADVISOR FILE
-        //tries to open advisor file
+        //tries to open advisorInformation.json file
         if let fileLocation = Bundle.main.url(forResource: "advisorInformation", withExtension: "json"){
            
             //attempts to load data from file; catches errors if they arise
@@ -42,7 +43,7 @@ public class ModelData{
         }
         
         //LOADING FOR STUDENT FILE
-        //tries to open student file
+        //tries to open studentInformation.json file
         if let fileLocation = Bundle.main.url(forResource: "studentInformation", withExtension: "json"){
            
             //attempts to load data from file; catches errors if they arise
@@ -58,8 +59,8 @@ public class ModelData{
                 print(error)
             }
         }
-        //LOADING FOR STUDENT FILE
-        //tries to open student file
+        //LOADING FOR ADMIN FILE
+        //tries to open admin file
         if let fileLocation = Bundle.main.url(forResource: "adminInformation", withExtension: "json"){
            
             //attempts to load data from file; catches errors if they arise
@@ -80,9 +81,10 @@ public class ModelData{
         
     }
     
-    //sorts JSON data based on advisor ID field
+    //sorts JSON data in all JSON object arrays (student, advisor, admin) based on ID field
     func sort(){
         self.advisorData = self.advisorData.sorted(by: {$0.advisorID < $1.advisorID})
         self.studentData = self.studentData.sorted(by: {$0.studentID < $1.studentID})
+        self.adminData = self.adminData.sorted(by: {$0.adminID < $1.adminID})
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+
 //The main menu view of the Chatbot
 struct MainMenuView: View {
     //variable to hold whether dark mode is on or off
@@ -14,17 +15,20 @@ struct MainMenuView: View {
     //variables to hold username and password for comparison
     @State private var username = ""
     @State private var password = ""
-    //variables to hold student, advisor, and admin
+    //variables to hold student, advisor, and admin data pulled using ModelData file from the corresponding JSON files
     let loadedAdvisorData = ModelData().advisorData
     let loadedStudentData = ModelData().studentData
     let loadedAdminData = ModelData().adminData
     
-    //variables to hold info about dynamic borders
+    //variables to hold info about dynamic borders; highlights the username and password fields in red if incorrect credentials are provided
     @State private var defaultInputBorders = 2
     @State private var wrongCredentials = 0
     //variables to determine which screen should be displayed following a successful login
+        //showingStudentLoginScreen sends user to ChatbotView
     @State private var showingStudentLoginScreen = false
+        //showingAdvisorLoginScreen sends users to AdvisorStudentListView
     @State private var showingAdvisorLoginScreen = false
+        //showingAdminLoginScreen sends users to RecentFeedback
     @State private var showingAdminLoginScreen = false
     //variable to hold botIcon Image
     let botIcon = Image("Outlined RegistrationHelpbot Icon")
@@ -32,7 +36,7 @@ struct MainMenuView: View {
         NavigationView {
                     //ZStack holds the background elements as well as the actual app items
             ZStack{
-            //background circle
+            //background circles for decorative purposes
             Circle()
                 .scale(2)
                 .foregroundColor(.gray.opacity(0.25))
@@ -70,20 +74,20 @@ struct MainMenuView: View {
                     .cornerRadius(10)
                     .border(.black, width: CGFloat(defaultInputBorders))
                     .border(.red.opacity(0.5), width: CGFloat(wrongCredentials))
-                //login button that calls the authenticate function, which authenticates an inputted username and password
+                //login button that calls the authenticateUser function in this file, which authenticates an inputted username and password against data pulled from the JSON files, simulatign a proper login
                 Button("Login"){
                     authenticateUser(username: username,password: password)
                 }.foregroundColor(Color.white)
                     .frame(width:200, height:50)
                     .background(Color.blue)
                     .cornerRadius(10)
-                //NavigationLink to go to Student view if the login was a student login
+                //NavigationLink to go to Student view if the login was a student login; goes to ChatbotView
                 NavigationLink(destination: ChatbotView(), isActive: $showingStudentLoginScreen){
                     //hides back arrow so that users do not simply go back to the main screen, but have to log out first
                 }.navigationBarBackButtonHidden(true)
-                //NavigationLink to go to Advisor view if the login was an advisor login
+                //NavigationLink to go to Advisor view if the login was an advisor login; goes to AdvisorStudentListView
                 NavigationLink(destination: AdvisorStudentListView(), isActive: $showingAdvisorLoginScreen){
-                    //hides back arrow so that users do not simply go back to the main screen, but have to log out first
+                    //hides back arrow so that users do not simply go back to the main screen, but have to log out first; goes to RecentFeedback
                 }.navigationBarBackButtonHidden(true)
                 //NavigationLink to go to Admin view if the login was an admin login
                 NavigationLink(destination: AdministrationManagementView(), isActive: $showingAdminLoginScreen){
@@ -94,13 +98,14 @@ struct MainMenuView: View {
             .padding([.bottom],160)
         }
                     .navigationBarHidden(true)
-            //locks screen in portrait orientation
+            //enables device to be rotated without allowing access to other screens by "locking" it into portrait mode
         }.onAppear{
             UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
-    }
-        //hides default back button
-        .navigationBarBackButtonHidden(true)
-    }
+            //hides default back button; for security purposes
+        }.navigationBarBackButtonHidden(true)
+        //modifies navigation view so that it does not allow the user to pop up another window with a separate screen on it
+            .navigationViewStyle(StackNavigationViewStyle())
+        }
     //function to authenticate user based on username/password pairs obtained from JSON files
     func authenticateUser(username: String, password: String){
         //boolean to check for whether a successful authentication occurred or if all username/password have been searcher

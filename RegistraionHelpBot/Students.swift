@@ -19,6 +19,7 @@ struct Student: Codable, Identifiable {
         case hasAccountHolds
     }
     var id = UUID()
+    //id number for the students
     var studentID : Int
     var gpa : Float
     var credits : Int
