@@ -150,7 +150,7 @@ struct AdvisorChatView: View {
                                         Text(newAdMessage)
                                             .padding()
                                             .foregroundColor(.white)
-                                            .background(backgroundColor).opacity(0.8)
+                                            .background(backgroundColor.resizable()).opacity(0.8)
                                             .cornerRadius(10)
                                             .padding(.horizontal, 16)
                                             .padding(.bottom, 10)

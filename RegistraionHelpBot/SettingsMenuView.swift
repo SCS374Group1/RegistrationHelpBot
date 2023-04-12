@@ -155,6 +155,10 @@ func createNotification(){
     //creates date for notification based on user's grade status
     var dateComponents = DateComponents()
     dateComponents.calendar = Calendar.current
+    //does not create notification if the user is an advisor or administrator
+    if(studentArrayIDNumber == 100){
+        return
+    }
     //freshman date
     if(loadedStudentData[studentArrayIDNumber].grade == "Freshman"){
         dateComponents.year = 2023
