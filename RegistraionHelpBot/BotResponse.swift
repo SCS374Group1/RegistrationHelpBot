@@ -275,6 +275,11 @@ if tempMessage.contains("what time does registration open") {
         return "Registration for a minimum of 12 credits in a semester is required for full-time status at the undergraduate level, any number of credits below 12 is considered a part-time status."
     }
     
+// Course offerings
+    if tempMessage.contains("next semester's courses"){
+        return "https://setonhill.policytech.com/dotNet/documents/?docid=3713&public=true"
+    }
+    
     //handles messages that do not have a response
     //first checks to see if the message contains the forwarding code, and if so, forwards the message
     if tempMessage.contains("forward-" + String(forwardingCode)){

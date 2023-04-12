@@ -293,6 +293,12 @@ struct ChatbotView: View {
                             sendMessage(message:"Advisor Email")
                         }
                     }
+                    
+                    Menu("Course Offerings"){
+                        Button("Next semester's courses"){
+                            sendMessage(message: "Next semester's courses")
+                        }
+                    }
                 }
                 
                 
