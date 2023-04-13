@@ -28,9 +28,9 @@ func getMessages() -> String{
                 let inputText = try String(contentsOf: fileURL, encoding: .utf8)
                 if(inputText==""){
                     return "You have no new messages."
-                }else{
+                    //checks to see if the message is for the given student and displays the appropriate message
+                }else if(inputText.contains("STU"+String(loadedStudentData[studentArrayIDNumber].studentID))){
                     return "You have a new message from ADVISORNAME. Type \"Mailbox\" to view."
-                    
                 }
             }
             //prints error message
@@ -53,19 +53,23 @@ func getForwardMessages() -> String{
             //writes file to inputText
             let inputText = try String(contentsOf: fileURL, encoding: .utf8)
             let cleanupText = ""
-            //purges file contents
-            try cleanupText.write(to: fileURL, atomically: false, encoding: .utf8)
-            //returns a response based on whether any input was received from the file
-            if(inputText==""){
-                return "No new messages."
-            }else{
-                return "\"" + inputText + "\"" + " from Student 1."
-                
+            if(inputText.contains("ADVFW")){
+                //removes prefixes from the inputText and logs which student ID was found in the prefix
+                let nonADVFWPrefixInputText = inputText.replacingOccurrences(of: "ADVFW", with: "")
+                let studentIDPrefix = nonADVFWPrefixInputText.prefix(3)
+                let plainMessage = nonADVFWPrefixInputText.replacingOccurrences(of: studentIDPrefix, with: "")
+                //purges file contents
+                try cleanupText.write(to: fileURL, atomically: false, encoding: .utf8)
+                //returns a response based on whether any input was received from the file, alongside the student's ID
+                if(inputText==""){
+                    return "No new messages."
+                }else{
+                    return "\"" + plainMessage + "\"" + " from Student " + studentIDPrefix + "."
+                }
             }
         }
         //error message
         catch {print("ERROR RETRIEVING MESSAGE")}
-        
     }
     //returns this if no messages are found
     return "No messages found."
@@ -141,12 +145,16 @@ func getBotResponse(message: String) -> String {
             do {
                 let inputText = try String(contentsOf: fileURL, encoding: .utf8)
                 let cleanupText = ""
-                try cleanupText.write(to: fileURL, atomically: false, encoding: .utf8)
-                if(inputText==""){
+                //checks to make sure the message is for the currently logged-in student
+                if(inputText.contains("STU"+String(loadedStudentData[studentArrayIDNumber].studentID))){
+                    //if it is, clean up the file and display the message
+                    try cleanupText.write(to: fileURL, atomically: false, encoding: .utf8)
+                    return "Most recent message from ADVISORNAME: \"" + inputText.replacingOccurrences(of: ("STU"+String(loadedStudentData[studentArrayIDNumber].studentID)), with: "") + "\""
+                    //otherwise, do not display the message and do not clean up the file
+                }else if(inputText==""){
                     return "No new messages."
                 }else{
-                    return "Most recent message from ADVISORNAME: \"" + inputText + "\""
-                    
+                    return "An error occurred reading the mailbox. Please contact the administrator."
                 }
             }
             catch {print("ERROR RETRIEVING MESSAGE")}
@@ -336,7 +344,8 @@ if tempMessage.contains("what time does registration open") {
         //first checks to see if the message contains the forwarding code, and if so, forwards the message
     if tempMessage.contains("forward-" + String(forwardingCode)){
         //uses forwardToAdvisor function found in AdvisorMessagingFunc
-        print(forwardToAdvisor(message: messageBuffer, advisor: 1))
+        //appends prefix such that the advisor can determine which student the message came from
+        print(forwardToAdvisor(message: "ADVFW" + String(loadedStudentData[studentArrayIDNumber].studentID) + messageBuffer, advisor: loadedStudentData[studentArrayIDNumber].advisorID, student: loadedStudentData[studentArrayIDNumber].studentID))
         return "Your message has been forwarded. Thank you!"
     //otherwise, it stores the most recently sent message into the buffer and offers to forward this message to the advisor
         //user must type in the forwarding code (with the randomly generated forwarding number) in order to forward the message to prevent spam

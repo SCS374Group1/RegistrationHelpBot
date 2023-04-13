@@ -225,14 +225,14 @@ struct AdvisorChatView: View {
             messages.append("[ADV]" + message)
             self.messageText = ""
         }
-        
-//sends message to bot and to desired student using sendAdvMessage function from AdvisorMessagingFucntion
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1){
-            withAnimation {
-                messages.append(sendAdvMessage(message: message, student: 1))
+    
+    //sends message to bot and to desired student using sendAdvMessage function from AdvisorMessagingFucntion
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+                withAnimation {
+                    messages.append(sendAdvMessage(message: ("[ADV]" + message), student: selectedStudent))
+                }
             }
         }
-    }
 //sends the feedback message
     func sendFeedbackMessage(message: String) {
         withAnimation {

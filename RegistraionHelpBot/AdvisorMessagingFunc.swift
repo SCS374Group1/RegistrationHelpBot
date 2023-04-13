@@ -10,8 +10,8 @@ import Foundation
 func sendAdvMessage(message: String , student: Int) -> String {
     //defines mailbox text file
     let file = "advisorMessages.txt"
-    //removes the [ADV] prefix from the message
-    let newAdMessage = message.replacingOccurrences(of:"[ADV]", with: "")
+    //removes the [ADV] prefix from the message and adds in a STU+studentID prefix
+    let newAdMessage = message.replacingOccurrences(of:"[ADV]", with: ("STU"+String(selectedStudent)))
     //creates the message to be saved
     let advText = newAdMessage
     
@@ -32,11 +32,11 @@ func sendAdvMessage(message: String , student: Int) -> String {
 }
 
 //function to send messages from the student to the advisor
-func forwardToAdvisor(message: String , advisor: Int) -> String {
+func forwardToAdvisor(message: String , advisor: Int, student: Int) -> String {
     //defines mailbox text file
     let file = "forwardMessage.txt"
-    //removes the [USEr] prefix from the message
-    let newFWMessage = message.replacingOccurrences(of:"[USER]", with: "")
+    //removes the [USER] prefix from the message and replaces it with an ADVFW+studentID prefix
+    let newFWMessage = message.replacingOccurrences(of:"[USER]", with: ("ADVFW"+String(student)))
     //creates the message to be saved
     let FWText = newFWMessage
     

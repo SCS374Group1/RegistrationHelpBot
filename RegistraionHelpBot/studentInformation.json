@@ -7,7 +7,8 @@
         "grade": "Freshman",
         "username": "student.one",
         "password": "password1",
-        "hasAccountHolds": false
+        "hasAccountHolds": false,
+        "advisorID":1
     },
     {
         "studentID":102,
@@ -17,7 +18,8 @@
         "grade": "Freshman",
         "username": "student.two",
         "password": "password2",
-        "hasAccountHolds": true
+        "hasAccountHolds": true,
+        "advisorID":1
     },
     {
         "studentID":103,
@@ -27,7 +29,8 @@
         "grade": "Sophomore",
         "username": "student.three",
         "password": "password3",
-        "hasAccountHolds": false
+        "hasAccountHolds": false,
+        "advisorID":1
     },
     {
         "studentID":104,
@@ -37,7 +40,8 @@
         "grade": "Sophomore",
         "username": "student.four",
         "password": "password4",
-        "hasAccountHolds": false
+        "hasAccountHolds": false,
+        "advisorID":1
     },
     {
         "studentID":105,
@@ -47,7 +51,8 @@
         "grade": "Junior",
         "username": "student.five",
         "password": "password5",
-        "hasAccountHolds": true
+        "hasAccountHolds": true,
+        "advisorID":1
     },
     {
         "studentID":106,
@@ -57,7 +62,8 @@
         "grade": "Junior",
         "username": "student.six",
         "password": "password6",
-        "hasAccountHolds": false
+        "hasAccountHolds": false,
+        "advisorID":1
     },
     {
         "studentID":107,
@@ -67,7 +73,8 @@
         "grade": "Senior",
         "username": "student.seven",
         "password": "password7",
-        "hasAccountHolds": false
+        "hasAccountHolds": false,
+        "advisorID":1
     },
     {
         "studentID":108,
@@ -77,6 +84,7 @@
         "grade": "Senior",
         "username": "student.eight",
         "password": "password8",
-        "hasAccountHolds": true
+        "hasAccountHolds": true,
+        "advisorID":1
     }
 ]
