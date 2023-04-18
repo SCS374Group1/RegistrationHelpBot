@@ -28,6 +28,13 @@ struct SettingsMenuView: View {
     var body: some View {
         NavigationView {
             Form {
+                if(studentArrayIDNumber != 100) {
+                    Section {
+                        NavigationLink(destination: AcademicProfile()) {
+                            Text("Academic Profile")
+                        }
+                    }
+                }
                 Section(header: Text("Display")) {
                     Toggle("Dark Mode", isOn: $isDarkMode)
                 }

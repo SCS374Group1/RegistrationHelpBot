@@ -101,6 +101,7 @@ struct MainMenuView: View {
             //enables device to be rotated without allowing access to other screens by "locking" it into portrait mode
         }.onAppear{
             UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
+            studentArrayIDNumber = 100
             //hides default back button; for security purposes
         }.navigationBarBackButtonHidden(true)
         //modifies navigation view so that it does not allow the user to pop up another window with a separate screen on it
