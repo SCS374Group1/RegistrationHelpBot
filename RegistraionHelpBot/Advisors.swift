@@ -13,4 +13,6 @@ struct Advisor: Codable {
     var name: String
     var username: String
     var password: String
+    //university variable for the advisors
+    var university : String
 }

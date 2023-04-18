@@ -3,20 +3,24 @@
     "advisorID": 1,
     "name": "Advisor One",
     "username": "advisor.one",
-    "password": "password11"
+    "password": "password11",
+    "university":"Seton Hill University"
+    
     },
     
     {
     "advisorID": 2,
     "name": "Advisor Two",
     "username": "advisor.two",
-    "password": "password22"
+    "password": "password22",
+    "university":"Seton Hill University"
     },
     
     {
     "advisorID": 3,
     "name": "Advisor Three",
     "username": "advisor.three",
-    "password": "password33"
+    "password": "password33",
+    "university":"Seton Hill University"
     }
 ]

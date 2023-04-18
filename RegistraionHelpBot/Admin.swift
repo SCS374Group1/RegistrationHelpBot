@@ -12,4 +12,6 @@ struct Admin: Codable, Identifiable {
     var name: String
     var username: String
     var password: String
+    //university variable for the admin
+    var university : String
 }

@@ -12,6 +12,9 @@ struct MainMenuView: View {
     //variable to hold whether dark mode is on or off
     @AppStorage("isDarkMode") var isDarkMode: Bool = false
     
+    //variable to hold university selection information
+   @State var universitySelection = "Select Your University"
+    
     //variables to hold username and password for comparison
     @State private var username = ""
     @State private var password = ""
@@ -55,6 +58,51 @@ struct MainMenuView: View {
                     .bold()
                     .padding()
                     .monospaced()
+                //menu to hold university options for user to select to log in
+                //when an option is selected, the universitySelection variable is changed to be that university's name
+                Menu(universitySelection) {
+                    //university of pittsburgh
+                    Button("University of Pittsburgh"){
+                        universitySelection = "University of Pittsburgh"
+                    }
+                    //st vincent college
+                    Button("St. Vincent College"){
+                        universitySelection = "St. Vincent College"
+                    }
+                    //slippery rock
+                    Button("Slippery Rock University"){
+                        universitySelection = "Slippery Rock University"
+                    }
+                    //seton hill university
+                    Button("Seton Hill University"){
+                        universitySelection = "Seton Hill University"
+                    }
+                    //point park university
+                    Button("Point Park University"){
+                        universitySelection = "Point Park University"
+                    }
+                    //penn state university
+                    Button("Penn State University"){
+                        universitySelection = "Penn State University"
+                    }
+                    //duquesne university
+                    Button("Duquesne University"){
+                        universitySelection = "Duquesne University"
+                    }
+                    //carnegie melon university
+                    Button("Carnegie Melon University"){
+                        universitySelection = "Carnegie Melon University"
+                    }
+                    //carlow university
+                    Button("Carlow University"){
+                        universitySelection = "Carlow University"
+                    }
+                    //california university
+                    Button("California University"){
+                        universitySelection = "California University"
+                    }
+                    
+                }
                 //textfield to obtain user's username; becomes red when invalid information is entered
                 TextField("Username", text: $username)
                     .autocapitalization(.none)
@@ -112,9 +160,9 @@ struct MainMenuView: View {
         //boolean to check for whether a successful authentication occurred or if all username/password have been searcher
         var authSuccessCheck = false
         while(!authSuccessCheck){
-            //checks all student username/password pairs and compares them to user input; if a match is found, logs user in
+            //checks all student username/password pairs plus university selection and compares them to user input; if a match is found, logs user in
             for i in 0...(loadedStudentData.count-1){
-                if ((username == loadedStudentData[i].username) && (password == loadedStudentData[i].password)){
+                if ((username == loadedStudentData[i].username) && (password == loadedStudentData[i].password) && (universitySelection == loadedStudentData[i].university)){
                     wrongCredentials = 0
                     authSuccessCheck = true
                     //sets the index number of the student object for reference in future queries
@@ -122,17 +170,17 @@ struct MainMenuView: View {
                     showingStudentLoginScreen = true
                 }
             }
-            //checks all advisor username/password pairs and compares them to user input; if a match is found, logs user in
+            //checks all advisor username/password pairs plus university selection and compares them to user input; if a match is found, logs user in
             for i in 0...(loadedAdvisorData.count-1){
-                if ((username == loadedAdvisorData[i].username) && (password == loadedAdvisorData[i].password)){
+                if ((username == loadedAdvisorData[i].username) && (password == loadedAdvisorData[i].password) && (universitySelection == loadedAdvisorData[i].university)){
                     wrongCredentials = 0
                     authSuccessCheck = true
                     showingAdvisorLoginScreen = true
                 }
             }
-            //checks all admin username/password pairs and compares them to user input; if a match is found, logs user in
+            //checks all admin username/password pairs plus university selection and compares them to user input; if a match is found, logs user in
             for i in 0...(loadedAdminData.count-1){
-                if ((username == loadedAdminData[i].username) && (password == loadedAdminData[i].password)){
+                if ((username == loadedAdminData[i].username) && (password == loadedAdminData[i].password) && (universitySelection == loadedAdminData[i].university)){
                     wrongCredentials = 0
                     authSuccessCheck = true
                     showingAdminLoginScreen = true

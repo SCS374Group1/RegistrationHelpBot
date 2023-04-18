@@ -3,6 +3,7 @@
     "adminID": 1,
     "name": "Admin One",
     "username": "admin.one",
-    "password": "adminpassword"
+    "password": "adminpassword",
+    "university": "Seton Hill University"
     }
 ]
