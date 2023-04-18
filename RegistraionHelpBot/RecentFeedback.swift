@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct RecentFeedback: View {
+    //variable to enable dismiss action, used for custom back arrow
+                    @Environment(\.dismiss) private var dismiss
     //variable to hold botIcon Image
     let botIcon = Image("Outlined RegistrationHelpbot Icon")
     
@@ -178,7 +180,20 @@ struct RecentFeedback: View {
                 }
                 .padding()
             }
-            
+            //adds customized back button to toolbar
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        //sends user back to screen they were previously on, in this case the AdvisorStudentListView
+                        dismiss()
+                    } label: {
+                        HStack {
+                            Image(systemName: "chevron.backward")
+                            Text("Feedback Menu")
+                        }
+                    }
+                }
+            }
             //enables device to be rotated without allowing access to other screens by "locking" it into portrait mode
         }.onAppear{
             UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")

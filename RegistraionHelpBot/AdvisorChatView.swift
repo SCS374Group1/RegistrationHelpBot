@@ -236,7 +236,7 @@ struct AdvisorChatView: View {
 //sends the feedback message
     func sendFeedbackMessage(message: String) {
         withAnimation {
-            messages.append("[USER]" + message)
+            messages.append("[ADV]" + message)
             self.feedbackMessage = ""
         }
         
