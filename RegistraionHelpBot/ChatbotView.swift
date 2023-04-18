@@ -300,8 +300,8 @@ struct ChatbotView: View {
                     }
                     
                     Menu("Course Offerings"){
-                        Button("Next semester's courses"){
-                            sendMessage(message: "Next semester's courses")
+                        Button("What are next semester's courses?"){
+                            sendMessage(message: "What are next semester's courses?")
                         }
                     }
                 }

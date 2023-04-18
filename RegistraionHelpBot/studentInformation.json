@@ -8,7 +8,8 @@
         "username": "student.one",
         "password": "password1",
         "hasAccountHolds": false,
-        "advisorID":1
+        "advisorID":1,
+        "university":"Seton Hill University"
     },
     {
         "studentID":102,
@@ -19,7 +20,8 @@
         "username": "student.two",
         "password": "password2",
         "hasAccountHolds": true,
-        "advisorID":1
+        "advisorID":1,
+        "university":"Seton Hill University"
     },
     {
         "studentID":103,
@@ -30,7 +32,8 @@
         "username": "student.three",
         "password": "password3",
         "hasAccountHolds": false,
-        "advisorID":1
+        "advisorID":1,
+        "university":"Seton Hill University"
     },
     {
         "studentID":104,
@@ -41,7 +44,8 @@
         "username": "student.four",
         "password": "password4",
         "hasAccountHolds": false,
-        "advisorID":1
+        "advisorID":1,
+        "university":"Seton Hill University"
     },
     {
         "studentID":105,
@@ -52,7 +56,8 @@
         "username": "student.five",
         "password": "password5",
         "hasAccountHolds": true,
-        "advisorID":1
+        "advisorID":1,
+        "university":"Seton Hill University"
     },
     {
         "studentID":106,
@@ -63,7 +68,8 @@
         "username": "student.six",
         "password": "password6",
         "hasAccountHolds": false,
-        "advisorID":1
+        "advisorID":1,
+        "university":"Seton Hill University"
     },
     {
         "studentID":107,
@@ -74,7 +80,8 @@
         "username": "student.seven",
         "password": "password7",
         "hasAccountHolds": false,
-        "advisorID":1
+        "advisorID":1,
+        "university":"Seton Hill University"
     },
     {
         "studentID":108,
@@ -85,6 +92,7 @@
         "username": "student.eight",
         "password": "password8",
         "hasAccountHolds": true,
-        "advisorID":1
+        "advisorID":1,
+        "university":"Seton Hill University"
     }
 ]

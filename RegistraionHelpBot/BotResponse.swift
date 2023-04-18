@@ -336,7 +336,7 @@ if tempMessage.contains("what time does registration open") {
     }
     
 // Course offerings
-    if tempMessage.contains("next semester's courses"){
+    if tempMessage.contains("what are next semester's courses"){
         return "https://setonhill.policytech.com/dotNet/documents/?docid=3713&public=true"
     }
     
