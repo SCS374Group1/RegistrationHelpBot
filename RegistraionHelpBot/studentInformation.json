@@ -9,7 +9,10 @@
         "password": "password1",
         "hasAccountHolds": false,
         "advisorID":1,
-        "university":"Seton Hill University"
+        "university":"Seton Hill University",
+        "course1": "CS 250",
+        "course2": "CS 300",
+        "course3": "CS 450"
     },
     {
         "studentID":102,
@@ -21,7 +24,10 @@
         "password": "password2",
         "hasAccountHolds": true,
         "advisorID":1,
-        "university":"Seton Hill University"
+        "university":"Seton Hill University",
+        "course1": "CS 250",
+        "course2": "CS 300",
+        "course3": "CS 450"
     },
     {
         "studentID":103,
@@ -33,7 +39,10 @@
         "password": "password3",
         "hasAccountHolds": false,
         "advisorID":1,
-        "university":"Seton Hill University"
+        "university":"Seton Hill University",
+        "course1": "CS 250",
+        "course2": "CS 300",
+        "course3": "CS 450"
     },
     {
         "studentID":104,
@@ -45,7 +54,10 @@
         "password": "password4",
         "hasAccountHolds": false,
         "advisorID":1,
-        "university":"Seton Hill University"
+        "university":"Seton Hill University",
+        "course1": "CS 250",
+        "course2": "CS 300",
+        "course3": "CS 450"
     },
     {
         "studentID":105,
@@ -57,7 +69,10 @@
         "password": "password5",
         "hasAccountHolds": true,
         "advisorID":1,
-        "university":"Seton Hill University"
+        "university":"Seton Hill University",
+        "course1": "CS 250",
+        "course2": "CS 300",
+        "course3": "CS 450"
     },
     {
         "studentID":106,
@@ -69,7 +84,10 @@
         "password": "password6",
         "hasAccountHolds": false,
         "advisorID":1,
-        "university":"Seton Hill University"
+        "university":"Seton Hill University",
+        "course1": "CS 250",
+        "course2": "CS 300",
+        "course3": "CS 450"
     },
     {
         "studentID":107,
@@ -81,7 +99,10 @@
         "password": "password7",
         "hasAccountHolds": false,
         "advisorID":1,
-        "university":"Seton Hill University"
+        "university":"Seton Hill University",
+        "course1": "CS 250",
+        "course2": "CS 300",
+        "course3": "CS 450"
     },
     {
         "studentID":108,
@@ -93,6 +114,9 @@
         "password": "password8",
         "hasAccountHolds": true,
         "advisorID":1,
-        "university":"Seton Hill University"
+        "university":"Seton Hill University",
+        "course1": "CS 250",
+        "course2": "CS 300",
+        "course3": "CS 450"
     }
 ]
