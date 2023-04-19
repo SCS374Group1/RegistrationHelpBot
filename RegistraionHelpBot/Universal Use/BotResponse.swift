@@ -200,10 +200,7 @@ func getBotResponse(message: String) -> String {
         if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
             let fileURL = dir.appendingPathComponent(file)
             do {
-                let fileHandle = try FileHandle(forUpdating: fileURL)
-                fileHandle.seekToEndOfFile()
-                fileHandle.write(inputText2.data(using: .utf8)!)
-                fileHandle.closeFile()
+                try inputText2.write(to: fileURL, atomically: false, encoding: .utf8)
             }
             catch{print("ERROR")}
         }
