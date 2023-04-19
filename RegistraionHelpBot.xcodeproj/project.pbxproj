@@ -89,29 +89,13 @@
 		27189345299D6B3B00FC3FAA /* RegistraionHelpBot */ = {
 			isa = PBXGroup;
 			children = (
-				813F01D1299D75520022C4CF /* BotResponse.swift */,
-				813F01D0299D75520022C4CF /* ChatbotView.swift */,
-				D9C1192929AFE3EA004C3762 /* Consonants.swift */,
-				813F01D2299D75520022C4CF /* MainMenuView.swift */,
-				813F01CF299D75520022C4CF /* RegistrationHelpBotApp.swift */,
-				2703243729C039F700529CA1 /* advisorInformation.json */,
-				2703243529C039EA00529CA1 /* studentInformation.json */,
-				D9D3B95A29C8FF89000CA931 /* adminInformation.json */,
+				2741D28629EF93FC00ED639D /* Universal Use */,
+				2741D28529EF93C200ED639D /* Administration Information */,
+				2741D28429EF937500ED639D /* Advisor Information */,
+				2741D28329EF92EA00ED639D /* Student Information */,
+				2741D28229EF92BE00ED639D /* JSON Information */,
 				2718934A299D6B3E00FC3FAA /* Assets.xcassets */,
 				2718934C299D6B3E00FC3FAA /* Preview Content */,
-				27AD191329AFEB5C00EBDCB9 /* AdvisorStudentListView.swift */,
-				27AD191529AFEB7300EBDCB9 /* AdvisorChatView.swift */,
-				81739FCA29AFEDD80062CA8B /* AdvisorMessagingFunc.swift */,
-				D9D3B95629C8FBB8000CA931 /* AdministrationView.swift */,
-				2703243929C03A1A00529CA1 /* Students.swift */,
-				2703243B29C03A2B00529CA1 /* Advisors.swift */,
-				D9D3B95829C8FEBD000CA931 /* Admin.swift */,
-				2703243D29C03A3E00529CA1 /* ModelData.swift */,
-				2770926D29C249600026788F /* SettingsMenuView.swift */,
-				2792FA8E29CD1AA100FD51E2 /* RecentFeedback.swift */,
-				2792FA9029CD1AA600FD51E2 /* SendFeedback.swift */,
-				27352F1429E7394E0057A1F9 /* NeedsAttention.swift */,
-				275307FD29EF27FB00FC9C52 /* AcademicProfile.swift */,
 			);
 			path = RegistraionHelpBot;
 			sourceTree = "<group>";
@@ -122,6 +106,62 @@
 				2718934D299D6B3E00FC3FAA /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2741D28229EF92BE00ED639D /* JSON Information */ = {
+			isa = PBXGroup;
+			children = (
+				2703243B29C03A2B00529CA1 /* Advisors.swift */,
+				2703243929C03A1A00529CA1 /* Students.swift */,
+				D9D3B95829C8FEBD000CA931 /* Admin.swift */,
+				2703243D29C03A3E00529CA1 /* ModelData.swift */,
+				2703243729C039F700529CA1 /* advisorInformation.json */,
+				2703243529C039EA00529CA1 /* studentInformation.json */,
+				D9D3B95A29C8FF89000CA931 /* adminInformation.json */,
+			);
+			path = "JSON Information";
+			sourceTree = "<group>";
+		};
+		2741D28329EF92EA00ED639D /* Student Information */ = {
+			isa = PBXGroup;
+			children = (
+				813F01D0299D75520022C4CF /* ChatbotView.swift */,
+				275307FD29EF27FB00FC9C52 /* AcademicProfile.swift */,
+			);
+			path = "Student Information";
+			sourceTree = "<group>";
+		};
+		2741D28429EF937500ED639D /* Advisor Information */ = {
+			isa = PBXGroup;
+			children = (
+				27AD191329AFEB5C00EBDCB9 /* AdvisorStudentListView.swift */,
+				27AD191529AFEB7300EBDCB9 /* AdvisorChatView.swift */,
+				81739FCA29AFEDD80062CA8B /* AdvisorMessagingFunc.swift */,
+			);
+			path = "Advisor Information";
+			sourceTree = "<group>";
+		};
+		2741D28529EF93C200ED639D /* Administration Information */ = {
+			isa = PBXGroup;
+			children = (
+				D9D3B95629C8FBB8000CA931 /* AdministrationView.swift */,
+				2792FA8E29CD1AA100FD51E2 /* RecentFeedback.swift */,
+				27352F1429E7394E0057A1F9 /* NeedsAttention.swift */,
+				2792FA9029CD1AA600FD51E2 /* SendFeedback.swift */,
+			);
+			path = "Administration Information";
+			sourceTree = "<group>";
+		};
+		2741D28629EF93FC00ED639D /* Universal Use */ = {
+			isa = PBXGroup;
+			children = (
+				813F01CF299D75520022C4CF /* RegistrationHelpBotApp.swift */,
+				813F01D1299D75520022C4CF /* BotResponse.swift */,
+				D9C1192929AFE3EA004C3762 /* Consonants.swift */,
+				813F01D2299D75520022C4CF /* MainMenuView.swift */,
+				2770926D29C249600026788F /* SettingsMenuView.swift */,
+			);
+			path = "Universal Use";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
