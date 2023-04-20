@@ -102,10 +102,11 @@ func getFeedbackMessages() -> String{
     }
 }
 
-func getRecentFeedback(inputText3: String) -> String {
+//file to retrieve parameter enables this function to be used in multiple instances
+func getRecentFeedback(inputText3: String, fileToRetrieve: String) -> String {
     do {
         if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-            let fileURL = dir.appendingPathComponent("needsAttention.txt")
+            let fileURL = dir.appendingPathComponent(fileToRetrieve)
             do {
                 let inputText2 = try NSString(contentsOf: fileURL, encoding: String.Encoding.utf8.rawValue)
                 var inputText3 = inputText2 as String
@@ -174,7 +175,7 @@ func getBotResponse(message: String) -> String {
                 if(inputText==""){
                     return "No new messages."
                 }else{
-                    return "Most recent message is: \"" + inputText + "\"Please type \"Save\" to send messages to the Needs Attention file"
+                    return "Most recent message is: \"" + inputText + "\". Please type \"Save\" to send messages to the Needs Attention file"
                     
                 }
             }

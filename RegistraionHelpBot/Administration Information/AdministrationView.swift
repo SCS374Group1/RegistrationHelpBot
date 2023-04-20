@@ -25,7 +25,14 @@ struct AdministrationManagementView: View {
                         Text("Needs Attention")
                     }
                 }
+                //button to go to the past issue logs
+                Section {
+                    NavigationLink(destination: PastIssueLog()) {
+                        Text("Past Issue Log")
+                    }
+                }
             }
+            
             //enables device to be rotated without allowing access to other screens by "locking" it into portrait mode
         }.onAppear{
             UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
