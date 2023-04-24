@@ -304,6 +304,11 @@ struct ChatbotView: View {
                             sendMessage(message: "What are next semester's courses?")
                         }
                     }
+                    Menu("Course Recommendations"){
+                        Button("What courses do you recommend I take?"){
+                            sendMessage(message: "What courses do you recommend I take?")
+                        }
+                    }
                 }
                 
                 //text field for the user to type their message in to; allows uers to send the message by hitting enter or clicking the send icon

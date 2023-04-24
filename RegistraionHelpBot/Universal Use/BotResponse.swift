@@ -338,6 +338,17 @@ if tempMessage.contains("what time does registration open") {
         return "https://setonhill.policytech.com/dotNet/documents/?docid=3713&public=true"
     }
     
+// Course recommendations
+    if tempMessage.contains("what courses do you recommend i take"){
+        // creates an array of the three available courses for students depending on their student ID
+        let randomCourseSet = [loadedStudentData[studentArrayIDNumber].course1, loadedStudentData[studentArrayIDNumber].course2, loadedStudentData[studentArrayIDNumber].course3]
+        // creates a new variable that holds the value of the randomly generated element from
+        // the array that was created above
+        let randomCoursePicker = randomCourseSet.randomElement()!
+      // returns a statement that uses the randomly picked course and recommends which course to take to the student
+        return "I recommend that you take " + String(randomCoursePicker) + " if you have any scheduling issues."
+    }
+    
     //handles messages that do not have a response
         //first checks to see if the message contains the forwarding code, and if so, forwards the message
     if tempMessage.contains("forward-" + String(forwardingCode)){
