@@ -16,11 +16,14 @@ struct AdministrationManagementView: View {
         NavigationView {
             Form {
                 Section {
+                // creates a link to a recent feedback page
                     NavigationLink(destination: RecentFeedback()) {
                         Text("Recent Feedback")
                     }
                 }
+               
                 Section {
+                    // creates a link to a needs attention page
                     NavigationLink(destination: NeedsAttention()) {
                         Text("Needs Attention")
                     }

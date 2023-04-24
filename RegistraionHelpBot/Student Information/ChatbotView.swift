@@ -298,7 +298,7 @@ struct ChatbotView: View {
                             sendMessage(message:"Advisor Email")
                         }
                     }
-                    
+                    // displays a link for next semester's offered courses
                     Menu("Course Offerings"){
                         Button("What are next semester's courses?"){
                             sendMessage(message: "What are next semester's courses?")

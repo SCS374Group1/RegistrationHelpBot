@@ -6,6 +6,8 @@
 //
 
 import Foundation
+// creates an admin strucutre to hold info from the
+// JSON file
 struct Admin: Codable, Identifiable {
     var adminID : Int
     var id: String {String(adminID)}

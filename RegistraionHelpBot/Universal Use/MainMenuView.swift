@@ -209,7 +209,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //view.backgroundColor = .systemBlack
+        //view.backgroundColor = .systemBlack allows the background
+        //color to change
         view.backgroundColor = CustomColor.customBackgroundColor
     }
 }
