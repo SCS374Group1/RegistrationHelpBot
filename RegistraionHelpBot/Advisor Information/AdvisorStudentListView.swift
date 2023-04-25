@@ -14,6 +14,7 @@ public var selectedStudent = -1
 //The main menu view of the Chatbot
 struct AdvisorStudentListView: View {
     var body: some View {
+        //creates a list of students assigned to that advisor with all their information that can be clicked and will take you to a chat view for the advisor to send messages to a student
         NavigationView {
             NavigationLink(destination: AdvisorChatView()){
                 List(loadedStudentData) { Student in

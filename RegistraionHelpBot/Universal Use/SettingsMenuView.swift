@@ -35,6 +35,7 @@ struct SettingsMenuView: View {
     var body: some View {
         NavigationView {
             Form {
+                //reads the number stored in studentArrayIDNumber and if it is not 100 displays a link to the Academic Profile
                 if(studentArrayIDNumber != 100) {
                     Section {
                         NavigationLink(destination: AcademicProfile()) {

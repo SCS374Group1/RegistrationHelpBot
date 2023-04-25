@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+//struct used for the styling of the settings menu button
 struct BlueButton: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
@@ -45,6 +46,7 @@ struct ChatbotView: View {
             VStack {
                 //top header with botIcon image
                 HStack {
+                    //creates a button that when clicked takes a user to the settings menu
                     NavigationLink(destination: SettingsMenuView()) {
                         Image(systemName: "gear")
                     }
@@ -57,6 +59,7 @@ struct ChatbotView: View {
                         .frame(width: 48.0, height: 48.0)
                     Spacer()
                         .frame(minWidth: 120, maxWidth: 120)
+                    //a button that when pressed presents a message that allows a user to send feedback to the administator
                     Button {
                         presentAlert = true
                     } label: {
@@ -358,7 +361,7 @@ struct ChatbotView: View {
             }
         }
     }
-    
+    //function for sending the feedback from the feedback alert to the admin and displays it on the users screen as a message with a conformation message from the bot
     func sendFeedbackMessage(message: String) {
         withAnimation {
             messages.append("[USER]" + message)

@@ -189,6 +189,7 @@ func getBotResponse(message: String) -> String {
         var inputText2 = ""
         if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
             let fileURL = dir.appendingPathComponent("feedbackMessages.txt")
+            //reads from the file into inputText, then reads it into inputText2 and clears the text
             do {
                 let inputText = try String(contentsOf: fileURL, encoding: .utf8)
                 inputText2 = inputText
@@ -197,6 +198,7 @@ func getBotResponse(message: String) -> String {
             }
             catch{print("ERROR RETRIVING MESSAGE")}
         }
+        //writes inputText2 into the file
         let file = "needsAttention.txt"
         if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
             let fileURL = dir.appendingPathComponent(file)
@@ -205,6 +207,7 @@ func getBotResponse(message: String) -> String {
             }
             catch{print("ERROR")}
         }
+        //returns inputText2
         return inputText2
     }
 //default prompt detection and subsequent responses
@@ -291,63 +294,77 @@ if tempMessage.contains("how do i add a class"){
     }else if tempMessage.contains("advisor email"){
         return "Please contact registrar to find out the advisor's email if it is unknown to you."
     }
-//questions regarding registration day
-if tempMessage.contains("what time does registration open") {
-        return "Registration opens at 6am on your given registration day."
-    } else if tempMessage.contains("what courses are available") {
-        return "Please refer to the course catalog under the registration tab on MySHU."
-    } else if tempMessage.contains("what course should i take") {
-        return "Schedule a meeting with your advisor to discusse what courses are best for you to take at this time."
-    } else if tempMessage.contains("how many seats are left") {
+    //questions regarding registration day using key words found in a question to trigger the bots response
+        if (tempMessage.contains("time") && tempMessage.contains("registration") && tempMessage.contains("open")) {
+            //what time does registration open (smaple question)
+            return "Registration opens at 6am on your given registration day."
+        } else if (tempMessage.contains("courses") && tempMessage.contains("available")) {
+            //what courses are available (smaple question)
+            return "Please refer to the course catalog under the registration tab on MySHU."
+        } else if (tempMessage.contains("course") && tempMessage.contains("take")) {
+            //what course should i take (smaple question)
+            return "Schedule a meeting with your advisor to discusse what courses are best for you to take at this time."
+        } else if (tempMessage.contains("seats") && tempMessage.contains("left")) {
+            //how many seats are left (smaple question)
             return "To find this go to MySHU, then GriffinGate. Click on the Student tab and locate Course Registration and Advising. Next locate Add/Drop Courses and click then and then enter the course code for the course you wish to know about."
         }
 
 
-//questions regarding GPA
-    //response for GPA as an honors student based on SHU guidelines
-    if tempMessage.contains("what gpa do i need as an honors student") {
-        return "You need to maintain a GPA of 3.5 or higher to be in the Seton Hill Honors Program."
-    } else if tempMessage.contains("what gpa do i need as an athlete") {
-        return "Please refer to the registrar."
-    } else if tempMessage.contains("what is my gpa") {
-        //checks current student GPA based on the student who is logged in
-        return "Your GPA is " + String(loadedStudentData[studentArrayIDNumber].gpa)  + "."
-    }else if tempMessage.contains("at what gpa are you on academic probation") {
-        return "Please refer to the registrar."
-    }
+    //questions regarding GPA using key words found in a question to trigger the bots response
+        //response for GPA as an honors student based on SHU guidelines
+        if (tempMessage.contains("gpa") && tempMessage.contains("honors") && tempMessage.contains("student")) {
+            //what gpa do i need as an honors student (smaple question)
+            return "You need to maintain a GPA of 3.5 or higher to be in the Seton Hill Honors Program."
+        } else if (tempMessage.contains("gpa") && tempMessage.contains("academic") && tempMessage.contains("probation")) {
+            //at what gpa are you on academic probation (smaple question)
+            return "Please refer to the registrar."
+        } else if (tempMessage.contains("gpa") && tempMessage.contains("athlete")) {
+            //what gpa do i need as an athlete (smaple question)
+            return "Please refer to the registrar."
+        }else if (tempMessage.contains("gpa") && tempMessage.contains("my")) {
+            //what is my gpa (smaple question)
+            //checks current student GPA based on the student who is logged in
+            return "Your GPA is " + String(loadedStudentData[studentArrayIDNumber].gpa)  + "."
+        }
 
-
-//questions regarding credits
-    if tempMessage.contains("how many credits do i need for each grade level") {
-        return "A minimum of 120 credits are needed to graduate at Seton Hill, meaning that per each grade level, approximately 30 credits are needed. This comes out to about 15 credits a semester."
-    } else if tempMessage.contains("how many credits can i take per semester") {
-        return "Students may take up to 17 credits per semester without extra charge, however, if they would like to, the student is able to overload up to 21 credits per semester. This requires registrar permission to do so."
-    } else if tempMessage.contains("how much do extra credits cost") {
-        return "As of August of 2022, extra credits come at a cost of $798 per extra credit up to 21 credits per semester. This cost includes any credits after 17."
-    }else if tempMessage.contains("how many credits do i currently have") {
-        //checks how many credits the student currently logged in has
-        return "Currently, you have " + String(loadedStudentData[studentArrayIDNumber].credits) + " credits."
-    }else if tempMessage.contains("how many credits do i need as an athlete") {
-        return "As per the NCAA Athletic Scholarship Satisfactory Academic Progress Policy. Any student who receives an athletic scholarship while attending Seton Hill University is bound by the NCAA Division II academic progress regulations. This policy states that a full-time student must earn a minimum of 24 credits in each academic year, which equates to 12 credits a semester. This is on par with the full-time student requirements for Seton Hill."
-    } else if tempMessage.contains("how many credits to be a full/part time student") {
-        return "Registration for a minimum of 12 credits in a semester is required for full-time status at the undergraduate level, any number of credits below 12 is considered a part-time status."
-    }
+    //questions regarding credits using key words found in a question to trigger the bots response
+        if ((tempMessage.contains("credits") && tempMessage.contains("need") && tempMessage.contains("grade") && tempMessage.contains("level")) || (tempMessage.contains("credits") && tempMessage.contains("freshman")) || (tempMessage.contains("credits") && tempMessage.contains("sophmore")) || (tempMessage.contains("credits") && tempMessage.contains("junior")) || (tempMessage.contains("credits") && tempMessage.contains("senior"))) {
+            //how many credits do i need for each grade level (smaple question)
+            return "A minimum of 120 credits are needed to graduate at Seton Hill, meaning that per each grade level, approximately 30 credits are needed. This comes out to about 15 credits a semester."
+        } else if ((tempMessage.contains("credits") && tempMessage.contains("full") && tempMessage.contains("time") && tempMessage.contains("student")) || (tempMessage.contains("credits") && tempMessage.contains("part") && tempMessage.contains("time") && tempMessage.contains("student")) || (tempMessage.contains("credits") && tempMessage.contains("full") && tempMessage.contains("part") && tempMessage.contains("time") && tempMessage.contains("student"))) {
+            //how many credits to be a full/part time student (smaple question)
+            return "Registration for a minimum of 12 credits in a semester is required for full-time status at the undergraduate level, any number of credits below 12 is considered a part-time status."
+        } else if (tempMessage.contains("credits") && tempMessage.contains("take") && tempMessage.contains("per") && tempMessage.contains("semester")) {
+            //how many credits can i take per semester (smaple question)
+            return "Students may take up to 17 credits per semester without extra charge, however, if they would like to, the student is able to overload up to 21 credits per semester. This requires registrar permission to do so."
+        }else if (tempMessage.contains("extra") && tempMessage.contains("credits") && tempMessage.contains("cost")) {
+            //how much do extra credits cost (smaple question)
+            return "As of August of 2022, extra credits come at a cost of $798 per extra credit up to 21 credits per semester. This cost includes any credits after 17."
+        }else if (tempMessage.contains("credits") && tempMessage.contains("currently") && tempMessage.contains("have")) {
+            //how many credits do i currently have (smaple question)
+            //checks how many credits the student currently logged in has
+            return "Currently, you have " + String(loadedStudentData[studentArrayIDNumber].credits) + " credits."
+        } else if (tempMessage.contains("credits") && tempMessage.contains("athlete")) {
+            //how many credits do i need as an athlete (smaple question)
+            return "As per the NCAA Athletic Scholarship Satisfactory Academic Progress Policy. Any student who receives an athletic scholarship while attending Seton Hill University is bound by the NCAA Division II academic progress regulations. This policy states that a full-time student must earn a minimum of 24 credits in each academic year, which equates to 12 credits a semester. This is on par with the full-time student requirements for Seton Hill."
+        }
     
 // Course offerings
     if tempMessage.contains("what are next semester's courses"){
         return "https://setonhill.policytech.com/dotNet/documents/?docid=3713&public=true"
     }
     
-// Course recommendations
-    if tempMessage.contains("what courses do you recommend i take"){
-        // creates an array of the three available courses for students depending on their student ID
-        let randomCourseSet = [loadedStudentData[studentArrayIDNumber].course1, loadedStudentData[studentArrayIDNumber].course2, loadedStudentData[studentArrayIDNumber].course3]
-        // creates a new variable that holds the value of the randomly generated element from
-        // the array that was created above
-        let randomCoursePicker = randomCourseSet.randomElement()!
-      // returns a statement that uses the randomly picked course and recommends which course to take to the student
-        return "I recommend that you take " + String(randomCoursePicker) + " if you have any scheduling issues."
-    }
+    // Course recommendations using key words found in a question to trigger the bots response
+        if (tempMessage.contains("courses") && tempMessage.contains("recommend") && tempMessage.contains("take")) {
+            //what courses do you recommend i take (smaple question)
+            // creates an array of the three available courses for students depending on their student ID
+            let randomCourseSet = [loadedStudentData[studentArrayIDNumber].course1, loadedStudentData[studentArrayIDNumber].course2, loadedStudentData[studentArrayIDNumber].course3]
+            // creates a new variable that holds the value of the randomly generated element from
+            // the array that was created above
+            let randomCoursePicker = randomCourseSet.randomElement()!
+          // returns a statement that uses the randomly picked course and recommends which course to take to the student
+            return "I recommend that you take " + String(randomCoursePicker) + " if you have any scheduling issues."
+        }
     
     //handles messages that do not have a response
         //first checks to see if the message contains the forwarding code, and if so, forwards the message

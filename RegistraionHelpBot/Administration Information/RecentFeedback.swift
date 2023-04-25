@@ -33,6 +33,7 @@ struct RecentFeedback: View {
             VStack {
                 //top header with botIcon image
                 HStack {
+                    //creates a button that when clicked takes a user to the settings menu
                     NavigationLink(destination: SettingsMenuView()) {
                         Image(systemName: "gear")
                     }

@@ -149,6 +149,7 @@ struct MainMenuView: View {
             //enables device to be rotated without allowing access to other screens by "locking" it into portrait mode
         }.onAppear{
             UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
+            //resets the studentArrayIDNumber to 100 everytime the login screen appears
             studentArrayIDNumber = 100
             //hides default back button; for security purposes
         }.navigationBarBackButtonHidden(true)
