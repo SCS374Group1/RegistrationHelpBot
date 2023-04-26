@@ -1,9 +1,9 @@
 [
     {
     "adminID": 1,
-    "name": "Admin One",
-    "username": "admin.one",
-    "password": "adminpassword",
+    "name": "Kevin Feige",
+    "username": "k.feige",
+    "password": "mcu",
     "university": "Seton Hill University"
     }
 ]

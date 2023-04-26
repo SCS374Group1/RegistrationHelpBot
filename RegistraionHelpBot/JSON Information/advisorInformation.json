@@ -1,26 +1,26 @@
 [
     {
     "advisorID": 1,
-    "name": "Advisor One",
-    "username": "advisor.one",
-    "password": "password11",
+    "name": "Thor Odinson",
+    "username": "t.odinson",
+    "password": "pointbreak",
     "university":"Seton Hill University"
     
     },
     
     {
     "advisorID": 2,
-    "name": "Advisor Two",
-    "username": "advisor.two",
-    "password": "password22",
+    "name": "Peter Parker",
+    "username": "p.parker",
+    "password": "spiderman",
     "university":"Seton Hill University"
     },
     
     {
     "advisorID": 3,
-    "name": "Advisor Three",
-    "username": "advisor.three",
-    "password": "password33",
+    "name": "Ebony Maw",
+    "username": "e.maw",
+    "password": "thanoswasright",
     "university":"Seton Hill University"
     }
 ]
