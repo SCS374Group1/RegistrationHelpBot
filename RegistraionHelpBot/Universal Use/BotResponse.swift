@@ -76,17 +76,32 @@ func getForwardMessages() -> String{
 }
 
 
+//function to get all the data related to admin feedback messages
 func getFeedbackMessages() -> String{
     //attempts to create and read from the file
     do {
         if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-            //establishes fileURL
-            let fileURL = dir.appendingPathComponent("feedbackMessages.txt")
-
+            //establishes file URLs for the new feedback messages, messages that still need attention, and the log of past issues
+            let feedbackFileURL = dir.appendingPathComponent("feedbackMessages.txt")
+            let attentionFileURL = dir.appendingPathComponent("needsAttention.txt")
+            let pastIssueFileURL = dir.appendingPathComponent("pastIssueLogs.txt")
             //reads file; if it is blank, send a specific message; otherwise, send message indicating that their is mail for the user
             do {
-                let inputText = try String(contentsOf: fileURL, encoding: .utf8)
-                if(inputText==""){
+                //updates new issue array with contents from the file, if any
+                let feedbackInputText = try String(contentsOf: feedbackFileURL, encoding: .utf8)
+                //separator is a line break
+                recentFeedbackLog = feedbackInputText.components(separatedBy: "\n")
+                //updates needs attention array with contents from the file, if any
+                let attentionInputText = try String(contentsOf: attentionFileURL, encoding: .utf8)
+                //separator is a line break
+                needsAttentionLog = attentionInputText.components(separatedBy: "\n")
+                //updates past issue array with contents from the file, if any
+                let pastIssueInputText = try String(contentsOf: pastIssueFileURL, encoding: .utf8)
+                //separator is a line break
+                pastIssueLog = pastIssueInputText.components(separatedBy: "\n")
+                
+                //if the feedback input text is blank, then no messages were found
+                if(feedbackInputText==""){
                     return "You have no new messages."
                 }else{
                     //uses keyword prompt so user has to manually input their desire to read the message
@@ -95,7 +110,7 @@ func getFeedbackMessages() -> String{
                 }
             }
             //error message
-            catch {print("ERROR RETRIEVING MAILBOX DATA")}
+            catch {print("ERROR RETRIEVING FEEDBACK MAILBOX DATA")}
 
         }
         return "No messages found."
@@ -164,52 +179,61 @@ func getBotResponse(message: String) -> String {
         return "No messages found."
     }
     
+    //if the admin states that they wish to read recent feedback
     if tempMessage.contains("read"){
-        //declares filepath to check for mailbox
-        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-            let fileURL = dir.appendingPathComponent("feedbackMessages.txt")
-
-            //reads from the mailbox and clears it after reading
-            do {
-                let inputText = try String(contentsOf: fileURL, encoding: .utf8)
-                if(inputText==""){
-                    return "No new messages."
-                }else{
-                    return "Most recent message is: \"" + inputText + "\". Please type \"Save\" to send messages to the Needs Attention file"
-                    
-                }
-            }
-            catch {print("ERROR RETRIEVING MESSAGE")}
-
+        //pull the recent feedback from the array log and display it
+        var returnMessage = "Latest messages:"
+        for i in 0...(recentFeedbackLog.count-1) {
+            returnMessage.append(recentFeedbackLog[i])
+            returnMessage.append("\n")
         }
-        return "No messages found."
+        //prompts admin to save the messages
+        returnMessage.append("Please type \"Save\" to send messages to the Needs Attention file.")
+        return returnMessage
+    }
+    //if the admin states that they wish to save the recent feedback
+    if tempMessage.contains("save") {
+        //copies the recent feedback to the needs attention array
+        for i in 0...(recentFeedbackLog.count-1){
+            needsAttentionLog.append(recentFeedbackLog[i])
+        }
+        //writes the data from the needs attention array to the needs attention file
+        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
+            do{
+                var attentionInputText = ""
+                for i in 0...(needsAttentionLog.count-1){
+                    attentionInputText.append(needsAttentionLog[i])
+                    attentionInputText.append("\n")
+                }
+                //filters out empty instances in the array before writing
+                needsAttentionLog = needsAttentionLog.filter({ !$0.isEmpty})
+                
+                //writes to file
+                let attentionFileURL = dir.appendingPathComponent("needsAttention.txt")
+                try attentionInputText.write(to: attentionFileURL, atomically: false, encoding: .utf8)
+                
+                //clears new messages from the recent feedback file
+                do{
+                    let feedbackFileURL = dir.appendingPathComponent("feedbackMessages.txt")
+                    let cleanupText = ""
+                    try cleanupText.write(to: feedbackFileURL, atomically: false, encoding: .utf8)
+                }
+                //error code for clearing the data
+                catch{
+                    print("ERROR CLEANING FILE")
+                    return "An error occurred moving the data (Error Code: 10C)"
+                }
+                
+                return "Feedback messages saved."
+            }
+            //error code for writing to the file
+            catch{
+                print("ERROR WRITING TO ATTENTION FILE")
+                return "An error occurred moving the data (Error Code: 10A)"
+            }
+        }
     }
     
-    if tempMessage.contains("save") {
-        var inputText2 = ""
-        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-            let fileURL = dir.appendingPathComponent("feedbackMessages.txt")
-            //reads from the file into inputText, then reads it into inputText2 and clears the text
-            do {
-                let inputText = try String(contentsOf: fileURL, encoding: .utf8)
-                inputText2 = inputText
-                let cleanupText = ""
-                try cleanupText.write(to: fileURL, atomically: false, encoding: .utf8)
-            }
-            catch{print("ERROR RETRIVING MESSAGE")}
-        }
-        //writes inputText2 into the file
-        let file = "needsAttention.txt"
-        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-            let fileURL = dir.appendingPathComponent(file)
-            do {
-                try inputText2.write(to: fileURL, atomically: false, encoding: .utf8)
-            }
-            catch{print("ERROR")}
-        }
-        //returns inputText2
-        return inputText2
-    }
 //default prompt detection and subsequent responses
     //questions regarding the registration process
     if tempMessage.contains("how") && tempMessage.contains("do i") && tempMessage.contains("register"){

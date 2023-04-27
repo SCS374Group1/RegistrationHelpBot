@@ -53,6 +53,10 @@ struct MainMenuView: View {
                 botIcon
                     .resizable()
                     .frame(width: 200, height: 200)
+                //as the bot icon loads, any feedback messages are loaded in (simulates loading from database upon opening application)
+                    .onAppear(){
+                        var temp = getFeedbackMessages()
+                    }
                 //login text to prompt user to login
                 Text("Login").font(.largeTitle)
                     .bold()

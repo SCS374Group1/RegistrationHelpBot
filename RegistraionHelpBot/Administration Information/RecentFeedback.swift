@@ -7,6 +7,9 @@
 
 import SwiftUI
 
+//array variable to hold the log of recent feedback sent to the administrator
+public var recentFeedbackLog : [String] = []
+
 struct RecentFeedback: View {
     //variable to enable dismiss action, used for custom back arrow
                     @Environment(\.dismiss) private var dismiss

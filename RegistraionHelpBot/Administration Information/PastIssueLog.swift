@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+    //past issue array
+    public var pastIssueLog : [String] = []
+
+
 struct PastIssueLog: View {
     //variable to enable dismiss action, used for custom back arrow
     @Environment(\.dismiss) private var dismiss
@@ -15,11 +19,15 @@ struct PastIssueLog: View {
     @State private var messages = ""
 
     var body: some View {
-        List {
+        
+        //reads in values from past issue log array into the list
+        List(pastIssueLog, id: \.self) { string in
             HStack{
                 //text for the past issue log
-                Text(getRecentFeedback(inputText3: messages, fileToRetrieve: "pastIssueLogs.txt"))
+                Text(string)
             }
+            
+            
         }.onAppear{
             //enables device to be rotated without allowing access to other screens by "locking" it into portrait mode
             UIDevice.current.setValue(UIInterfaceOrientation.portrait.rawValue, forKey: "orientation")
