@@ -117,22 +117,6 @@ func getFeedbackMessages() -> String{
     }
 }
 
-//file to retrieve parameter enables this function to be used in multiple instances
-func getRecentFeedback(inputText3: String, fileToRetrieve: String) -> String {
-    do {
-        if let dir = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first {
-            let fileURL = dir.appendingPathComponent(fileToRetrieve)
-            do {
-                let inputText2 = try NSString(contentsOf: fileURL, encoding: String.Encoding.utf8.rawValue)
-                var inputText3 = inputText2 as String
-                return inputText3
-            }
-            catch{print("ERROR RETRIVING FEEDBACK DATA")}
-        }
-    }
-    return inputText3
-}
-
 //checks to see whether the bot is able to respond to a given user input
 func getBotResponse(message: String) -> String {
     //converts user message to lowercase values for easier comparison
