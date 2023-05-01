@@ -15,6 +15,8 @@ struct SettingsMenuView: View {
     
     //variable to enable dismiss action, used for custom back arrow
     @Environment(\.dismiss) private var dismiss
+    //variable to determine whether the experimental features are on or off
+    @AppStorage("ExperimentalFeatures") var experimentalFeatures = false
     // variable to determine whether dark mode is on or off
     @AppStorage("isDarkMode") var isDarkMode: Bool = false
     // variable to show pop up message after clicking on text to speech in the
@@ -35,6 +37,14 @@ struct SettingsMenuView: View {
     var body: some View {
         NavigationView {
             Form {
+                Section(header: Text("Experimental Features")) {
+                    //displays a warning when experimental features is turned on
+                    if self.experimentalFeatures {
+                        Text("WARNING: This is an experimental feature. It may not give you the answers you are looking for.")
+                    }
+                    //toggle to control wheather BERT (experimental features) is turned on or off
+                    Toggle("Experimental Features", isOn: $experimentalFeatures)
+                }
                 //reads the number stored in studentArrayIDNumber and if it is not 100 displays a link to the Academic Profile
                 if(studentArrayIDNumber != 100) {
                     Section {
